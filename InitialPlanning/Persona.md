@@ -46,7 +46,7 @@ She tends to avoid the park area at night, even though it was the quicker way ho
 
 ## Quote:
 
-"Text me when you get home xxx."
+"Text me when you get home!"
 
 
 
@@ -62,7 +62,7 @@ She tends to avoid the park area at night, even though it was the quicker way ho
 ## Pain points
 
 - Doesn't want to know where people are 24 hours a day, doesn't want people to know where she is 24 hours a day, either
-- Always need to inform friends - she's free-spirited and forgetful, but her friends do
+- Often forgets to inform her friends - she is free-spirited and forgetful, but her friends are not
 - Not terribly tech-savvy, doesn't like tedious operation
 
 
@@ -71,4 +71,4 @@ She tends to avoid the park area at night, even though it was the quicker way ho
 
 Esther is based on the stories of "*Sarah Evrard murder*" and "*Sabina Nessa murder*" and their relevant reports,  she is an abstract representation of a character who needs to walking alone at night. 
 
-"Esthers" want to stay away from potantial danger and get trusted help when needed. The app should make Esther feel guarded, let trusted one know when and where Easter needs help and be easy to use.
+"Esther" want to stay away from potantial danger and get trusted help when needed. The app should make Esther feel guarded, let trusted one know when and where Easter needs help and be easy to use.
