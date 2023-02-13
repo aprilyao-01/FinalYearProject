@@ -47,7 +47,13 @@
 		3BC6E8022977974B008DA312 /* LoginPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8012977974B008DA312 /* LoginPhone.swift */; };
 		3BC6E804297797C8008DA312 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E803297797C8008DA312 /* Register.swift */; };
 		3BC6E8062977AC47008DA312 /* LRPageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8052977AC47008DA312 /* LRPageTextField.swift */; };
-		3BC6E8082977B1BB008DA312 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8072977B1BB008DA312 /* LoginViewModel.swift */; };
+		3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */; };
+		3BDB1DAC2997D4100083204D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DAB2997D4100083204D /* MainButton.swift */; };
+		3BDB1DB0299806180083204D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DAF299806180083204D /* TabBar.swift */; };
+		3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB129993F910083204D /* NavBarModifier.swift */; };
+		3BDB1DB42999A2230083204D /* LoginEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB32999A2230083204D /* LoginEmailViewModel.swift */; };
+		3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB72999A75D0083204D /* ResetPasswordService.swift */; };
+		3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB92999A84E0083204D /* ResetPasswordVM.swift */; };
 		3BFF15EB298C189800930D9D /* RegisterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15EA298C189800930D9D /* RegisterDetails.swift */; };
 		3BFF15ED298C1C2500930D9D /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15EC298C1C2500930D9D /* RegisterService.swift */; };
 		3BFF15EF298C1CF100930D9D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15EE298C1CF100930D9D /* FirebaseDatabase */; };
@@ -122,7 +128,13 @@
 		3BC6E8012977974B008DA312 /* LoginPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhone.swift; sourceTree = "<group>"; };
 		3BC6E803297797C8008DA312 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		3BC6E8052977AC47008DA312 /* LRPageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPageTextField.swift; sourceTree = "<group>"; };
-		3BC6E8072977B1BB008DA312 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewModel.swift; sourceTree = "<group>"; };
+		3BDB1DAB2997D4100083204D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		3BDB1DAF299806180083204D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3BDB1DB129993F910083204D /* NavBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarModifier.swift; sourceTree = "<group>"; };
+		3BDB1DB32999A2230083204D /* LoginEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewModel.swift; sourceTree = "<group>"; };
+		3BDB1DB72999A75D0083204D /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
+		3BDB1DB92999A84E0083204D /* ResetPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVM.swift; sourceTree = "<group>"; };
 		3BFF15EA298C189800930D9D /* RegisterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetails.swift; sourceTree = "<group>"; };
 		3BFF15EC298C1C2500930D9D /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		3BFF15F8298D775400930D9D /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
@@ -226,6 +238,7 @@
 				3B2E94C7298AD19C00EF8032 /* CloseModifier.swift */,
 				3B483DC32993E432009DE38C /* PINModifier.swift */,
 				3B483DCB29952625009DE38C /* MapPinModifier.swift */,
+				3BDB1DB129993F910083204D /* NavBarModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 				3B99F85A297A0EE50011B8E9 /* LRPageButton.swift */,
 				3B2E94C12989944800EF8032 /* CommonButton.swift */,
 				3B483DB72992C4C0009DE38C /* chevronRightBtn.swift */,
+				3BDB1DAB2997D4100083204D /* MainButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -268,7 +282,6 @@
 				3BC6E7FB29778287008DA312 /* LoginDraft.swift */,
 				3B2E94C529899FE800EF8032 /* LoginEmail.swift */,
 				3BC6E8012977974B008DA312 /* LoginPhone.swift */,
-				3B2E94CB298ADD7500EF8032 /* ResetPassword.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -276,7 +289,8 @@
 		3B2E94D0298ADDC200EF8032 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				3BC6E8072977B1BB008DA312 /* LoginViewModel.swift */,
+				3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */,
+				3BDB1DB32999A2230083204D /* LoginEmailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -323,6 +337,7 @@
 				3B99F85E297B5BCF0011B8E9 /* FirstPage.swift */,
 				3B2E94CE298ADDAB00EF8032 /* Register */,
 				3B2E94CD298ADDA000EF8032 /* Login */,
+				3BDB1DB52999A7120083204D /* ResetPassword */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -369,17 +384,13 @@
 		3B3AE6802988140500DF9435 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
+				3BDB1DAE2997EF150083204D /* NavigationBars */,
+				3BDB1DAD2997EEC40083204D /* TextFields */,
 				3B2E94BC2989935D00EF8032 /* Buttons */,
 				3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */,
-				3BC6E8052977AC47008DA312 /* LRPageTextField.swift */,
-				3BFF1615298FEEB800930D9D /* addContactNavBar.swift */,
-				3BFF1633299054D600930D9D /* titleNavBar.swift */,
-				3BFF1620299008AC00930D9D /* doneNavBar.swift */,
 				3BFF1619298FF0C400930D9D /* ContactItemCell.swift */,
 				3BFF1617298FEFCD00930D9D /* profileImage.swift */,
-				3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */,
-				3BFF162429900BB200930D9D /* DefaultTextLabel.swift */,
-				3B483DC12993DA10009DE38C /* PINTextField.swift */,
+				3BDB1DAF299806180083204D /* TabBar.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -406,6 +417,45 @@
 				3B483DC929951E51009DE38C /* MapView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3BDB1DAD2997EEC40083204D /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E8052977AC47008DA312 /* LRPageTextField.swift */,
+				3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */,
+				3BFF162429900BB200930D9D /* DefaultTextLabel.swift */,
+				3B483DC12993DA10009DE38C /* PINTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		3BDB1DAE2997EF150083204D /* NavigationBars */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF1615298FEEB800930D9D /* addContactNavBar.swift */,
+				3BFF1633299054D600930D9D /* titleNavBar.swift */,
+				3BFF1620299008AC00930D9D /* doneNavBar.swift */,
+			);
+			path = NavigationBars;
+			sourceTree = "<group>";
+		};
+		3BDB1DB52999A7120083204D /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				3BDB1DB62999A7270083204D /* View */,
+				3BDB1DB72999A75D0083204D /* ResetPasswordService.swift */,
+				3BDB1DB92999A84E0083204D /* ResetPasswordVM.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		3BDB1DB62999A7270083204D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B2E94CB298ADD7500EF8032 /* ResetPassword.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3BFF15E9298C185700930D9D /* Model */ = {
@@ -601,6 +651,7 @@
 				3BC6E80029778C57008DA312 /* Color.swift in Sources */,
 				3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */,
 				3BFF1618298FEFCD00930D9D /* profileImage.swift in Sources */,
+				3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */,
 				3BFF160C298FEC2F00930D9D /* SettingsStore.swift in Sources */,
 				3B483DC62994091F009DE38C /* LocationManager.swift in Sources */,
 				3BFF16382990572300930D9D /* ProfileVM.swift in Sources */,
@@ -618,15 +669,19 @@
 				3B3AE671298428A000DF9435 /* RegisterViewModel.swift in Sources */,
 				3B483DBE2993D5B7009DE38C /* AlertCountDown.swift in Sources */,
 				3B2E94CA298AD58A00EF8032 /* CreatePIN.swift in Sources */,
+				3BDB1DAC2997D4100083204D /* MainButton.swift in Sources */,
 				3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */,
+				3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */,
 				3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */,
 				3B483DC829951598009DE38C /* MapVM.swift in Sources */,
 				3BFF15FE298E889D00930D9D /* UserProfile.swift in Sources */,
+				3BDB1DB0299806180083204D /* TabBar.swift in Sources */,
 				3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */,
 				3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */,
 				3BFF16292990113100930D9D /* ContactPickerView.swift in Sources */,
 				3BFF161C298FFD7500930D9D /* contactList.swift in Sources */,
 				3B2E94C22989944800EF8032 /* CommonButton.swift in Sources */,
+				3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */,
 				3BFF160E298FEC8500930D9D /* ActivityIndicator.swift in Sources */,
 				3BFF161A298FF0C400930D9D /* ContactItemCell.swift in Sources */,
 				3B99F85D297A178D0011B8E9 /* LRPageBackground.swift in Sources */,
@@ -636,10 +691,11 @@
 				3B2E94CC298ADD7500EF8032 /* ResetPassword.swift in Sources */,
 				3BFF15EB298C189800930D9D /* RegisterDetails.swift in Sources */,
 				3BFF1610298FED8300930D9D /* User.swift in Sources */,
+				3BDB1DB42999A2230083204D /* LoginEmailViewModel.swift in Sources */,
 				3BFF15FB298D785200930D9D /* SessionService.swift in Sources */,
 				3B483DBA2992D076009DE38C /* MessageHelper.swift in Sources */,
 				3B2E94BB2989824E00EF8032 /* PreviewLayoutModifier.swift in Sources */,
-				3BC6E8082977B1BB008DA312 /* LoginViewModel.swift in Sources */,
+				3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */,
 				3BC6E8062977AC47008DA312 /* LRPageTextField.swift in Sources */,
 				3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */,
 				3B0849ED293D364E00FC96B9 /* GuardianApp.swift in Sources */,

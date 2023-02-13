@@ -21,11 +21,9 @@ struct UserProfile: View {
     
     var body: some View {
         VStack {
-            titleNavBar(title: "Profile")
             ScrollView{
                 VStack{
                     profileImage(profileVM: profileVM)
-                        .padding(.top,5)
                     VStack(spacing: 20){
                         TextFieldWithHeading(label: "Username", textFieldValue: $profileVM.currentuser.userName, placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
                         
@@ -42,10 +40,9 @@ struct UserProfile: View {
                             showChangePINView.toggle()
                         }, label: "Change PIN")
                             .padding(.top,20)
-                        
-                        CommonButton(buttonName: "Logout", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {sessinService.logout()})
-                            .padding(.top, 30)
                     }
+                    CommonButton(buttonName: "Logout", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {sessinService.logout()})
+                        .padding(.top, 30)
                     Spacer()
                 }
             }
@@ -54,8 +51,13 @@ struct UserProfile: View {
             NavigationLink ("", destination: ChangePassword(), isActive: $showChangePasswordView)
             NavigationLink ("", destination: ChangePIN(), isActive: $showChangePINView)
         }
-        .navigationBarHidden(true)
-        .onAppear(){ profileVM.fetchCurrentUser() }
+        .withNavBar(leftImg: "chevron.left", leftAction: {
+            presentationMode.wrappedValue.dismiss()
+        }, midTitle: "Profile", rightAction: {})
+        .navigationBarBackButtonHidden(true)
+        .onAppear(){
+            //profileVM.fetchCurrentUser()
+        }
     }
 }
 

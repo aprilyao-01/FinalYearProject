@@ -9,10 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 
-// TODO: protocol
-
-
-class LoginViewModel: ObservableObject {
+class LoginPhoneViewModel: ObservableObject {
     // MARK: View Properties
     @Published var phoneNo: String = ""
     @Published var otpCode: String = ""

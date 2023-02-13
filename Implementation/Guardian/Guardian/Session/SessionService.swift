@@ -54,16 +54,17 @@ private extension SessionServiceImpl {
     }
     
     func handleRefresh(with uid: String) {
-        Database.database().reference().child("users").child(uid).observe(.value) { [weak self] snapshot in
+        Database.database().reference().child("user").child(uid).observe(.value) { [weak self] snapshot in
             
             guard let self = self,
                   let value = snapshot.value as? NSDictionary,
                   let fullName = value[RegisterKeys.fullName.rawValue] as? String,
-                  let phoneNo = value[RegisterKeys.phoneNo.rawValue] as? String
+                  let userName = value[RegisterKeys.userName.rawValue] as? String,
+                  let pin = value[RegisterKeys.PIN.rawValue] as? String
             else { return }
             
             DispatchQueue.main.async {
-                self.userDetail = SessionUserDetails(phoneNo: phoneNo, fullName: fullName)
+                self.userDetail = SessionUserDetails(fullName: fullName, userName: userName, PIN: pin)
             }
         }
     }

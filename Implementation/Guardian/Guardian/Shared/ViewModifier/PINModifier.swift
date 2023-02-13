@@ -14,7 +14,7 @@ struct PINModifier: ViewModifier {
         content
             .foregroundColor(.black)
             .font(.system(size: 25, design: .rounded))
-            .frame(width: 50, height: 50, alignment: .center)
+            .frame(width: 60, height: 60, alignment: .center)
             .multilineTextAlignment(.center)
             .background(isFocus ? .gray.opacity(0.2) : .gray.opacity(0.5))
             .cornerRadius(10)

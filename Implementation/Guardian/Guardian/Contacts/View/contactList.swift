@@ -36,7 +36,6 @@ struct contactList: View {
 struct contactList_Previews: PreviewProvider {
     static var previews: some View {
         contactList(contactVM: ContactVM())
-            .preview(with: "ContactList with VM")
     }
 }
 

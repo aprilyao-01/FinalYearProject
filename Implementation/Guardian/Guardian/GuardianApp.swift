@@ -18,16 +18,18 @@ struct GuardianApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                MapView()
-//                switch sessionService.state {
-//                case .loggedIn:
-//                    Home().environmentObject(sessionService)
-//                case .loggedOut:
-//                    FirstPage()
-//                }
+//                Contacts(contactVM: ContactVM())
+                switch sessionService.state {
+                case .loggedIn:
+                    Home()
+                        .environmentObject(sessionService)
+                        .navigationBarHidden(true)
+                case .loggedOut:
+                    FirstPage()
+                        .navigationBarHidden(true)
+                }
 //                FirstPage()
 //                    .navigationBarHidden(true)
-//                    .navigationBarBackButtonHidden(true)
             }
         }
     }

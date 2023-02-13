@@ -8,8 +8,14 @@
 import Foundation
 
 struct LoginCredentials {
-    var userName: String
+    var email: String
     var password: String
     var phoneNo: String
     var OTP: String
+}
+
+extension LoginCredentials {
+    static var new: LoginCredentials{
+        LoginCredentials(email: "", password: "", phoneNo: "", OTP: "")
+    }
 }

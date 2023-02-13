@@ -1,57 +1,53 @@
 //
-//  RegisterViewModel.swift
+//  LoginEmailVM.swift
 //  Guardian
 //
-//  Created by Siyu Yao on 18/12/2023.
+//  Created by Siyu Yao on 04/02/2023.
 //
 
 import Foundation
 import Combine
 
-enum RegisterState {
+enum LoginState {
     case successful
     case failed(error: Error)
     case notAvailable
 }
 
-protocol RegisterViewModel {
-    var service: RegisterService { get }
-    var state: RegisterState { get }
-    var userDetails: RegisterDetails { get }
+protocol LoginEmailViewModel {
+    func login()
+    var service: LoginService { get }
+    var state: LoginState { get }
+    var credentials: LoginCredentials { get }
     var hasError: Bool { get }
-    
-    func register()
-    init(service: RegisterService)
+    init(service: LoginService)
 }
 
-final class RegisterVM: ObservableObject, RegisterViewModel {
+final class LoginEmailVM: ObservableObject, LoginEmailViewModel {
     
-    // MARK: VM Properties
-    let service: RegisterService
-    @Published var state: RegisterState = .notAvailable
-    @Published var userDetails: RegisterDetails = RegisterDetails.new
+    let service: LoginService
+    
+    @Published var state: LoginState = .notAvailable
+    @Published var credentials: LoginCredentials = LoginCredentials.new
     @Published var hasError: Bool = false
     
     private var subscriptions = Set<AnyCancellable>()
     
-    // MARK: init
-    init(service: RegisterService) {
+    
+    
+    init(service: LoginService) {
         self.service = service
         setupErrorSubscriptions()
     }
     
-    // MARK: create new user in firebase
-    func register() {
-        service
-            .register(with: userDetails)
-            .sink { [weak self] res in
-                
+    func login() {
+        service.login(with: credentials)
+            .sink { res in
                 switch res {
-                case .failure(let error):
-                    self?.state = .failed(error: error)
+                case .failure(let err):
+                    self.state = .failed(error: err)
                 default: break
                 }
-                
             } receiveValue: { [weak self] in
                 self?.state = .successful
             }
@@ -59,7 +55,7 @@ final class RegisterVM: ObservableObject, RegisterViewModel {
     }
 }
 
-private extension RegisterVM {
+private extension LoginEmailVM {
     func setupErrorSubscriptions() {
         $state
             .map { state -> Bool in

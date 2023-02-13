@@ -9,9 +9,7 @@ import SwiftUI
 import AlertToast
 
 struct LoginEmail: View {
-    @StateObject var loginModel: LoginViewModel = .init()
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject var vm =  LoginEmailVM(service: LoginServiceImpl())
     @State private var showReset = false
     
     
@@ -57,24 +55,9 @@ struct LoginEmail: View {
                     .padding(.bottom, 20)
                     
                     // MARK: custom TextField
-                    LRPageTextField(hint: "Email", text: $email, sfSymbol: "envelope.fill")
-                        .disabled(loginModel.showOTPField)
-                        .opacity(loginModel.showOTPField ? 0.4 : 1)
-                        .overlay(alignment: .trailing, content: {
-                            Button("Change"){
-                                withAnimation(.easeInOut){
-                                    loginModel.showOTPField = false
-                                    loginModel.otpCode = ""
-                                    loginModel.CLIENT_CODE = ""
-                                }
-                            }
-                            .font(.system(size: 15, design: .rounded))
-                            .foregroundColor(Color("main"))
-                            .opacity(loginModel.showOTPField ? 1 : 0)
-                            .padding(.trailing, 50)
-                        })
+                    LRPageTextField(hint: "Email", text: $vm.credentials.email, sfSymbol: "envelope.fill")
 
-                    LRPageTextField(hint: "Password", text: $password, isPassword: true, sfSymbol: "lock.fill")
+                    LRPageTextField(hint: "Password", text: $vm.credentials.password, isPassword: true, sfSymbol: "lock.fill")
                     
                     CommonButton(buttonName: "Forget Password?", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), fontSize: 16, fontIsBold: false, width: 180){
                         showReset.toggle()
@@ -83,19 +66,23 @@ struct LoginEmail: View {
                            content: {
                         ResetPassword()
                     })
-//                    .padding(.bottom,20)
-
-                    // TODO: verifiy password
-                    // MARK: get and verify OTP
                     CommonButton(
-                        buttonName: loginModel.showOTPField ? "Verify Code" : "Get Code", backgroundColor1: Color("main"), backgroundColor2: Color("lightMain"),
+                        buttonName: "Login", backgroundColor1: Color("main"), backgroundColor2: Color("lightMain"),
                         width: 200,
-                        action: loginModel.showOTPField ? loginModel.verifyOTP : loginModel.getOTP)
+                        action: {
+                            vm.login()
+                        })
                     .padding(.top,5)
                 }
             }
             .navigationBarHidden(true)
-            .navigationBarBackButtonHidden(true)
+            .alert(isPresented: $vm.hasError, content: {
+                if case .failed(let error) = vm.state {
+                    return Alert(title: Text("Error"), message: Text(error.localizedDescription))
+                } else {
+                    return Alert(title: Text("Error"), message: Text("Something went wrong"))
+                }
+            })
         }
     }
 

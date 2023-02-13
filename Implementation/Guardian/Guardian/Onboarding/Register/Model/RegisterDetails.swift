@@ -9,17 +9,19 @@ import Foundation
 
 struct RegisterDetails {
     
-    var phoneNo: String
-    var password: String
+    var userName: String
     var email: String
-    var fullName: String
-//    var userName: String
+    var password: String
+    
     var PIN: String
+//    var phoneNo: String
+    var fullName: String
+    
 //    var lastName: String
 }
 
 extension RegisterDetails {
     static var new: RegisterDetails {
-        RegisterDetails(phoneNo: "", password: "", email: "", fullName: "", PIN: "")
+        RegisterDetails(userName: "", email: "", password: "", PIN: "", fullName: "")
     }
 }

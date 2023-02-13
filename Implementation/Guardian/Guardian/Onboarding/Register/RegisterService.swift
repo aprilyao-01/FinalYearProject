@@ -11,16 +11,17 @@ import Firebase
 import FirebaseDatabase
 
 enum RegisterKeys: String {
-    case phoneNo
+//    case phoneNo
+    case userName
     case fullName
-//    case PIN
+    case PIN
 }
 
 protocol RegisterService {
     func register(with details: RegisterDetails) -> AnyPublisher<Void, Error>
 }
 
-final class RegisterServiceImp1: RegisterService {
+final class RegisterServiceImpl: RegisterService {
     
     func register(with details: RegisterDetails) -> AnyPublisher<Void, Error> {
         Deferred {
@@ -34,12 +35,13 @@ final class RegisterServiceImp1: RegisterService {
                         if let uid = res?.user.uid {
                             
                             let values = [RegisterKeys.fullName.rawValue: details.fullName,
-                                         RegisterKeys.phoneNo.rawValue: details.phoneNo
-//                                         RegistrationKeys.PIN.rawValue: details.PIN
+//                                          RegisterKeys.phoneNo.rawValue: details.phoneNo,
+                                          RegisterKeys.userName.rawValue: details.userName,
+                                          RegisterKeys.PIN.rawValue: details.PIN
                             ] as [String : Any]
                             Database.database()
                                 .reference()
-                                .child("users")
+                                .child("user")
                                 .child(uid)
                                 .updateChildValues(values) { error, ref in
                                     

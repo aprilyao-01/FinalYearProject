@@ -62,6 +62,6 @@ struct LoginDraft: View {
 
 struct LoginDraft_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LoginDraft()
     }
 }

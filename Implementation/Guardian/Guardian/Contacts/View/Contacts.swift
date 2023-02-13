@@ -21,19 +21,24 @@ struct Contacts: View {
     var body: some View {
         NavigationView{
             VStack{
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 70,height: 6,alignment: .center)
-                    .cornerRadius(8)
-                    .padding(.top,20)
-                addContactNavBar()
-                    .padding(.horizontal,15)
+//                Rectangle()
+//                    .fill(Color.gray)
+//                    .frame(width: 120,height: 6,alignment: .center)
+//                    .cornerRadius(8)
+//                    .padding(.bottom,60)
+//                addContactNavBar()
+//                    .padding(.horizontal,15)
                 NavigationLink ("", destination: contactDetails(selectedContactItem: $selectedContactItem, contactVM: contactVM), isActive: $showContactDetailsView)
                 contactList(contactVM: contactVM)
                 
             }
             .frame(maxWidth: .infinity)
-            .navigationBarHidden(true)
+            .withNavBar(leftImg: "chevron.left", leftText: "Back", leftAction: {
+                // TODO: goback
+            }, rightImg: "person.crop.circle.badge.plus", rightColour: .green, rightAction: {
+                showContactPickSheet.toggle()
+            })
+//            .navigationTitle("Contacts")
             .background(Color.white)
 //            .toast(isPresenting: $isLoading, alert: {})
         }
