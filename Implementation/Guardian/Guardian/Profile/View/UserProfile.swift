@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserProfile: View {
-    @EnvironmentObject var sessinService: SessionServiceImpl
+    @EnvironmentObject var service: SessionServiceImpl
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var showingImagePicker: Bool = false
@@ -24,7 +24,9 @@ struct UserProfile: View {
             ScrollView{
                 VStack{
                     profileImage(profileVM: profileVM)
+                        .withChangeOption()
                     VStack(spacing: 20){
+//                        TextFieldWithHeading(label: "Username", textFieldValue: $service.userDetails?.firstName ?? "N/A", placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
                         TextFieldWithHeading(label: "Username", textFieldValue: $profileVM.currentuser.userName, placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
                         
                         TextFieldWithHeading(label: "Full Name", textFieldValue: $profileVM.currentuser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: false, isPasswordField: false)
@@ -41,7 +43,7 @@ struct UserProfile: View {
                         }, label: "Change PIN")
                             .padding(.top,20)
                     }
-                    CommonButton(buttonName: "Logout", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {sessinService.logout()})
+                    CommonButton(buttonName: "Logout", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {service.logout()})
                         .padding(.top, 30)
                     Spacer()
                 }

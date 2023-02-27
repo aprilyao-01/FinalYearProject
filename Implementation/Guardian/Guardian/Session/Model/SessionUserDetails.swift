@@ -14,4 +14,5 @@ struct SessionUserDetails {
     let fullName: String
     let userName: String
     let PIN: String
+//    var userImage: String
 }

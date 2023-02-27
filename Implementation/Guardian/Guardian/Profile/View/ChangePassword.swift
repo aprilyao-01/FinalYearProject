@@ -12,9 +12,11 @@ struct ChangePassword: View {
     @State var newPassword: String = ""
     @State var confirmPassword: String = ""
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         VStack(spacing: 30){
-            titleNavBar(title: "Change Password")
+//            titleNavBar(title: "Change Password")
             TextFieldWithHeading(label: "Old Password", textFieldValue: $oldPassword, placeholder: "Enter old password", isLockButtonEnabled: false, isPasswordField: true)
                 .padding(.top,10)
             TextFieldWithHeading(label: "New Password", textFieldValue: $newPassword, placeholder: "Enter new password", isLockButtonEnabled: false,isPasswordField: true)
@@ -27,7 +29,10 @@ struct ChangePassword: View {
             })
             Spacer()
         }
-        .navigationBarHidden(true)
+        .withNavBar(leftImg: "chevron.left", leftAction: {
+            presentationMode.wrappedValue.dismiss()
+        }, midTitle: "Change Password", rightAction: {})
+        .navigationBarBackButtonHidden(true)
 
     }
 }

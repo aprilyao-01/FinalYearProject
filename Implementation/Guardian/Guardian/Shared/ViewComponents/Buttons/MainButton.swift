@@ -37,42 +37,44 @@ struct MainButton: View {
     }
 
     var body: some View {
-        Button(action: action, label: {
-            ZStack {
-                
-                //MARK: background
-                Circle()
-                    .frame(width: radius*2,height: radius*2,alignment: .center)
-                    .foregroundColor(backgroundColour2.opacity(0.2))
-                
-                Circle()
-                    .frame(width: radius*1.5,height: radius*1.5,alignment: .center)
-                    .foregroundColor(backgroundColour2.opacity(0.5))
-                
-                LinearGradient(
-                        gradient: Gradient(colors: [backgroundColour1, backgroundColour2]),
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                .mask(Circle().frame(width: radius,height: radius,alignment: .center))
-                    
-                //MARK: img and text
-                VStack {
-                    Image(systemName: "hand.tap.fill")
-                        .font(.system(size: fontSize))
-                        .foregroundColor(fontColor)
-                    Text(buttonName)
-                        .font(.system(size: fontSize))
-                        .foregroundColor(fontColor)
-                        .bold()
+        ZStack {
+            //MARK: background
+            Circle()
+                .frame(width: radius*2,height: radius*2,alignment: .center)
+            .foregroundColor(backgroundColour2.opacity(0.2))
+            
+            Circle()
+                .frame(width: radius*1.5,height: radius*1.5,alignment: .center)
+                .foregroundColor(backgroundColour2.opacity(0.5))
+            
+            //MARK: area with action
+            Button(action: action, label: {
+                ZStack {
+                    LinearGradient(
+                            gradient: Gradient(colors: [backgroundColour1, backgroundColour2]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    .mask(Circle().frame(width: radius,height: radius,alignment: .center))
+                        
+                    //MARK: img and text
+                    VStack {
+                        Image(systemName: "hand.tap.fill")
+                            .font(.system(size: fontSize))
+                            .foregroundColor(fontColor)
+                        Text(buttonName)
+                            .font(.system(size: fontSize))
+                            .foregroundColor(fontColor)
+                            .bold()
+                    }
                 }
-            }
-            .frame(width: radius*2,height: radius*2,alignment: .center)
-        })
-        .onLongPressGesture(minimumDuration: 1) {
-        } onPressingChanged: { inProgress in
-            if !inProgress{
-                onPressEnded()
+                .frame(width: radius,height: radius,alignment: .center)
+            })
+            .onLongPressGesture(minimumDuration: 2) {
+            } onPressingChanged: { inProgress in
+                if !inProgress{
+                    onPressEnded()
+                }
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  ImageExtension.swift
 //  Guardian
 //
 //  Created by Siyu Yao on 27/01/2023.

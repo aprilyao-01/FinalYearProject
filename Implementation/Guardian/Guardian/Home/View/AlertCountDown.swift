@@ -9,7 +9,9 @@ import SwiftUI
 
 struct AlertCountDown: View {
     // MARK: view propoties
-    //@StateObject var contactVM: ContactVM
+    @ObservedObject var homeVM : HomeVM
+    @ObservedObject var locationManager: MapVM
+    @StateObject var contactVM: ContactVM
     
     var body: some View {
         VStack(spacing: 40){
@@ -18,23 +20,42 @@ struct AlertCountDown: View {
                 .font(.system(size: 100))
                 .padding(.top, 100)
             
-            // TODO: contdown
-            Text("Sending message to your emergency contacts in <> s")
+            // contdown
+            Text("Sending message to your emergency contacts in \(homeVM.timerVal) s")
                 .font(.system(size: 16, design: .rounded))
                 .foregroundColor(.black.opacity(0.7))
+            
             Spacer()
+            
             CommonButton(buttonName: "Cancel", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 200, action: {
-                // TODO: Cancel -> to enter PIN
+                // Cancel -> to enter PIN
+                homeVM.showAlertCancelView.toggle()
+                homeVM.alertCancelationViewType = .alertCancelationConfView
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                    homeVM.showAlertCancelView.toggle()
+                }
             })
-            .padding(.bottom, 100)
+            .padding(.top, 50)
             
-            
+            Spacer()
         }
+        .frame(maxWidth: .infinity)
+        .onAppear(){
+            homeVM.timerVal = 10
+        }
+        .onReceive(homeVM.timer) { _ in
+            if homeVM.timerVal > 0 {
+                homeVM.timerVal -= 1
+            }else{
+                homeVM.sendEmergencyMessage(coordinate: locationManager.userLocation?.coordinate, contactList: contactVM.fetchedContactList)
+            }
+        }
+        .navigationBarHidden(true)
     }
 }
 
 struct AlertCancel_Previews: PreviewProvider {
     static var previews: some View {
-        AlertCountDown()
+        AlertCountDown(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM())
     }
 }

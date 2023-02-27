@@ -21,7 +21,7 @@
 		3B3AE67529855D6000DF9435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */; };
 		3B3AE6822988151100DF9435 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AE6812988151100DF9435 /* HomeViewModel.swift */; };
 		3B3AE68A29881CBF00DF9435 /* SharedMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AE68929881CBF00DF9435 /* SharedMethods.swift */; };
-		3B483DB42992BB9E009DE38C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB32992BB9E009DE38C /* Extensions.swift */; };
+		3B483DB42992BB9E009DE38C /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB32992BB9E009DE38C /* ImageExtension.swift */; };
 		3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB52992BE4D009DE38C /* ImagePicker.swift */; };
 		3B483DB82992C4C0009DE38C /* chevronRightBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB72992C4C0009DE38C /* chevronRightBtn.swift */; };
 		3B483DBA2992D076009DE38C /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB92992D076009DE38C /* MessageHelper.swift */; };
@@ -33,8 +33,11 @@
 		3B483DC62994091F009DE38C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC52994091F009DE38C /* LocationManager.swift */; };
 		3B483DC829951598009DE38C /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC729951598009DE38C /* MapVM.swift */; };
 		3B483DCA29951E51009DE38C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC929951E51009DE38C /* MapView.swift */; };
-		3B483DCC29952625009DE38C /* MapPinModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DCB29952625009DE38C /* MapPinModifier.swift */; };
+		3B483DCC29952625009DE38C /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DCB29952625009DE38C /* CustomPin.swift */; };
 		3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A7CCF297CD29D007B5F2F /* Home.swift */; };
+		3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C229A6770500935AF3 /* TabButton.swift */; };
+		3B94D1C529A91EF100935AF3 /* AudioVideoBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C429A91EF100935AF3 /* AudioVideoBtn.swift */; };
+		3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */; };
 		3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99F85A297A0EE50011B8E9 /* LRPageButton.swift */; };
 		3B99F85D297A178D0011B8E9 /* LRPageBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */; };
 		3B99F85F297B5BCF0011B8E9 /* FirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99F85E297B5BCF0011B8E9 /* FirstPage.swift */; };
@@ -104,7 +107,7 @@
 		3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B3AE6812988151100DF9435 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3B3AE68929881CBF00DF9435 /* SharedMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMethods.swift; sourceTree = "<group>"; };
-		3B483DB32992BB9E009DE38C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3B483DB32992BB9E009DE38C /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		3B483DB52992BE4D009DE38C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3B483DB72992C4C0009DE38C /* chevronRightBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chevronRightBtn.swift; sourceTree = "<group>"; };
 		3B483DB92992D076009DE38C /* MessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
@@ -116,8 +119,11 @@
 		3B483DC52994091F009DE38C /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		3B483DC729951598009DE38C /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
 		3B483DC929951E51009DE38C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		3B483DCB29952625009DE38C /* MapPinModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinModifier.swift; sourceTree = "<group>"; };
+		3B483DCB29952625009DE38C /* CustomPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
 		3B7A7CCF297CD29D007B5F2F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3B94D1C229A6770500935AF3 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		3B94D1C429A91EF100935AF3 /* AudioVideoBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVideoBtn.swift; sourceTree = "<group>"; };
+		3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageModifier.swift; sourceTree = "<group>"; };
 		3B99F8592979FFF50011B8E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3B99F85A297A0EE50011B8E9 /* LRPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPageButton.swift; sourceTree = "<group>"; };
 		3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPageBackground.swift; sourceTree = "<group>"; };
@@ -206,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				3BDB1DA92997D23F0083204D /* Map */,
-				3B483DC729951598009DE38C /* MapVM.swift */,
 				3BFF15F6298D773C00930D9D /* Session */,
 				3B3AE67C2988129F00DF9435 /* Profile */,
 				3B3AE67B2988129300DF9435 /* Contacts */,
@@ -237,8 +242,8 @@
 				3B2E94BA2989824E00EF8032 /* PreviewLayoutModifier.swift */,
 				3B2E94C7298AD19C00EF8032 /* CloseModifier.swift */,
 				3B483DC32993E432009DE38C /* PINModifier.swift */,
-				3B483DCB29952625009DE38C /* MapPinModifier.swift */,
 				3BDB1DB129993F910083204D /* NavBarModifier.swift */,
+				3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */,
 			);
 			path = ViewModifier;
 			sourceTree = "<group>";
@@ -250,6 +255,8 @@
 				3B2E94C12989944800EF8032 /* CommonButton.swift */,
 				3B483DB72992C4C0009DE38C /* chevronRightBtn.swift */,
 				3BDB1DAB2997D4100083204D /* MainButton.swift */,
+				3B94D1C229A6770500935AF3 /* TabButton.swift */,
+				3B94D1C429A91EF100935AF3 /* AudioVideoBtn.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -322,7 +329,7 @@
 				3B3AE68929881CBF00DF9435 /* SharedMethods.swift */,
 				3BFF160B298FEC2F00930D9D /* SettingsStore.swift */,
 				3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */,
-				3B483DB32992BB9E009DE38C /* Extensions.swift */,
+				3B483DB32992BB9E009DE38C /* ImageExtension.swift */,
 				3B483DB52992BE4D009DE38C /* ImagePicker.swift */,
 				3B483DB92992D076009DE38C /* MessageHelper.swift */,
 				3B483DC52994091F009DE38C /* LocationManager.swift */,
@@ -391,6 +398,7 @@
 				3BFF1619298FF0C400930D9D /* ContactItemCell.swift */,
 				3BFF1617298FEFCD00930D9D /* profileImage.swift */,
 				3BDB1DAF299806180083204D /* TabBar.swift */,
+				3B483DCB29952625009DE38C /* CustomPin.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -406,6 +414,7 @@
 		3BDB1DA92997D23F0083204D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				3B483DC729951598009DE38C /* MapVM.swift */,
 				3BDB1DAA2997D24E0083204D /* Views */,
 			);
 			path = Map;
@@ -651,6 +660,7 @@
 				3BC6E80029778C57008DA312 /* Color.swift in Sources */,
 				3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */,
 				3BFF1618298FEFCD00930D9D /* profileImage.swift in Sources */,
+				3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */,
 				3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */,
 				3BFF160C298FEC2F00930D9D /* SettingsStore.swift in Sources */,
 				3B483DC62994091F009DE38C /* LocationManager.swift in Sources */,
@@ -659,7 +669,7 @@
 				3BFF1634299054D600930D9D /* titleNavBar.swift in Sources */,
 				3B483DCA29951E51009DE38C /* MapView.swift in Sources */,
 				3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */,
-				3B483DCC29952625009DE38C /* MapPinModifier.swift in Sources */,
+				3B483DCC29952625009DE38C /* CustomPin.swift in Sources */,
 				3BC6E804297797C8008DA312 /* Register.swift in Sources */,
 				3B483DC02993D993009DE38C /* EnterPIN.swift in Sources */,
 				3BFF162329900B8A00930D9D /* TextFieldWithHeading.swift in Sources */,
@@ -673,6 +683,7 @@
 				3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */,
 				3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */,
 				3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */,
+				3B94D1C529A91EF100935AF3 /* AudioVideoBtn.swift in Sources */,
 				3B483DC829951598009DE38C /* MapVM.swift in Sources */,
 				3BFF15FE298E889D00930D9D /* UserProfile.swift in Sources */,
 				3BDB1DB0299806180083204D /* TabBar.swift in Sources */,
@@ -698,6 +709,7 @@
 				3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */,
 				3BC6E8062977AC47008DA312 /* LRPageTextField.swift in Sources */,
 				3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */,
+				3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */,
 				3B0849ED293D364E00FC96B9 /* GuardianApp.swift in Sources */,
 				3BFF1605298FE83E00930D9D /* ContactVM.swift in Sources */,
 				3BC6E8022977974B008DA312 /* LoginPhone.swift in Sources */,
@@ -707,7 +719,7 @@
 				3B2E94C629899FE800EF8032 /* LoginEmail.swift in Sources */,
 				3B483DC42993E432009DE38C /* PINModifier.swift in Sources */,
 				3B99F85F297B5BCF0011B8E9 /* FirstPage.swift in Sources */,
-				3B483DB42992BB9E009DE38C /* Extensions.swift in Sources */,
+				3B483DB42992BB9E009DE38C /* ImageExtension.swift in Sources */,
 				3BFF161F298FFFAE00930D9D /* contactDetails.swift in Sources */,
 				3BFF162C2990165900930D9D /* contactPickerVM.swift in Sources */,
 				3B483DC22993DA10009DE38C /* PINTextField.swift in Sources */,

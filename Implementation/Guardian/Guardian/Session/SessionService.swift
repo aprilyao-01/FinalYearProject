@@ -54,7 +54,7 @@ private extension SessionServiceImpl {
     }
     
     func handleRefresh(with uid: String) {
-        Database.database().reference().child("user").child(uid).observe(.value) { [weak self] snapshot in
+        Database.database().reference().child("user").child(uid).observe(.value) { [weak self] snapshot  in
             
             guard let self = self,
                   let value = snapshot.value as? NSDictionary,

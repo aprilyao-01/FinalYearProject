@@ -51,12 +51,12 @@ class HomeVM: ObservableObject, HomeViewModel {
         }
     }
     
-    //MARK: cancel button action in otp confirmation view
+    //MARK: cancel button action in PIN confirmation view
     func cancelTimer(PIN: String){
         if remainingRetryCount == 0{
             SharedMethods.showMessage("Error", message: "Please try again later", onVC: UIApplication.topViewController())
         }else{
-            //check whether otp is valid
+            //check whether PIN is valid
             if SettingsStore.shared().appPIN == PIN{
                 timer.upstream.connect().cancel()
                 showAlertCancelView.toggle()

@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct TabBar: View {
+    @State var current = "Home"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
+            TabView(selection: $current){
+                //FIXME: the current view
+                Text("Map")
+                    .tag("Map")
+                Text("Home")
+                    .tag("Home")
+                Text("Missing")
+                    .tag("Missing")
+            }
+            HStack(spacing: 0){
+                TabButton(title: "Map", image: "map", selected: $current)
+                Spacer(minLength: 0)
+                TabButton(title: "Home", image: "house", selected: $current)
+                Spacer(minLength: 0)
+                TabButton(title: "Missing", image: "questionmark.square", selected: $current)
+            }
+            .padding(.vertical,8)
+            .padding(.horizontal)
+            .background(Color("lightMain"))
+            .clipShape(Capsule())
+            .padding(.horizontal,20)
+        }
     }
 }
 

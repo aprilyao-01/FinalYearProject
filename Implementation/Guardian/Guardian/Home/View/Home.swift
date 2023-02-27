@@ -14,6 +14,10 @@ struct Home: View {
     @ObservedObject var homeVM = HomeVM()
     @StateObject var contactVM = ContactVM()
     
+    //MARK: contacts
+    @State var contactsViewHeight : CGFloat = 90
+    let screenSize = UIScreen.main.bounds.size
+    
     //MARK: other views control properties
     @State var showProfileView: Bool = false
     
@@ -34,12 +38,31 @@ struct Home: View {
                     .frame(width: 50, height: 50)
                     .foregroundColor(.gray)
             }
-            .padding(.top,0)
-            MapView()
+            //.padding(.top,0)
+            //MapView()
+//            HStack{
+//                AudioVideoBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
+//                    .preview(with: "Audio button")
+//                AudioVideoBtn(buttonName: "Video", img_on: "video.fill", img_off: "video.slash.fill", action: {})
+//                    .preview(with: "video button")
+//            }
             Spacer()
             MainButton(buttonName: "SOS", action: {}, onPressEnded: {
                 homeVM.getHelpButtonTapped()})
-            Spacer()
+            
+            Contacts(contactVM: contactVM)
+                .frame(height: contactsViewHeight)
+                .gesture(
+                    DragGesture()
+                        .onEnded { endedGesture in
+                            if (endedGesture.location.y - endedGesture.startLocation.y) > 0 {
+                                contactsViewHeight = 90
+                            } else {
+                                contactsViewHeight = screenSize.height*0.9
+                            }
+                        }
+                )
+            
         }
         .fullScreenCover(isPresented: $showProfileView, content: {
             UserProfile()

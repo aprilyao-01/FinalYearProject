@@ -35,7 +35,7 @@ struct Contacts: View {
             .frame(maxWidth: .infinity)
             .withNavBar(leftImg: "chevron.left", leftText: "Back", leftAction: {
                 // TODO: goback
-            }, rightImg: "person.crop.circle.badge.plus", rightColour: .green, rightAction: {
+            }, midTitle: "Contacts", rightImg: "person.crop.circle.badge.plus", rightColour: .green, rightAction: {
                 showContactPickSheet.toggle()
             })
 //            .navigationTitle("Contacts")

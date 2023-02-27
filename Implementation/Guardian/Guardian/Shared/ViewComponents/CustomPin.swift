@@ -1,5 +1,5 @@
 //
-//  MapPinModifier.swift
+//  CustomPin.swift
 //  Guardian
 //
 //  Created by Siyu Yao on 09/02/2023.

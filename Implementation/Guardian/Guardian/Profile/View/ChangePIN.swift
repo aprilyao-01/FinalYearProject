@@ -12,9 +12,11 @@ struct ChangePIN: View {
     @State var newPIN: String = ""
     @State var confirmPIN: String = ""
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         VStack(spacing: 30){
-            titleNavBar(title: "Change PIN")
+//            titleNavBar(title: "Change PIN")
             TextFieldWithHeading(label: "Old PIN", textFieldValue: $oldPIN, placeholder: "Enter old PIN", isLockButtonEnabled: false,isPasswordField: true)
                 .padding(.top,10)
             TextFieldWithHeading(label: "New PIN", textFieldValue: $newPIN, placeholder: "Enter new PIN", isLockButtonEnabled: false,isPasswordField: true)
@@ -28,7 +30,10 @@ struct ChangePIN: View {
             .padding(.top,30)
             Spacer()
         }
-        .navigationBarHidden(true)
+        .withNavBar(leftImg: "chevron.left", leftAction: {
+            presentationMode.wrappedValue.dismiss()
+        }, midTitle: "Change PIN", rightAction: {})
+        .navigationBarBackButtonHidden(true)
 
     }
 }
