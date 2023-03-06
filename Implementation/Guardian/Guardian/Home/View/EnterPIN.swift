@@ -20,6 +20,9 @@ struct EnterPIN: View {
     @ObservedObject var locationManager: MapVM
     @StateObject var contactVM: ContactVM
     
+    // handle dark mode
+    @Environment (\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack(spacing: 40){
             Image(systemName: "exclamationmark.triangle.fill")
@@ -30,7 +33,7 @@ struct EnterPIN: View {
             // avaliable time
             Text("Sending message to your emergency contacts in \(homeVM.timerVal) s")
                 .font(.system(size: 16, design: .rounded))
-                .foregroundColor(.black.opacity(0.7))
+                .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
                 .frame(alignment: .center)
             
             VStack (spacing: 20){
@@ -38,9 +41,15 @@ struct EnterPIN: View {
                     .padding(.top, 10)
                 
                 // contdown remaining pin enter time
-                Text("Enter your PIN to cancel,\n  you still have \(homeVM.remainingRetryCount) times")
+                (Text("Enter your PIN to cancel\nyou still have\n")
                     .font(.system(size: 16, design: .rounded))
-                    .foregroundColor(.black.opacity(0.7))
+                 + Text("\(homeVM.remainingRetryCount)")
+                    .font(.system(size: 26, design: .rounded))
+                 + Text(" times")
+                    .font(.system(size: 16, design: .rounded))
+                )
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
             }
            
             Spacer()
@@ -63,6 +72,8 @@ struct EnterPIN: View {
                 homeVM.sendEmergencyMessage(coordinate: locationManager.userLocation?.coordinate, contactList: contactVM.fetchedContactList)
             }else{
                 homeVM.timerVal -= 1
+                print("timerVal: \(homeVM.timerVal)")
+                print("remainingRetryCount: \(homeVM.remainingRetryCount)")
             }
         }
         .navigationBarHidden(true)

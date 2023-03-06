@@ -31,6 +31,7 @@ final class RegisterVM: ObservableObject, RegisterViewModel {
     @Published var state: RegisterState = .notAvailable
     @Published var userDetails: RegisterDetails = RegisterDetails.new
     @Published var hasError: Bool = false
+    @Published var showCreatePINView : Bool = false
     
     private var subscriptions = Set<AnyCancellable>()
     
@@ -56,6 +57,7 @@ final class RegisterVM: ObservableObject, RegisterViewModel {
                 self?.state = .successful
             }
             .store(in: &subscriptions)
+        showCreatePINView.toggle()
     }
 }
 

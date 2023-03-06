@@ -12,6 +12,7 @@ struct Home: View {
     @EnvironmentObject var sessionService: SessionServiceImpl
     
     @ObservedObject var homeVM = HomeVM()
+    @ObservedObject var locationManager =  MapVM()
     @StateObject var contactVM = ContactVM()
     
     //MARK: contacts
@@ -28,15 +29,16 @@ struct Home: View {
                     UserProfile()
                         .environmentObject(sessionService)
                 }, label: {
-                    profileImage(myWidth: 50, myHeight: 50)
+                    ProfileImage(myWidth: 50, myHeight: 50)
                 })
                 
                 Spacer()
                 // TODO: set other things
-                Image(systemName: "gearshape.fill")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .foregroundColor(.gray)
+                Text("place holder")
+//                Image(systemName: "gearshape.fill")
+//                    .resizable()
+//                    .frame(width: 50, height: 50)
+//                    .foregroundColor(.gray)
             }
             //.padding(.top,0)
             //MapView()
@@ -66,6 +68,13 @@ struct Home: View {
         }
         .fullScreenCover(isPresented: $showProfileView, content: {
             UserProfile()
+        })
+        .fullScreenCover(isPresented: $homeVM.showAlertCancelView, content: {
+            if homeVM.alertCancelationViewType == .alertCancelationView{
+                AlertCountDown(homeVM: homeVM, locationManager: locationManager, contactVM: contactVM)
+            }else{
+                EnterPIN(homeVM: homeVM, locationManager: locationManager, contactVM: contactVM)
+            }
         })
         .navigationBarBackButtonHidden(true)
         

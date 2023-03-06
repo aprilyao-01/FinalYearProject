@@ -13,6 +13,9 @@ struct Register: View {
     @StateObject private var registerVM = RegisterVM(service: RegisterServiceImpl()
     )
     
+    //MARK: other views control properties
+    @State var showCreatePINView: Bool = false
+    
     var body: some View {
         ZStack{
             // MARK: custom background
@@ -31,16 +34,11 @@ struct Register: View {
                     LRPageTextField(hint: "Email", text: $registerVM.userDetails.email, sfSymbol: "envelope.fill")
                     
                     LRPageTextField(hint: "Password", text: $registerVM.userDetails.password, isPassword: true,  sfSymbol: "lock.fill")
-                    
-//                    LRPageTextField(hint: "Phone number", text: $registerVM.userDetails.phoneNo, keyboardType: .phonePad, sfSymbol: "phone.fill")
                 }
-//                Text("You'll receive a 4 digit code to verify next")
-//                    .padding(.top, 5)
-//                    .foregroundColor(.gray)
-//                    .opacity(0.8)
                 
                 CommonButton(buttonName: "Sign up", backgroundColor1: Color("mainRed"), backgroundColor2: Color("lightRed"), width: 200) {
-                    registerVM.register()
+                    registerVM.showCreatePINView.toggle()
+//                    registerVM.register()
                 }
                 .padding(.top,5)
 
@@ -58,6 +56,9 @@ struct Register: View {
             } else {
                 return Alert(title: Text("Error"), message: Text("Something went wrong"))
             }
+        })
+        .fullScreenCover(isPresented: $registerVM.showCreatePINView, content: {
+            CreatePIN(registerVM:registerVM)
         })
     }
 }

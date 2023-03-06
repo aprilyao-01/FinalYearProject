@@ -13,7 +13,7 @@ struct TabBar: View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
             TabView(selection: $current){
                 //FIXME: the current view
-                Text("Map")
+                MapView()
                     .tag("Map")
                 Text("Home")
                     .tag("Home")

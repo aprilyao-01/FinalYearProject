@@ -28,8 +28,8 @@ struct Contacts: View {
 //                    .padding(.bottom,60)
 //                addContactNavBar()
 //                    .padding(.horizontal,15)
-                NavigationLink ("", destination: contactDetails(selectedContactItem: $selectedContactItem, contactVM: contactVM), isActive: $showContactDetailsView)
-                contactList(contactVM: contactVM)
+                NavigationLink ("", destination: ContactDetails(selectedContactItem: $selectedContactItem, contactVM: contactVM), isActive: $showContactDetailsView)
+                ContactList(contactVM: contactVM)
                 
             }
             .frame(maxWidth: .infinity)

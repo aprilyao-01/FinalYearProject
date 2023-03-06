@@ -43,6 +43,7 @@ class HomeVM: ObservableObject, HomeViewModel {
     //MARK: action for get help button
     func getHelpButtonTapped(){
         if MFMessageComposeViewController.canSendText() {
+            print("you are here")
             alertCancelationViewType = .alertCancelationView
             showAlertCancelView.toggle()
         }else{

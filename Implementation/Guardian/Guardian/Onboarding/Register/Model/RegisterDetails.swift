@@ -16,12 +16,13 @@ struct RegisterDetails {
     var PIN: String
 //    var phoneNo: String
     var fullName: String
+    var userID: String
     
 //    var lastName: String
 }
 
 extension RegisterDetails {
     static var new: RegisterDetails {
-        RegisterDetails(userName: "", email: "", password: "", PIN: "", fullName: "")
+        RegisterDetails(userName: "", email: "", password: "", PIN: "", fullName: "", userID: "")
     }
 }

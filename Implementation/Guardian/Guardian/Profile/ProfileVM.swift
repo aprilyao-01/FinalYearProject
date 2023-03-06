@@ -8,10 +8,10 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 protocol ProfileViewModel {
-    var activityIndicator: ActivityIndicator { get }
-    var currentuser: User { get }
+//    var activityIndicator: ActivityIndicator { get }
     var fetchedImage: UIImage? { get }
     
     func saveUserDetails()
@@ -20,51 +20,53 @@ protocol ProfileViewModel {
 }
 
 class ProfileVM: ObservableObject, ProfileViewModel {
-    @Published var currentuser: User = User(userId: SettingsStore.shared().currentUserId, userName: "", fullName: "", phoneNo: "", password: "", pin: SettingsStore.shared().appPIN, userImage: "")
+    @Published var currentUser: User = User(userId: "", userName: "", fullName: "", phoneNo: "", password: "", PIN: "", userImage: "")
     @Published var fetchedImage: UIImage?
-    let activityIndicator = ActivityIndicator()
+//    let activityIndicator = ActivityIndicator()
     let ref: DatabaseReference! = Database.database().reference()
+    
+    @Published var isLoading = false
 
     func saveUserDetails(){
+        let uid = Auth.auth().currentUser!.uid
         do{
             if let profile = fetchedImage{
-                currentuser.userImage = profile.toJpegString(compressionQuality: 0.2) ?? ""
+                currentUser.userImage = profile.toJpegString(compressionQuality: 0.2) ?? ""
             }
-            let jsonData = try JSONEncoder().encode(currentuser)
+            let jsonData = try JSONEncoder().encode(currentUser)
             let jsonString = String(data: jsonData, encoding: .utf8)!
-            ref.child("user").child(currentuser.userId).setValue(SharedMethods().jsonToDictionary(from: jsonString))
+            ref.child("user").child(uid).setValue(SharedMethods().jsonToDictionary(from: jsonString))
         }catch{
             print("ProfileVM: cannot save user details\n %s", error)
         }
     }
     
     func fetchCurrentUser() {
-        DispatchQueue.main.async{
-            self.activityIndicator.showActivityIndicator()
-        }
-        
-        _ = ref.observe(DataEventType.value, with: { snapshot in
-            let value = snapshot.value as? NSDictionary
-            let userList = value?["user"] as? NSDictionary
-            let users = userList?[SettingsStore.shared().currentUserId] as? NSDictionary
-            
-            do {
-                let json = try JSONSerialization.data(withJSONObject: users ?? [:])
-                print(json)
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let decodedUser = try decoder.decode(User.self, from: json)
-                self.currentuser = decodedUser
-                self.fetchedImage = self.currentuser.userImage.toImage()
-                DispatchQueue.main.async{
-                    self.activityIndicator.hideActivityIndicator()
-                }
-            } catch {
-                print("ProfileVM: cannot fetch user details\n %s", error)
-            }
-        })
+        let uid = Auth.auth().currentUser!.uid
+        let userRef = ref.child("user").child(uid)
 
+        DispatchQueue.main.async{
+            self.isLoading = true
+        }
+
+        userRef.observeSingleEvent(of: .value, with: { [self] snapshot in
+                guard let userData = snapshot.value as? [String: Any] else {
+                    return
+                }
+
+            let userId = uid
+            let userName = userData["userName"] as? String ?? ""
+            let fullName = userData["fullName"] as? String ?? ""
+            let phoneNo = userData["phoneNo"] as? String ?? ""
+            let password = userData["password"] as? String ?? ""
+            let PIN = userData["PIN"] as? String ?? ""
+            let userImage = userData["userImage"] as? String ?? ""
+
+            currentUser = User(userId: userId, userName: userName, fullName: fullName, phoneNo: phoneNo, password: password, PIN: PIN, userImage: userImage)
+            })
+        
+            DispatchQueue.main.async{
+                self.isLoading = false
+            }
     }
-    
-    
 }

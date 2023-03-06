@@ -35,9 +35,9 @@ final class RegisterServiceImpl: RegisterService {
                         if let uid = res?.user.uid {
                             
                             let values = [RegisterKeys.fullName.rawValue: details.fullName,
-//                                          RegisterKeys.phoneNo.rawValue: details.phoneNo,
                                           RegisterKeys.userName.rawValue: details.userName,
-                                          RegisterKeys.PIN.rawValue: details.PIN
+                                          RegisterKeys.PIN.rawValue: details.PIN,
+                                          uid: details.userID
                             ] as [String : Any]
                             Database.database()
                                 .reference()

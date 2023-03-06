@@ -13,6 +13,6 @@ struct User: Codable,Hashable{
     var fullName: String
     var phoneNo: String
     var password: String
-    var pin: String
+    var PIN: String
     var userImage: String
 }

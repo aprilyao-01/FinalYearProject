@@ -15,13 +15,14 @@ struct MapView: View {
     var body: some View {
         Map(coordinateRegion: $mapVM.region, showsUserLocation: true, userTrackingMode: $trackingMode)
 //            .frame(height: 250)
-//            .ignoresSafeArea()
+            
             .accentColor(Color("mainRed"))
 //            .cornerRadius(15)
 //            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color("lightMain"), lineWidth: 1))
 //            .padding(.horizontal,10)
             .onAppear{ mapVM.checkLocationServicesisEnable()
             }
+            .edgesIgnoringSafeArea(.all)
     }
 }
 

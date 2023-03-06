@@ -13,7 +13,7 @@ struct UserProfile: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var showingImagePicker: Bool = false
     @State var fetchedImageName: String?
-    @State var sourceType: UIImagePickerController.SourceType = .savedPhotosAlbum
+//    @State var sourceType: UIImagePickerController.SourceType = .savedPhotosAlbum
     @State var showChangePasswordView: Bool = false
     @State var showChangePINView: Bool = false
     @StateObject var profileVM: ProfileVM = ProfileVM()
@@ -21,44 +21,50 @@ struct UserProfile: View {
     
     var body: some View {
         VStack {
-            ScrollView{
-                VStack{
-                    profileImage(profileVM: profileVM)
-                        .withChangeOption()
-                    VStack(spacing: 20){
-//                        TextFieldWithHeading(label: "Username", textFieldValue: $service.userDetails?.firstName ?? "N/A", placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
-                        TextFieldWithHeading(label: "Username", textFieldValue: $profileVM.currentuser.userName, placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
-                        
-                        TextFieldWithHeading(label: "Full Name", textFieldValue: $profileVM.currentuser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: false, isPasswordField: false)
-                        
-                        TextFieldWithHeading(label: "Contact Details", textFieldValue: $profileVM.currentuser.phoneNo, placeholder: "Enter phone number", isLockButtonEnabled: false, isPasswordField: false)
-                        
-                        chevronRightBtn(action: {
-                            showChangePasswordView.toggle()
-                        }, label: "Change Password")
-                            .padding(.top,25)
-
-                        chevronRightBtn(action: {
-                            showChangePINView.toggle()
-                        }, label: "Change PIN")
-                            .padding(.top,20)
-                    }
-                    CommonButton(buttonName: "Logout", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {service.logout()})
-                        .padding(.top, 30)
-                    Spacer()
-                }
+            if profileVM.isLoading {
+                Loading()
             }
-            
-            // MARK: navigation to change PIN and password
-            NavigationLink ("", destination: ChangePassword(), isActive: $showChangePasswordView)
-            NavigationLink ("", destination: ChangePIN(), isActive: $showChangePINView)
+            else {
+                ScrollView{
+                    VStack{
+                        ProfileImage(profileVM: profileVM)
+                            .withChangeOption()
+                        
+                        VStack(spacing: 20){
+                            TextFieldWithHeading(label: "Username", textFieldValue: $profileVM.currentUser.userName, placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
+                            
+                            TextFieldWithHeading(label: "Full Name", textFieldValue: $profileVM.currentUser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: false, isPasswordField: false)
+                            
+                            TextFieldWithHeading(label: "Contact Details", textFieldValue: $profileVM.currentUser.phoneNo, placeholder: "Enter phone number", isLockButtonEnabled: false, isPasswordField: false)
+                            
+                            chevronRightBtn(action: {
+                                showChangePasswordView.toggle()
+                            }, label: "Change Password")
+                                .padding(.top,25)
+
+                            chevronRightBtn(action: {
+                                showChangePINView.toggle()
+                            }, label: "Change PIN")
+                                .padding(.top,20)
+                        }
+                        
+                        CommonButton(buttonName: "Logout", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {service.logout()})
+                            .padding(.top, 30)
+                        
+                        Spacer()
+                    }
+                }
+                // MARK: navigation to change PIN and password
+                NavigationLink ("", destination: ChangePassword(), isActive: $showChangePasswordView)
+                NavigationLink ("", destination: ChangePIN(), isActive: $showChangePINView)
+            }
         }
         .withNavBar(leftImg: "chevron.left", leftAction: {
             presentationMode.wrappedValue.dismiss()
         }, midTitle: "Profile", rightAction: {})
         .navigationBarBackButtonHidden(true)
         .onAppear(){
-            //profileVM.fetchCurrentUser()
+            profileVM.fetchCurrentUser()
         }
     }
 }

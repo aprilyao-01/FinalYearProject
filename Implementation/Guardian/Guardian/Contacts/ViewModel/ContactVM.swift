@@ -7,7 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
-
+import FirebaseAuth
 protocol ContactViewModel {
     func addContact()
     func fetchContact()
@@ -19,6 +19,7 @@ class ContactVM: ObservableObject, ContactViewModel {
     @Published var selectedContacts: [EmergencyContact] = []
     @Published var fetchedContactList: [EmergencyContact] = []
     
+    // database reference
     let ref: DatabaseReference! = Database.database().reference()
 //    let activityIndicator = Loading()
     let activityIndicator = ActivityIndicator()
@@ -28,11 +29,12 @@ class ContactVM: ObservableObject, ContactViewModel {
     
     func addContact() {
         do{
+            let currentUID = Auth.auth().currentUser!.uid
             for item in selectedContacts{
                 //This block of code used to convert object models to json string
                 let jsonData = try JSONEncoder().encode(item)
                 let jsonString = String(data: jsonData, encoding: .utf8)!
-                ref.child("contact").child(SettingsStore().currentUserId).child(item.id).setValue(SharedMethods().jsonToDictionary(from: jsonString))
+                ref.child("contact").child(currentUID).child(item.id).setValue(SharedMethods().jsonToDictionary(from: jsonString))
             }
         }catch{
             print("ContactVM: cannot add contact\n %s", error)
@@ -45,19 +47,21 @@ class ContactVM: ObservableObject, ContactViewModel {
             self.activityIndicator.showActivityIndicator()
 
         }
-        _ = ref.observe(DataEventType.value, with: { snapshot in
+        let currentUID = Auth.auth().currentUser!.uid
+ 
+        _ = ref.child("contact").child(currentUID).observe(DataEventType.value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
-            let contactList = value?["contact"] as? NSDictionary
-            let contactItemList = contactList?[SettingsStore().currentUserId] as? NSDictionary
-            let contactListArray = contactItemList?.allValues
+//            let contactItemList = contactList?[SettingsStore().currentUserId] as? NSDictionary
             
+            let contactListArray = value?.allValues
             do {
                 let json = try JSONSerialization.data(withJSONObject: contactListArray ?? [])
-                print(json)
+               
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let decodedContacts = try decoder.decode([EmergencyContact].self, from: json)
                 self.fetchedContactList = decodedContacts
+                
                 print(self.fetchedContactList)
                 DispatchQueue.main.async{
 //                    self.activityIndicator.isAnimating = false
@@ -70,14 +74,16 @@ class ContactVM: ObservableObject, ContactViewModel {
     }
     
     func deleteContact(item: EmergencyContact?) {
-        ref.child("contact").child(SettingsStore().currentUserId).child(item?.id ?? "").removeValue()
+        let currentUID = Auth.auth().currentUser!.uid
+        ref.child("contact").child(currentUID).child(item?.id ?? "").removeValue()
     }
     
     func updateContact(item: EmergencyContact) {
         do{
+            let currentUID = Auth.auth().currentUser!.uid
             let jsonData = try JSONEncoder().encode(item)
             let jsonString = String(data: jsonData, encoding: .utf8)!
-            ref.child("contact").child(SettingsStore().currentUserId).child(item.id).updateChildValues(SharedMethods().jsonToDictionary(from: jsonString) ?? [:])
+            ref.child("contact").child(currentUID).child(item.id).updateChildValues(SharedMethods().jsonToDictionary(from: jsonString) ?? [:])
         }catch{
             print("ContactVM: cannot update contact\n %s", error)
         }

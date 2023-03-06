@@ -34,7 +34,10 @@
 		3B483DC829951598009DE38C /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC729951598009DE38C /* MapVM.swift */; };
 		3B483DCA29951E51009DE38C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC929951E51009DE38C /* MapView.swift */; };
 		3B483DCC29952625009DE38C /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DCB29952625009DE38C /* CustomPin.swift */; };
+		3B4CBC5829B6692D008D70F6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4CBC5729B6692D008D70F6 /* FirebaseStorage */; };
 		3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A7CCF297CD29D007B5F2F /* Home.swift */; };
+		3B948D4829B0EA2D0013C991 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B948D4729B0EA2D0013C991 /* testView.swift */; };
+		3B948D4A29B0EA4A0013C991 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B948D4929B0EA4A0013C991 /* testModel.swift */; };
 		3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C229A6770500935AF3 /* TabButton.swift */; };
 		3B94D1C529A91EF100935AF3 /* AudioVideoBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C429A91EF100935AF3 /* AudioVideoBtn.swift */; };
 		3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */; };
@@ -61,7 +64,6 @@
 		3BFF15ED298C1C2500930D9D /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15EC298C1C2500930D9D /* RegisterService.swift */; };
 		3BFF15EF298C1CF100930D9D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15EE298C1CF100930D9D /* FirebaseDatabase */; };
 		3BFF15F1298C1D1A00930D9D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15F0298C1D1A00930D9D /* FirebaseDatabaseSwift */; };
-		3BFF15F3298C1D2400930D9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15F2298C1D2400930D9D /* FirebaseStorage */; };
 		3BFF15F5298C1D3200930D9D /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */; };
 		3BFF15F9298D775400930D9D /* SessionUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15F8298D775400930D9D /* SessionUserDetails.swift */; };
 		3BFF15FB298D785200930D9D /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15FA298D785200930D9D /* SessionService.swift */; };
@@ -76,15 +78,15 @@
 		3BFF1610298FED8300930D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF160F298FED8300930D9D /* User.swift */; };
 		3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1613298FEDE600930D9D /* Contacts.swift */; };
 		3BFF1616298FEEB800930D9D /* addContactNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1615298FEEB800930D9D /* addContactNavBar.swift */; };
-		3BFF1618298FEFCD00930D9D /* profileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1617298FEFCD00930D9D /* profileImage.swift */; };
+		3BFF1618298FEFCD00930D9D /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1617298FEFCD00930D9D /* ProfileImage.swift */; };
 		3BFF161A298FF0C400930D9D /* ContactItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1619298FF0C400930D9D /* ContactItemCell.swift */; };
-		3BFF161C298FFD7500930D9D /* contactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161B298FFD7500930D9D /* contactList.swift */; };
-		3BFF161F298FFFAE00930D9D /* contactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161E298FFFAE00930D9D /* contactDetails.swift */; };
+		3BFF161C298FFD7500930D9D /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161B298FFD7500930D9D /* ContactList.swift */; };
+		3BFF161F298FFFAE00930D9D /* ContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161E298FFFAE00930D9D /* ContactDetails.swift */; };
 		3BFF1621299008AC00930D9D /* doneNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1620299008AC00930D9D /* doneNavBar.swift */; };
 		3BFF162329900B8A00930D9D /* TextFieldWithHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */; };
 		3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162429900BB200930D9D /* DefaultTextLabel.swift */; };
 		3BFF16292990113100930D9D /* ContactPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16282990113100930D9D /* ContactPickerView.swift */; };
-		3BFF162C2990165900930D9D /* contactPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162B2990165900930D9D /* contactPickerVM.swift */; };
+		3BFF162C2990165900930D9D /* ContactPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162B2990165900930D9D /* ContactPickerVM.swift */; };
 		3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162F299052DA00930D9D /* ChangePIN.swift */; };
 		3BFF1634299054D600930D9D /* titleNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1633299054D600930D9D /* titleNavBar.swift */; };
 		3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16352990566C00930D9D /* ChangePassword.swift */; };
@@ -121,6 +123,8 @@
 		3B483DC929951E51009DE38C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3B483DCB29952625009DE38C /* CustomPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
 		3B7A7CCF297CD29D007B5F2F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3B948D4729B0EA2D0013C991 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
+		3B948D4929B0EA4A0013C991 /* testModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
 		3B94D1C229A6770500935AF3 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		3B94D1C429A91EF100935AF3 /* AudioVideoBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioVideoBtn.swift; sourceTree = "<group>"; };
 		3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageModifier.swift; sourceTree = "<group>"; };
@@ -156,15 +160,15 @@
 		3BFF160F298FED8300930D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3BFF1613298FEDE600930D9D /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		3BFF1615298FEEB800930D9D /* addContactNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addContactNavBar.swift; sourceTree = "<group>"; };
-		3BFF1617298FEFCD00930D9D /* profileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileImage.swift; sourceTree = "<group>"; };
+		3BFF1617298FEFCD00930D9D /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		3BFF1619298FF0C400930D9D /* ContactItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactItemCell.swift; sourceTree = "<group>"; };
-		3BFF161B298FFD7500930D9D /* contactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactList.swift; sourceTree = "<group>"; };
-		3BFF161E298FFFAE00930D9D /* contactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactDetails.swift; sourceTree = "<group>"; };
+		3BFF161B298FFD7500930D9D /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		3BFF161E298FFFAE00930D9D /* ContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetails.swift; sourceTree = "<group>"; };
 		3BFF1620299008AC00930D9D /* doneNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = doneNavBar.swift; sourceTree = "<group>"; };
 		3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithHeading.swift; sourceTree = "<group>"; };
 		3BFF162429900BB200930D9D /* DefaultTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextLabel.swift; sourceTree = "<group>"; };
 		3BFF16282990113100930D9D /* ContactPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerView.swift; sourceTree = "<group>"; };
-		3BFF162B2990165900930D9D /* contactPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = contactPickerVM.swift; sourceTree = "<group>"; };
+		3BFF162B2990165900930D9D /* ContactPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerVM.swift; sourceTree = "<group>"; };
 		3BFF162F299052DA00930D9D /* ChangePIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePIN.swift; sourceTree = "<group>"; };
 		3BFF1633299054D600930D9D /* titleNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleNavBar.swift; sourceTree = "<group>"; };
 		3BFF16352990566C00930D9D /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
@@ -178,10 +182,10 @@
 			files = (
 				3BFF15F5298C1D3200930D9D /* FirebaseAppCheck in Frameworks */,
 				3BFF15F1298C1D1A00930D9D /* FirebaseDatabaseSwift in Frameworks */,
+				3B4CBC5829B6692D008D70F6 /* FirebaseStorage in Frameworks */,
 				3BFF15EF298C1CF100930D9D /* FirebaseDatabase in Frameworks */,
 				3BC6E7C62974EB36008DA312 /* FirebaseAnalytics in Frameworks */,
 				3B99F863297B86AD0011B8E9 /* AlertToast in Frameworks */,
-				3BFF15F3298C1D2400930D9D /* FirebaseStorage in Frameworks */,
 				3BC6E7EE297760E2008DA312 /* FirebaseAuth in Frameworks */,
 				3B483DBC2992D24E009DE38C /* Combine.framework in Frameworks */,
 				3BC6E7C82974EB36008DA312 /* FirebaseCrashlytics in Frameworks */,
@@ -224,6 +228,8 @@
 				3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */,
 				3B0849F0293D364F00FC96B9 /* Assets.xcassets */,
 				3B0849F2293D364F00FC96B9 /* Preview Content */,
+				3B948D4729B0EA2D0013C991 /* testView.swift */,
+				3B948D4929B0EA4A0013C991 /* testModel.swift */,
 			);
 			path = Guardian;
 			sourceTree = "<group>";
@@ -396,7 +402,7 @@
 				3B2E94BC2989935D00EF8032 /* Buttons */,
 				3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */,
 				3BFF1619298FF0C400930D9D /* ContactItemCell.swift */,
-				3BFF1617298FEFCD00930D9D /* profileImage.swift */,
+				3BFF1617298FEFCD00930D9D /* ProfileImage.swift */,
 				3BDB1DAF299806180083204D /* TabBar.swift */,
 				3B483DCB29952625009DE38C /* CustomPin.swift */,
 			);
@@ -530,8 +536,8 @@
 			isa = PBXGroup;
 			children = (
 				3BFF1613298FEDE600930D9D /* Contacts.swift */,
-				3BFF161B298FFD7500930D9D /* contactList.swift */,
-				3BFF161E298FFFAE00930D9D /* contactDetails.swift */,
+				3BFF161B298FFD7500930D9D /* ContactList.swift */,
+				3BFF161E298FFFAE00930D9D /* ContactDetails.swift */,
 				3BFF16282990113100930D9D /* ContactPickerView.swift */,
 			);
 			path = View;
@@ -541,7 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				3BFF1604298FE83E00930D9D /* ContactVM.swift */,
-				3BFF162B2990165900930D9D /* contactPickerVM.swift */,
+				3BFF162B2990165900930D9D /* ContactPickerVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -570,8 +576,8 @@
 				3B99F862297B86AD0011B8E9 /* AlertToast */,
 				3BFF15EE298C1CF100930D9D /* FirebaseDatabase */,
 				3BFF15F0298C1D1A00930D9D /* FirebaseDatabaseSwift */,
-				3BFF15F2298C1D2400930D9D /* FirebaseStorage */,
 				3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */,
+				3B4CBC5729B6692D008D70F6 /* FirebaseStorage */,
 			);
 			productName = Guardian;
 			productReference = 3B0849E9293D364E00FC96B9 /* Guardian.app */;
@@ -659,7 +665,7 @@
 				3BFF15ED298C1C2500930D9D /* RegisterService.swift in Sources */,
 				3BC6E80029778C57008DA312 /* Color.swift in Sources */,
 				3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */,
-				3BFF1618298FEFCD00930D9D /* profileImage.swift in Sources */,
+				3BFF1618298FEFCD00930D9D /* ProfileImage.swift in Sources */,
 				3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */,
 				3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */,
 				3BFF160C298FEC2F00930D9D /* SettingsStore.swift in Sources */,
@@ -690,7 +696,7 @@
 				3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */,
 				3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */,
 				3BFF16292990113100930D9D /* ContactPickerView.swift in Sources */,
-				3BFF161C298FFD7500930D9D /* contactList.swift in Sources */,
+				3BFF161C298FFD7500930D9D /* ContactList.swift in Sources */,
 				3B2E94C22989944800EF8032 /* CommonButton.swift in Sources */,
 				3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */,
 				3BFF160E298FEC8500930D9D /* ActivityIndicator.swift in Sources */,
@@ -701,10 +707,12 @@
 				3BFF1608298FE92A00930D9D /* EmergencyContact.swift in Sources */,
 				3B2E94CC298ADD7500EF8032 /* ResetPassword.swift in Sources */,
 				3BFF15EB298C189800930D9D /* RegisterDetails.swift in Sources */,
+				3B948D4829B0EA2D0013C991 /* testView.swift in Sources */,
 				3BFF1610298FED8300930D9D /* User.swift in Sources */,
 				3BDB1DB42999A2230083204D /* LoginEmailViewModel.swift in Sources */,
 				3BFF15FB298D785200930D9D /* SessionService.swift in Sources */,
 				3B483DBA2992D076009DE38C /* MessageHelper.swift in Sources */,
+				3B948D4A29B0EA4A0013C991 /* testModel.swift in Sources */,
 				3B2E94BB2989824E00EF8032 /* PreviewLayoutModifier.swift in Sources */,
 				3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */,
 				3BC6E8062977AC47008DA312 /* LRPageTextField.swift in Sources */,
@@ -720,8 +728,8 @@
 				3B483DC42993E432009DE38C /* PINModifier.swift in Sources */,
 				3B99F85F297B5BCF0011B8E9 /* FirstPage.swift in Sources */,
 				3B483DB42992BB9E009DE38C /* ImageExtension.swift in Sources */,
-				3BFF161F298FFFAE00930D9D /* contactDetails.swift in Sources */,
-				3BFF162C2990165900930D9D /* contactPickerVM.swift in Sources */,
+				3BFF161F298FFFAE00930D9D /* ContactDetails.swift in Sources */,
+				3BFF162C2990165900930D9D /* ContactPickerVM.swift in Sources */,
 				3B483DC22993DA10009DE38C /* PINTextField.swift in Sources */,
 				3B3AE68A29881CBF00DF9435 /* SharedMethods.swift in Sources */,
 				3BFF1621299008AC00930D9D /* doneNavBar.swift in Sources */,
@@ -855,10 +863,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"Guardian/Preview Content\"";
-				DEVELOPMENT_TEAM = LQ3RZZ6CFV;
+				DEVELOPMENT_TEAM = JQVSXS5J2X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Guardian/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app use your contacts to send emergency messages.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -887,10 +896,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Guardian/Preview Content\"";
-				DEVELOPMENT_TEAM = LQ3RZZ6CFV;
+				DEVELOPMENT_TEAM = JQVSXS5J2X;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Guardian/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app use your contacts to send emergency messages.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -953,6 +963,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3B4CBC5729B6692D008D70F6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		3B99F862297B86AD0011B8E9 /* AlertToast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3B99F861297B86AD0011B8E9 /* XCRemoteSwiftPackageReference "AlertToast" */;
@@ -982,11 +997,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
-		};
-		3BFF15F2298C1D2400930D9D /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
 		};
 		3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */ = {
 			isa = XCSwiftPackageProductDependency;

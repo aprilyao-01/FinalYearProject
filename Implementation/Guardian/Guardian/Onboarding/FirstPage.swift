@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct FirstPage: View {
+    // handle dark mode
+    @Environment (\.colorScheme) var colorScheme
+    
     var body: some View {
         ZStack{
             LRPageBackground(isRed: false, isFirst: true)
 //                .padding(.bottom, 70)
             
             Text("Welcome")
-                .foregroundColor(.black)
+                .foregroundColor(colorScheme == .light ? .black : .white)
                 .font(.system(size: 50, weight: .bold, design: .rounded))
                 .padding(.bottom, 500)
              
