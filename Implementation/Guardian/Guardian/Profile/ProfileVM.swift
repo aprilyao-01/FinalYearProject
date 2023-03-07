@@ -28,7 +28,15 @@ class ProfileVM: ObservableObject, ProfileViewModel {
     @Published var isLoading = false
 
     func saveUserDetails(){
-        let uid = Auth.auth().currentUser!.uid
+        
+        var uid : String
+        if Auth.auth().currentUser == nil {
+            uid = "test"
+        } else {
+            uid = Auth.auth().currentUser!.uid
+        }
+        
+//        let uid = Auth.auth().currentUser!.uid
         do{
             if let profile = fetchedImage{
                 currentUser.userImage = profile.toJpegString(compressionQuality: 0.2) ?? ""
@@ -42,7 +50,13 @@ class ProfileVM: ObservableObject, ProfileViewModel {
     }
     
     func fetchCurrentUser() {
-        let uid = Auth.auth().currentUser!.uid
+        var uid : String
+        if Auth.auth().currentUser == nil {
+            uid = "test"
+        } else {
+            uid = Auth.auth().currentUser!.uid
+        }
+        
         let userRef = ref.child("user").child(uid)
 
         DispatchQueue.main.async{

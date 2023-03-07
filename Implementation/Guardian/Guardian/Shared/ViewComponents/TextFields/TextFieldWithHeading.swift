@@ -16,18 +16,17 @@ struct TextFieldWithHeading: View {
     @State var isEnabled: Bool = true
 
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading, spacing: 5){
             Text(label)
                 .foregroundColor(Color.black)
-                .font(.system(size: 16))
-            DefaultTextLabel(textValue: $textFieldValue, placeHolder: placeholder,isEnabled: isEnabled, isLockButtonEnabled: isLockButtonEnabled, isPasswordField: isPasswordField)
+            DefaultTextLabel(textValue: $textFieldValue, placeHolder: placeholder,isEnabled: isEnabled, isImgEnabled: isLockButtonEnabled, isPasswordField: isPasswordField)
         }
     }
 }
 
 struct TextFieldWithHeading_Previews: PreviewProvider {
     static var previews: some View {
-        TextFieldWithHeading(label: "sample", textFieldValue: .constant("this is sample"), placeholder: "this is plaveholder", isLockButtonEnabled: false, isPasswordField: false)
+        TextFieldWithHeading(label: "sample", textFieldValue: .constant("sample"), placeholder: "this is plaveholder", isLockButtonEnabled: false, isPasswordField: false)
             .preview(with: "profile page field with text heading")
     }
 }

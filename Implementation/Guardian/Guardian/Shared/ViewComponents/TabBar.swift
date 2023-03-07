@@ -9,13 +9,16 @@ import SwiftUI
 
 struct TabBar: View {
     @State var current = "Home"
+    @StateObject var sessionService = SessionServiceImpl()
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
             TabView(selection: $current){
                 //FIXME: the current view
                 MapView()
                     .tag("Map")
-                Text("Home")
+                Home()
+                    .environmentObject(sessionService)
+                    .navigationBarHidden(true)
                     .tag("Home")
                 Text("Missing")
                     .tag("Missing")

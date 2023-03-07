@@ -31,11 +31,11 @@ struct UserProfile: View {
                             .withChangeOption()
                         
                         VStack(spacing: 20){
-                            TextFieldWithHeading(label: "Username", textFieldValue: $profileVM.currentUser.userName, placeholder: "Enter username", isLockButtonEnabled: false, isPasswordField: false)
+                            TextFieldWithHeading(label: "Username", textFieldValue: $profileVM.currentUser.userName, placeholder: "Enter username", isLockButtonEnabled: true, isPasswordField: false)
                             
-                            TextFieldWithHeading(label: "Full Name", textFieldValue: $profileVM.currentUser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: false, isPasswordField: false)
+                            TextFieldWithHeading(label: "Full Name", textFieldValue: $profileVM.currentUser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: true, isPasswordField: false)
                             
-                            TextFieldWithHeading(label: "Contact Details", textFieldValue: $profileVM.currentUser.phoneNo, placeholder: "Enter phone number", isLockButtonEnabled: false, isPasswordField: false)
+                            TextFieldWithHeading(label: "Contact Details", textFieldValue: $profileVM.currentUser.phoneNo, placeholder: "Enter phone number", isLockButtonEnabled: true, isPasswordField: false)
                             
                             chevronRightBtn(action: {
                                 showChangePasswordView.toggle()
@@ -53,6 +53,7 @@ struct UserProfile: View {
                         
                         Spacer()
                     }
+                    .padding(.horizontal, 15)
                 }
                 // MARK: navigation to change PIN and password
                 NavigationLink ("", destination: ChangePassword(), isActive: $showChangePasswordView)

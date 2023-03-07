@@ -34,20 +34,22 @@ struct Home: View {
                 
                 Spacer()
                 // TODO: set other things
-                Text("place holder")
-//                Image(systemName: "gearshape.fill")
-//                    .resizable()
-//                    .frame(width: 50, height: 50)
-//                    .foregroundColor(.gray)
+                VStack(spacing:5) {
+                    Text("show location as text")
+                    CommonButton(buttonName: "See location", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), fontSize: 16, fontIsBold: false, width: 120, hasImg: true, imgName: "mappin", action: {
+                        // go to map page
+                    })
+                }
             }
-            //.padding(.top,0)
+            .padding(.horizontal, 20)
             //MapView()
-//            HStack{
-//                AudioVideoBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
-//                    .preview(with: "Audio button")
-//                AudioVideoBtn(buttonName: "Video", img_on: "video.fill", img_off: "video.slash.fill", action: {})
-//                    .preview(with: "video button")
-//            }
+            Spacer()
+            HStack{
+                AudioBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
+                Spacer()
+                AudioBtn(buttonName: "Check In", img_on: "clock.badge.checkmark", img_off: "clock.badge.xmark", action: {})
+            }
+            .padding(.horizontal, 20)
             Spacer()
             MainButton(buttonName: "SOS", action: {}, onPressEnded: {
                 homeVM.getHelpButtonTapped()})

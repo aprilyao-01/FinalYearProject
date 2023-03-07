@@ -47,30 +47,39 @@ class ContactVM: ObservableObject, ContactViewModel {
             self.activityIndicator.showActivityIndicator()
 
         }
-        let currentUID = Auth.auth().currentUser!.uid
- 
-        _ = ref.child("contact").child(currentUID).observe(DataEventType.value, with: { snapshot in
-            let value = snapshot.value as? NSDictionary
-//            let contactItemList = contactList?[SettingsStore().currentUserId] as? NSDictionary
-            
-            let contactListArray = value?.allValues
-            do {
-                let json = try JSONSerialization.data(withJSONObject: contactListArray ?? [])
-               
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let decodedContacts = try decoder.decode([EmergencyContact].self, from: json)
-                self.fetchedContactList = decodedContacts
-                
-                print(self.fetchedContactList)
-                DispatchQueue.main.async{
-//                    self.activityIndicator.isAnimating = false
-                    self.activityIndicator.hideActivityIndicator()
-                }
-            } catch {
-                print("ContactVM: cannot fetch contact\n %s", error)
+        
+        var currentUID : String
+        if Auth.auth().currentUser == nil {
+            currentUID = "test"
+            DispatchQueue.main.async{
+                self.activityIndicator.hideActivityIndicator()
             }
-        })
+        } else {
+            currentUID = Auth.auth().currentUser!.uid
+            
+            _ = ref.child("contact").child(currentUID).observe(DataEventType.value, with: { snapshot in
+                let value = snapshot.value as? NSDictionary
+    //            let contactItemList = contactList?[SettingsStore().currentUserId] as? NSDictionary
+                
+                let contactListArray = value?.allValues
+                do {
+                    let json = try JSONSerialization.data(withJSONObject: contactListArray ?? [])
+                   
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let decodedContacts = try decoder.decode([EmergencyContact].self, from: json)
+                    self.fetchedContactList = decodedContacts
+                    
+                    print(self.fetchedContactList)
+                    DispatchQueue.main.async{
+    //                    self.activityIndicator.isAnimating = false
+                        self.activityIndicator.hideActivityIndicator()
+                    }
+                } catch {
+                    print("ContactVM: cannot fetch contact\n %s", error)
+                }
+            })
+        }
     }
     
     func deleteContact(item: EmergencyContact?) {

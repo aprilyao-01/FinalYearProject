@@ -8,7 +8,7 @@
 import SwiftUI
 
 // TODO: change this into toggle?
-struct AudioVideoBtn: View {
+struct AudioBtn: View {
     
     var buttonName: String
     var img_on: String
@@ -40,14 +40,14 @@ struct AudioVideoBtn: View {
             //MARK: background
             Circle()
                 .foregroundColor(Color("lightMain").opacity(is_active ? 0.4 : 0.2))
-                .frame(width: 180, height: 180)
+                .frame(width: 120, height: 120)
             Button(action: {
                 action()
                 is_active.toggle()
             }, label: {
                 ZStack {
                     Circle()
-                        .frame(width: 120, height: 120, alignment: .center)
+                        .frame(width: 100, height: 100, alignment: .center)
                         .foregroundColor(Color("main").opacity(is_active ? 0.8 : 0.3))
 
                     //MARK: img and text
@@ -69,11 +69,7 @@ struct AudioVideoBtn: View {
 
 struct AudioVideoBtn_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            AudioVideoBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
-                .preview(with: "Audio button")
-            AudioVideoBtn(buttonName: "Video", img_on: "video.fill", img_off: "video.slash.fill", action: {})
-                .preview(with: "video button")
-        }
+        AudioBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
+            .preview(with: "Audio button")
     }
 }

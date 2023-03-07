@@ -19,7 +19,7 @@ struct ContactPickerView: View {
             self.selectedContacts = []
             for contact in contacts {
                 if let phone = contact.phoneNumbers.first?.value as? CNPhoneNumber {
-                    let contactItem = EmergencyContact(contactName: "\(contact.givenName) \(contact.familyName)", isEmergencyContact: false, phoneNo: phone.stringValue, profileImage: "")
+                    let contactItem = EmergencyContact(contactName: "\(contact.givenName) \(contact.familyName)", isEmergencyContact: true, phoneNo: phone.stringValue, profileImage: "")
                     self.selectedContacts.append(contactItem)
                 }
             }

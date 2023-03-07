@@ -33,7 +33,7 @@ struct Contacts: View {
                 
             }
             .frame(maxWidth: .infinity)
-            .withNavBar(leftImg: "chevron.left", leftText: "Back", leftAction: {
+            .withNavBar(leftImg: "arrow.up", leftText: "Drag", leftAction: {
                 // TODO: goback
             }, midTitle: "Contacts", rightImg: "person.crop.circle.badge.plus", rightColour: .green, rightAction: {
                 showContactPickSheet.toggle()
