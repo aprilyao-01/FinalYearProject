@@ -53,7 +53,7 @@ struct LoginPhone: View {
                     .padding(.bottom, 20)
                     
                     // MARK: custom TextField
-                    LRPageTextField(hint: "+44 7468907383", text: $loginModel.phoneNo, keyboardType: .phonePad, sfSymbol: "phone.fill")
+                    CommonTextField(hint: "+44 7468907383", text: $loginModel.phoneNo, keyboardType: .phonePad, sfSymbol: "phone.fill")
                         .disabled(loginModel.showOTPField)
                         .opacity(loginModel.showOTPField ? 0.4 : 1)
                         .overlay(alignment: .trailing, content: {
@@ -69,7 +69,7 @@ struct LoginPhone: View {
                             .opacity(loginModel.showOTPField ? 1 : 0)
                             .padding(.trailing, 50)
                         })
-                    LRPageTextField(hint: "OTP", text: $loginModel.otpCode, keyboardType: .numberPad, sfSymbol: "key.fill")
+                    CommonTextField(hint: "OTP", text: $loginModel.otpCode, keyboardType: .numberPad, sfSymbol: "key.fill")
                         .disabled(!loginModel.showOTPField)
                         .opacity(!loginModel.showOTPField ? 0.4 : 1)
                         .padding(.bottom,20)

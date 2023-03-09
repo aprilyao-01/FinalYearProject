@@ -17,7 +17,6 @@ struct CommonButton: View {
     var fontIsBold: Bool
     var width: CGFloat
     var height: CGFloat
-    var hasImg: Bool
     var imgName: String
     var action: () -> Void      // ActionHandler
     
@@ -29,7 +28,6 @@ struct CommonButton: View {
                   fontIsBold: Bool = true,
                   width: CGFloat,
                   height: CGFloat = 45,
-                  hasImg: Bool = false,
                   imgName: String = "",
                   action: @escaping () -> Void) {
         self.buttonName = buttonName
@@ -40,7 +38,6 @@ struct CommonButton: View {
         self.fontIsBold = fontIsBold
         self.width = width
         self.height = height
-        self.hasImg = hasImg
         self.imgName = imgName
         self.action = action
     }
@@ -49,8 +46,8 @@ struct CommonButton: View {
        Button(action: action, label: {
            HStack {
                Text(buttonName)
-               if hasImg {
-                   Image(systemName: imgName)
+               if let systemImage = imgName {
+                   Image(systemName: systemImage)
                }
            }
            .font(.system(size: fontSize, weight: fontIsBold ? .bold : .regular, design: .rounded))
@@ -85,7 +82,7 @@ struct CommonButton_Previews: PreviewProvider {
             CommonButton(buttonName: "Preview",
                          backgroundColor1:  Color("main"),
                          backgroundColor2:  Color("lightMain"),
-                         width: 150, hasImg: true, imgName: "arrowshape.turn.up.right") {}
+                         width: 150, imgName: "arrowshape.turn.up.right") {}
                 .preview(with: "CommonButton with img")
         }
     }

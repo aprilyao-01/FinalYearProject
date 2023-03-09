@@ -27,7 +27,7 @@ struct ResetPassword: View {
                 .lineSpacing(5)
                 .padding(.bottom, 400)
                 
-                LRPageTextField(hint: "Email", text: $vm.email, keyboardType: .emailAddress, sfSymbol: "envelope.fill")
+                CommonTextField(hint: "Email", text: $vm.email, keyboardType: .emailAddress, sfSymbol: "envelope.fill")
                     .padding(.bottom, 150)
                 CommonButton(buttonName: "Sent password reset", backgroundColor1: Color("main"), backgroundColor2: Color("lightRed"), width: 280, action: {
                     vm.sendPasswordReset()

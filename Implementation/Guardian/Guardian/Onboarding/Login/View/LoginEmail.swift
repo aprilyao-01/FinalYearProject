@@ -55,9 +55,9 @@ struct LoginEmail: View {
                     .padding(.bottom, 20)
                     
                     // MARK: custom TextField
-                    LRPageTextField(hint: "Email", text: $vm.credentials.email, sfSymbol: "envelope.fill")
+                    CommonTextField(hint: "Email", text: $vm.credentials.email, sfSymbol: "envelope.fill")
 
-                    LRPageTextField(hint: "Password", text: $vm.credentials.password, isPassword: true, sfSymbol: "lock.fill")
+                    CommonTextField(hint: "Password", text: $vm.credentials.password, isPassword: true, sfSymbol: "lock.fill")
                     
                     CommonButton(buttonName: "Forget Password?", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), fontSize: 16, fontIsBold: false, width: 180){
                         showReset.toggle()

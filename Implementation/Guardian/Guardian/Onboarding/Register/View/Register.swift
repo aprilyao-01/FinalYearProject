@@ -29,11 +29,11 @@ struct Register: View {
                 
                 // MARK: user info list
                 VStack(spacing: 20) {
-                    LRPageTextField(hint: "User Name", text: $registerVM.userDetails.userName, sfSymbol: "person.fill")
+                    CommonTextField(hint: "User Name", text: $registerVM.userDetails.userName, sfSymbol: "person.fill")
                     
-                    LRPageTextField(hint: "Email", text: $registerVM.userDetails.email, sfSymbol: "envelope.fill")
+                    CommonTextField(hint: "Email", text: $registerVM.userDetails.email, sfSymbol: "envelope.fill")
                     
-                    LRPageTextField(hint: "Password", text: $registerVM.userDetails.password, isPassword: true,  sfSymbol: "lock.fill")
+                    CommonTextField(hint: "Password", text: $registerVM.userDetails.password, isPassword: true,  sfSymbol: "lock.fill")
                 }
                 
                 CommonButton(buttonName: "Sign up", backgroundColor1: Color("mainRed"), backgroundColor2: Color("lightRed"), width: 200) {

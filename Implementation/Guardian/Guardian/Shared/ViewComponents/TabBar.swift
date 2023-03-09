@@ -20,7 +20,7 @@ struct TabBar: View {
                     .environmentObject(sessionService)
                     .navigationBarHidden(true)
                     .tag("Home")
-                Text("Missing")
+                Text("something")
                     .tag("Missing")
             }
             HStack(spacing: 0){

@@ -13,16 +13,18 @@ struct MapView: View {
     @State var trackingMode: MapUserTrackingMode = .follow
     
     var body: some View {
-        Map(coordinateRegion: $mapVM.region, showsUserLocation: true, userTrackingMode: $trackingMode)
-//            .frame(height: 250)
+        ZStack {
+            Map(coordinateRegion: $mapVM.region, showsUserLocation: true, userTrackingMode: $trackingMode)
+                .edgesIgnoringSafeArea(.all)
+                .accentColor(Color("mainRed"))
+                .onAppear{ mapVM.checkLocationServicesisEnable()
+                }
             
-            .accentColor(Color("mainRed"))
-//            .cornerRadius(15)
-//            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color("lightMain"), lineWidth: 1))
-//            .padding(.horizontal,10)
-            .onAppear{ mapVM.checkLocationServicesisEnable()
-            }
-            .edgesIgnoringSafeArea(.all)
+            CommonButton(buttonName: "New Report", backgroundColor1: Color("mainRed"), backgroundColor2: Color("lightRed"), width: 250, imgName: "doc.badge.plus", action: {
+                
+            })
+            .padding(.top, 500)
+        }
     }
 }
 

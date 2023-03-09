@@ -36,7 +36,7 @@ struct Home: View {
                 // TODO: set other things
                 VStack(spacing:5) {
                     Text("show location as text")
-                    CommonButton(buttonName: "See location", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), fontSize: 16, fontIsBold: false, width: 120, hasImg: true, imgName: "mappin", action: {
+                    CommonButton(buttonName: "See location", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), fontSize: 16, fontIsBold: false, width: 120, imgName: "mappin", action: {
                         // go to map page
                     })
                 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LRPageTextField: View {
+struct CommonTextField: View {
     var hint: String
     @Binding var text: String
     var isPassword : Bool = false
@@ -17,6 +17,7 @@ struct LRPageTextField: View {
     // MARK: View Properties
     @FocusState var isEnabled: Bool
     var contentType: UITextContentType = .telephoneNumber
+    var width: CGFloat = 300
     
     var body: some View {
         VStack(){
@@ -25,14 +26,14 @@ struct LRPageTextField: View {
                     .keyboardType(keyboardType)
                     .textContentType(contentType)
                     .focused($isEnabled)
-                    .padding(.leading, sfSymbol == nil ? 70 : 90)
+                    .padding(.leading, sfSymbol == nil ? width/6 : width/6+40)
             }
             else {
                 TextField(hint, text: $text)
                     .keyboardType(keyboardType)
                     .textContentType(contentType)
                     .focused($isEnabled)
-                    .padding(.leading, sfSymbol == nil ? 70 : 90)
+                    .padding(.leading, sfSymbol == nil ? width/6 : width/6+40)
             }
             ZStack(){
                 if let systemImage = sfSymbol {
@@ -43,11 +44,11 @@ struct LRPageTextField: View {
                 }
                 Rectangle()
                     .fill(.black.opacity(0.2))
-                    .frame(width: 300, height: 1)
+                    .frame(width: width, height: 1)
                 
                 Rectangle()
                     .fill(.black)
-                    .frame(width: isEnabled ? 300: 0, height: 1, alignment: .leading)
+                    .frame(width: isEnabled ? width: 0, height: 1, alignment: .leading)
                     .animation(.easeInOut(duration: 0.3), value: isEnabled)
             }
             .frame(height: 2)
@@ -55,13 +56,19 @@ struct LRPageTextField: View {
     }
 }
 
-struct LRPageTextField_Previews: PreviewProvider {
-    
+struct CommonTextField_Previews: PreviewProvider {
     static var previews: some View {
-            LRPageTextField(hint: "Phone number",
-                            text: .constant(""),
-                            keyboardType: .default,
-                            sfSymbol: "phone.fill")
+        Group {
+            CommonTextField(hint: "Phone number",
+                                text: .constant(""),
+                                keyboardType: .default,
+                                sfSymbol: "phone.fill")
             .preview(with: "Login and Register Text Input")
+            
+            CommonTextField(hint: "Some text",
+                                text: .constant(""),
+                                keyboardType: .default)
+            .preview(with: "some text")
+        }
     }
 }

@@ -21,7 +21,7 @@ struct GuardianApp: App {
 //                Contacts(contactVM: ContactVM())
                 switch sessionService.state {
                 case .loggedIn:
-                    Home()
+                    TabBar()
                         .environmentObject(sessionService)
                         .navigationBarHidden(true)
                 case .loggedOut:
