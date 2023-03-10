@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TabBar: View {
-    @State var current = "Home"
+    @State var current = "Map"
     @StateObject var sessionService = SessionServiceImpl()
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
             TabView(selection: $current){
@@ -20,15 +21,16 @@ struct TabBar: View {
                     .environmentObject(sessionService)
                     .navigationBarHidden(true)
                     .tag("Home")
-                Text("something")
-                    .tag("Missing")
+                UserAccount()
+                    .environmentObject(sessionService)
+                    .tag("Account")
             }
             HStack(spacing: 0){
                 TabButton(title: "Map", image: "map", selected: $current)
                 Spacer(minLength: 0)
                 TabButton(title: "Home", image: "house", selected: $current)
                 Spacer(minLength: 0)
-                TabButton(title: "Missing", image: "questionmark.square", selected: $current)
+                TabButton(title: "Account", image: "person", selected: $current)
             }
             .padding(.vertical,8)
             .padding(.horizontal)

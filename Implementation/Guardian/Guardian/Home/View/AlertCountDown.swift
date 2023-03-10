@@ -13,6 +13,8 @@ struct AlertCountDown: View {
     @ObservedObject var locationManager: MapVM
     @StateObject var contactVM: ContactVM
     
+    var userName: String
+    
     var body: some View {
         VStack(spacing: 40){
             Image(systemName: "exclamationmark.triangle.fill")
@@ -47,7 +49,7 @@ struct AlertCountDown: View {
             if homeVM.timerVal > 0 {
                 homeVM.timerVal -= 1
             }else{
-                homeVM.sendEmergencyMessage(coordinate: locationManager.userLocation?.coordinate, contactList: contactVM.fetchedContactList)
+                homeVM.sendEmergencyMessage(userName: userName, coordinate: locationManager.userLocation?.coordinate, contactList: contactVM.fetchedContactList)
             }
         }
         .navigationBarHidden(true)
@@ -56,6 +58,6 @@ struct AlertCountDown: View {
 
 struct AlertCancel_Previews: PreviewProvider {
     static var previews: some View {
-        AlertCountDown(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM())
+        AlertCountDown(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM(), userName: "")
     }
 }

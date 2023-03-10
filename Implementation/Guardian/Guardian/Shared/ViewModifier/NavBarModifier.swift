@@ -16,6 +16,7 @@ struct NavBarModifier: ViewModifier {
     
     var midTitle: String
     var midColour: Color
+    var midFont: Font
     
     var rightImg: String
     var rightText: String
@@ -39,10 +40,12 @@ struct NavBarModifier: ViewModifier {
                 
                 //MARK: middle element = title
                 ToolbarItem(placement: .principal){
-                    Text(midTitle)
-                        .foregroundColor(midColour)
-                        .font(.title.bold())
-                        .accessibilityAddTraits(.isHeader)
+                    if let font = midFont {
+                        Text(midTitle)
+                            .foregroundColor(midColour)
+                            .font(font.bold())
+                            .accessibilityAddTraits(.isHeader)
+                    }
                 }
                 
                 //MARK: right element
@@ -68,6 +71,7 @@ extension View {
                     leftAction: @escaping () -> Void,
                     midTitle: String? = "",
                     midColour: Color? = .black,
+                    midFont: Font? = .title,
                     rightImg: String? = "",
                     rightText: String? = "",
                     rightColour: Color? = .gray,
@@ -82,6 +86,7 @@ extension View {
             leftAction: leftAction,
             midTitle: midTitle ?? "",
             midColour: midColour ?? .black,
+            midFont: midFont ?? .title,
             rightImg: rightImg ?? "",
             rightText: rightText ?? "",
             rightColour: rightColour ?? .gray,

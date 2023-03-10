@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileImageModifier: ViewModifier {
-    @StateObject var profileVM: ProfileVM = ProfileVM()
+    @StateObject var profileVM: AccountVM = AccountVM()
     @State var showingImagePicker: Bool = false
     @State var sourceType: UIImagePickerController.SourceType = .savedPhotosAlbum
     @State var fetchedImageName: String?

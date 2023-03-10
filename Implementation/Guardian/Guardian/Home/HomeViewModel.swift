@@ -26,7 +26,7 @@ protocol HomeViewModel {
     func getHelpButtonTapped()
     func cancelTimer(PIN: String)
     func endTimer()
-    func sendEmergencyMessage(coordinate: CLLocationCoordinate2D?,contactList: [EmergencyContact])
+    func sendEmergencyMessage(userName: String, coordinate: CLLocationCoordinate2D?,contactList: [EmergencyContact])
     
 }
 
@@ -75,11 +75,11 @@ class HomeVM: ObservableObject, HomeViewModel {
         showAlertCancelView.toggle()
     }
     
-    func sendEmergencyMessage(coordinate: CLLocationCoordinate2D?,contactList: [EmergencyContact]){
+    func sendEmergencyMessage(userName: String, coordinate: CLLocationCoordinate2D?,contactList: [EmergencyContact]){
         endTimer()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             let contacts = contactList.filter({$0.isEmergencyContact}).map({$0.phoneNo})
-            MessageHelper.shared.sendMessage(recipients: contacts, body: "Emergency alert \nLongitude:\(coordinate?.longitude ?? -1)\nLatitude:\(coordinate?.latitude ?? -1)")
+            MessageHelper.shared.sendMessage(recipients: contacts, body: "Emergency alert from \(userName) in: \nLongitude:\(coordinate?.longitude ?? -1)\nLatitude:\(coordinate?.latitude ?? -1)\n need your help.")
         }
     }
 }

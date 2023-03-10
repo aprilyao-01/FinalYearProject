@@ -2,7 +2,7 @@
 //  MissingReportView.swift
 //  Guardian
 //
-//  Created by Siyu Yao on 08/03/2023.
+//  Created by Siyu Yao on 07/03/2023.
 //
 
 import SwiftUI
@@ -86,9 +86,10 @@ struct MissingReportView: View {
             
             
         }
+        .navigationBarBackButtonHidden(true)
         .withNavBar(leftImg: "chevron.left", leftAction: {
             presentationMode.wrappedValue.dismiss()
-        }, midTitle: "Report a Missing Person", rightAction: {})
+        }, midTitle: "Report a Missing Person", midFont:.title2 ,rightAction: {})
     }
 }
 

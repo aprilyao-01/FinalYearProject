@@ -33,6 +33,7 @@
 		3B483DCA29951E51009DE38C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC929951E51009DE38C /* MapView.swift */; };
 		3B483DCC29952625009DE38C /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DCB29952625009DE38C /* CustomPin.swift */; };
 		3B4CBC5829B6692D008D70F6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4CBC5729B6692D008D70F6 /* FirebaseStorage */; };
+		3B512CF129BAAAF900F7F137 /* PinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B512CF029BAAAF900F7F137 /* PinDetails.swift */; };
 		3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A7CCF297CD29D007B5F2F /* Home.swift */; };
 		3B948D4829B0EA2D0013C991 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B948D4729B0EA2D0013C991 /* testView.swift */; };
 		3B948D4A29B0EA4A0013C991 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B948D4929B0EA4A0013C991 /* testModel.swift */; };
@@ -47,6 +48,7 @@
 		3BAC045C29BA01C100F47CA6 /* UnsafeReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */; };
 		3BAC045E29BA085800F47CA6 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045D29BA085800F47CA6 /* SettingsStore.swift */; };
 		3BAC046029BA086500F47CA6 /* chevronRightBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */; };
+		3BAC046729BA1AD800F47CA6 /* AudioManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC046629BA1AD800F47CA6 /* AudioManage.swift */; };
 		3BC2663729B6BA6B00726035 /* CheckInTimeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */; };
 		3BC6E7C62974EB36008DA312 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC6E7C52974EB36008DA312 /* FirebaseAnalytics */; };
 		3BC6E7C82974EB36008DA312 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC6E7C72974EB36008DA312 /* FirebaseCrashlytics */; };
@@ -69,7 +71,7 @@
 		3BFF15F5298C1D3200930D9D /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */; };
 		3BFF15F9298D775400930D9D /* SessionUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15F8298D775400930D9D /* SessionUserDetails.swift */; };
 		3BFF15FB298D785200930D9D /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15FA298D785200930D9D /* SessionService.swift */; };
-		3BFF15FE298E889D00930D9D /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15FD298E889D00930D9D /* UserProfile.swift */; };
+		3BFF15FE298E889D00930D9D /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15FD298E889D00930D9D /* UserAccount.swift */; };
 		3BFF1601298E994800930D9D /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1600298E994800930D9D /* LoginCredentials.swift */; };
 		3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1602298ED2FD00930D9D /* LoginService.swift */; };
 		3BFF1605298FE83E00930D9D /* ContactVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1604298FE83E00930D9D /* ContactVM.swift */; };
@@ -88,7 +90,7 @@
 		3BFF162C2990165900930D9D /* ContactPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162B2990165900930D9D /* ContactPickerVM.swift */; };
 		3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162F299052DA00930D9D /* ChangePIN.swift */; };
 		3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16352990566C00930D9D /* ChangePassword.swift */; };
-		3BFF16382990572300930D9D /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16372990572300930D9D /* ProfileVM.swift */; };
+		3BFF16382990572300930D9D /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16372990572300930D9D /* AccountVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +120,7 @@
 		3B483DC729951598009DE38C /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
 		3B483DC929951E51009DE38C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3B483DCB29952625009DE38C /* CustomPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
+		3B512CF029BAAAF900F7F137 /* PinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetails.swift; sourceTree = "<group>"; };
 		3B7A7CCF297CD29D007B5F2F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		3B948D4729B0EA2D0013C991 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 		3B948D4929B0EA4A0013C991 /* testModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
@@ -132,6 +135,7 @@
 		3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeReportView.swift; sourceTree = "<group>"; };
 		3BAC045D29BA085800F47CA6 /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chevronRightBtn.swift; sourceTree = "<group>"; };
+		3BAC046629BA1AD800F47CA6 /* AudioManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManage.swift; sourceTree = "<group>"; };
 		3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeSet.swift; sourceTree = "<group>"; };
 		3BC6E7F929778208008DA312 /* Guardian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Guardian.entitlements; sourceTree = "<group>"; };
 		3BC6E7FB29778287008DA312 /* LoginDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDraft.swift; sourceTree = "<group>"; };
@@ -149,7 +153,7 @@
 		3BFF15EC298C1C2500930D9D /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		3BFF15F8298D775400930D9D /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
 		3BFF15FA298D785200930D9D /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
-		3BFF15FD298E889D00930D9D /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		3BFF15FD298E889D00930D9D /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		3BFF1600298E994800930D9D /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		3BFF1602298ED2FD00930D9D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3BFF1604298FE83E00930D9D /* ContactVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVM.swift; sourceTree = "<group>"; };
@@ -168,7 +172,7 @@
 		3BFF162B2990165900930D9D /* ContactPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerVM.swift; sourceTree = "<group>"; };
 		3BFF162F299052DA00930D9D /* ChangePIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePIN.swift; sourceTree = "<group>"; };
 		3BFF16352990566C00930D9D /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
-		3BFF16372990572300930D9D /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		3BFF16372990572300930D9D /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,7 +217,7 @@
 			children = (
 				3BDB1DA92997D23F0083204D /* Map */,
 				3BFF15F6298D773C00930D9D /* Session */,
-				3B3AE67C2988129F00DF9435 /* Profile */,
+				3B3AE67C2988129F00DF9435 /* Account */,
 				3B3AE67B2988129300DF9435 /* Contacts */,
 				3B3AE67A2988128400DF9435 /* Home */,
 				3B3AE6792988126F00DF9435 /* Onboarding */,
@@ -367,14 +371,14 @@
 			path = Contacts;
 			sourceTree = "<group>";
 		};
-		3B3AE67C2988129F00DF9435 /* Profile */ = {
+		3B3AE67C2988129F00DF9435 /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				3BFF1611298FED8A00930D9D /* Model */,
 				3BFF15FC298E888D00930D9D /* View */,
-				3BFF16372990572300930D9D /* ProfileVM.swift */,
+				3BFF16372990572300930D9D /* AccountVM.swift */,
 			);
-			path = Profile;
+			path = Account;
 			sourceTree = "<group>";
 		};
 		3B3AE67E2988137200DF9435 /* View */ = {
@@ -433,6 +437,7 @@
 				3BAC045929B8D51E00F47CA6 /* MissingReportView.swift */,
 				3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */,
 				3B483DCB29952625009DE38C /* CustomPin.swift */,
+				3B512CF029BAAAF900F7F137 /* PinDetails.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -501,10 +506,11 @@
 		3BFF15FC298E888D00930D9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3BFF15FD298E889D00930D9D /* UserProfile.swift */,
+				3BFF15FD298E889D00930D9D /* UserAccount.swift */,
 				3BFF1617298FEFCD00930D9D /* ProfileImage.swift */,
 				3BFF162F299052DA00930D9D /* ChangePIN.swift */,
 				3BFF16352990566C00930D9D /* ChangePassword.swift */,
+				3BAC046629BA1AD800F47CA6 /* AudioManage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -670,7 +676,8 @@
 				3BAC045E29BA085800F47CA6 /* SettingsStore.swift in Sources */,
 				3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */,
 				3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */,
-				3BFF16382990572300930D9D /* ProfileVM.swift in Sources */,
+				3BFF16382990572300930D9D /* AccountVM.swift in Sources */,
+				3B512CF129BAAAF900F7F137 /* PinDetails.swift in Sources */,
 				3B483DCA29951E51009DE38C /* MapView.swift in Sources */,
 				3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */,
 				3B483DCC29952625009DE38C /* CustomPin.swift in Sources */,
@@ -682,6 +689,7 @@
 				3BFF1601298E994800930D9D /* LoginCredentials.swift in Sources */,
 				3BFF160A298FEAC600930D9D /* Loading.swift in Sources */,
 				3B3AE671298428A000DF9435 /* RegisterViewModel.swift in Sources */,
+				3BAC046729BA1AD800F47CA6 /* AudioManage.swift in Sources */,
 				3B483DBE2993D5B7009DE38C /* AlertCountDown.swift in Sources */,
 				3B2E94CA298AD58A00EF8032 /* CreatePIN.swift in Sources */,
 				3BDB1DAC2997D4100083204D /* MainButton.swift in Sources */,
@@ -690,7 +698,7 @@
 				3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */,
 				3B94D1C529A91EF100935AF3 /* AudioBtn.swift in Sources */,
 				3B483DC829951598009DE38C /* MapVM.swift in Sources */,
-				3BFF15FE298E889D00930D9D /* UserProfile.swift in Sources */,
+				3BFF15FE298E889D00930D9D /* UserAccount.swift in Sources */,
 				3BDB1DB0299806180083204D /* TabBar.swift in Sources */,
 				3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */,
 				3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */,

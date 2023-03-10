@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileImage: View {
-    @StateObject var profileVM: ProfileVM = ProfileVM()
+    @StateObject var accountVM: AccountVM = AccountVM()
 //    @State var showingImagePicker: Bool = false
 //    @State var sourceType: UIImagePickerController.SourceType = .savedPhotosAlbum
 //    @State var fetchedImageName: String?
@@ -18,8 +18,8 @@ struct ProfileImage: View {
     
     var body: some View {
         VStack{
-            if profileVM.fetchedImage != nil {
-                Image(uiImage: profileVM.fetchedImage!)
+            if accountVM.fetchedImage != nil {
+                Image(uiImage: accountVM.fetchedImage!)
                     .resizable()
                     .frame(width: myWidth, height: myWidth)
                     .clipShape(Circle())

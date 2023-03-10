@@ -1,5 +1,5 @@
 //
-//  ProfileVM.swift
+//  AccountVM.swift
 //  Guardian
 //
 //  Created by Siyu Yao on 26/01/2023.
@@ -10,16 +10,18 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-protocol ProfileViewModel {
-//    var activityIndicator: ActivityIndicator { get }
+protocol AccountViewModel {
     var fetchedImage: UIImage? { get }
+    var currentUser: User { get }
+    var isLoading: Bool { get }
     
     func saveUserDetails()
     func fetchCurrentUser()
+    func deleteCurrentUser()
     
 }
 
-class ProfileVM: ObservableObject, ProfileViewModel {
+class AccountVM: ObservableObject, AccountViewModel {
     @Published var currentUser: User = User(userId: "", userName: "", fullName: "", phoneNo: "", password: "", PIN: "", userImage: "")
     @Published var fetchedImage: UIImage?
 //    let activityIndicator = ActivityIndicator()
@@ -82,5 +84,9 @@ class ProfileVM: ObservableObject, ProfileViewModel {
             DispatchQueue.main.async{
                 self.isLoading = false
             }
+    }
+    
+    func deleteCurrentUser() {
+        // TODO: 
     }
 }

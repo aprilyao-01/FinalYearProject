@@ -20,6 +20,8 @@ struct EnterPIN: View {
     @ObservedObject var locationManager: MapVM
     @StateObject var contactVM: ContactVM
     
+    var userName: String
+    
     // handle dark mode
     @Environment (\.colorScheme) var colorScheme
     
@@ -69,7 +71,7 @@ struct EnterPIN: View {
         }
         .onReceive(homeVM.timer) { _ in
             if (homeVM.timerVal == 0 || homeVM.remainingRetryCount == 0) {
-                homeVM.sendEmergencyMessage(coordinate: locationManager.userLocation?.coordinate, contactList: contactVM.fetchedContactList)
+                homeVM.sendEmergencyMessage(userName: userName, coordinate: locationManager.userLocation?.coordinate, contactList: contactVM.fetchedContactList)
             }else{
                 homeVM.timerVal -= 1
                 print("timerVal: \(homeVM.timerVal)")
@@ -82,6 +84,6 @@ struct EnterPIN: View {
 
 struct EnterPIN_Previews: PreviewProvider {
     static var previews: some View {
-        EnterPIN(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM())
+        EnterPIN(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM(), userName: "")
     }
 }

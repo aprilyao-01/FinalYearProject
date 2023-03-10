@@ -25,24 +25,42 @@ struct Home: View {
     var body: some View {
         VStack (spacing: 30){
             HStack{
-                NavigationLink(destination: {
-                    UserProfile()
-                        .environmentObject(sessionService)
-                }, label: {
+                //MARK: show profile image and username
+                HStack {
                     ProfileImage(myWidth: 50, myHeight: 50)
-                })
+                    
+                    (Text("Hi,")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                     + Text (verbatim: "\n\(sessionService.userDetail?.userName ?? "")")
+                        .foregroundColor(.gray)
+                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                    )
+                    .lineSpacing(5)
+                }
                 
                 Spacer()
-                // TODO: set other things
+                
+                //MARK: show location in text
                 VStack(spacing:5) {
-                    Text("show location as text")
-                    CommonButton(buttonName: "See location", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), fontSize: 16, fontIsBold: false, width: 120, imgName: "mappin", action: {
-                        // go to map page
-                    })
+                    if let userLocation = locationManager.userLocation {
+                        Text("\(userLocation)")
+                        NavigationLink(destination: MapView(), label: {
+                            Text("See location")
+                            Image(systemName: "mappin")
+                        })
+                        .foregroundColor(Color("mainRed"))
+                        .font(.system(size: 16, design: .rounded))
+                    } else {
+                        Text("Restricted Location")
+                            .foregroundColor(Color("mainRed"))
+                            .font(.system(size: 18))
+                        Label("Go to \"Settings\"\nand turn \"Location\" on", systemImage: "gear")
+                            .font(.system(size: 16))
+                    }
+                    
                 }
             }
             .padding(.horizontal, 20)
-            //MapView()
             Spacer()
             HStack{
                 AudioBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
@@ -69,13 +87,13 @@ struct Home: View {
             
         }
         .fullScreenCover(isPresented: $showProfileView, content: {
-            UserProfile()
+            UserAccount()
         })
         .fullScreenCover(isPresented: $homeVM.showAlertCancelView, content: {
             if homeVM.alertCancelationViewType == .alertCancelationView{
-                AlertCountDown(homeVM: homeVM, locationManager: locationManager, contactVM: contactVM)
+                AlertCountDown(homeVM: homeVM, locationManager: locationManager, contactVM: contactVM, userName: sessionService.userDetail?.fullName ?? sessionService.userDetail?.userName ?? "")
             }else{
-                EnterPIN(homeVM: homeVM, locationManager: locationManager, contactVM: contactVM)
+                EnterPIN(homeVM: homeVM, locationManager: locationManager, contactVM: contactVM, userName: sessionService.userDetail?.fullName ?? sessionService.userDetail?.userName ?? "")
             }
         })
         .navigationBarBackButtonHidden(true)
