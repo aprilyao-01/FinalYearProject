@@ -19,6 +19,7 @@ struct CommonButton: View {
     var height: CGFloat
     var imgName: String
     var action: () -> Void      // ActionHandler
+    var cornerRadius: CGFloat
     
     internal init(buttonName: String,
                   backgroundColor1: Color,
@@ -29,7 +30,8 @@ struct CommonButton: View {
                   width: CGFloat,
                   height: CGFloat = 45,
                   imgName: String = "",
-                  action: @escaping () -> Void) {
+                  action: @escaping () -> Void,
+                  cornerRadius: CGFloat = 15) {
         self.buttonName = buttonName
         self.backgroundColour1 = backgroundColor1
         self.backgroundColour2 = backgroundColor2
@@ -40,6 +42,7 @@ struct CommonButton: View {
         self.height = height
         self.imgName = imgName
         self.action = action
+        self.cornerRadius = cornerRadius
     }
 
     var body: some View {
@@ -55,7 +58,7 @@ struct CommonButton: View {
            .background(RoundedRectangle(cornerRadius: 15, style: .continuous)
             .fill(.linearGradient(colors: [backgroundColour1, backgroundColour2], startPoint: .topLeading, endPoint: .bottom)))
            .foregroundColor(fontColor)
-           .cornerRadius(15)
+           .cornerRadius(cornerRadius)
            
        })
     }

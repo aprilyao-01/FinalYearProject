@@ -34,7 +34,6 @@ struct ContactItemCell: View {
             
             if isEmergencyContact{
                 Image(systemName: "staroflife.fill")
-//                    .resizable()
                     .renderingMode(.template)
                     .foregroundColor(Color("mainRed"))
                     .frame(width: 25,height: 25)
@@ -47,7 +46,7 @@ struct ContactItemCell: View {
                 .foregroundColor(Color.gray)
             
         }
-        .background(Color.white)
+//        .background(Color.white)
     }
 }
 

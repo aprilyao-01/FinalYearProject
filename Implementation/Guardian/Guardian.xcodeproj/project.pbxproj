@@ -35,8 +35,6 @@
 		3B4CBC5829B6692D008D70F6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4CBC5729B6692D008D70F6 /* FirebaseStorage */; };
 		3B512CF129BAAAF900F7F137 /* PinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B512CF029BAAAF900F7F137 /* PinDetails.swift */; };
 		3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A7CCF297CD29D007B5F2F /* Home.swift */; };
-		3B948D4829B0EA2D0013C991 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B948D4729B0EA2D0013C991 /* testView.swift */; };
-		3B948D4A29B0EA4A0013C991 /* testModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B948D4929B0EA4A0013C991 /* testModel.swift */; };
 		3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C229A6770500935AF3 /* TabButton.swift */; };
 		3B94D1C529A91EF100935AF3 /* AudioBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C429A91EF100935AF3 /* AudioBtn.swift */; };
 		3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */; };
@@ -58,6 +56,8 @@
 		3BC6E804297797C8008DA312 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E803297797C8008DA312 /* Register.swift */; };
 		3BC6E8062977AC47008DA312 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8052977AC47008DA312 /* CommonTextField.swift */; };
 		3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */; };
+		3BD74DBF29CF4603005E4DE1 /* AudioRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */; };
+		3BD74DC129CF4B02005E4DE1 /* CheckInBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD74DC029CF4B02005E4DE1 /* CheckInBtn.swift */; };
 		3BDB1DAC2997D4100083204D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DAB2997D4100083204D /* MainButton.swift */; };
 		3BDB1DB0299806180083204D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DAF299806180083204D /* TabBar.swift */; };
 		3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB129993F910083204D /* NavBarModifier.swift */; };
@@ -86,8 +86,7 @@
 		3BFF161F298FFFAE00930D9D /* ContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161E298FFFAE00930D9D /* ContactDetails.swift */; };
 		3BFF162329900B8A00930D9D /* TextFieldWithHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */; };
 		3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162429900BB200930D9D /* DefaultTextLabel.swift */; };
-		3BFF16292990113100930D9D /* ContactPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16282990113100930D9D /* ContactPickerView.swift */; };
-		3BFF162C2990165900930D9D /* ContactPickerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162B2990165900930D9D /* ContactPickerVM.swift */; };
+		3BFF162C2990165900930D9D /* ContactPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162B2990165900930D9D /* ContactPickerView.swift */; };
 		3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162F299052DA00930D9D /* ChangePIN.swift */; };
 		3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16352990566C00930D9D /* ChangePassword.swift */; };
 		3BFF16382990572300930D9D /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16372990572300930D9D /* AccountVM.swift */; };
@@ -122,8 +121,6 @@
 		3B483DCB29952625009DE38C /* CustomPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
 		3B512CF029BAAAF900F7F137 /* PinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetails.swift; sourceTree = "<group>"; };
 		3B7A7CCF297CD29D007B5F2F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		3B948D4729B0EA2D0013C991 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
-		3B948D4929B0EA4A0013C991 /* testModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testModel.swift; sourceTree = "<group>"; };
 		3B94D1C229A6770500935AF3 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		3B94D1C429A91EF100935AF3 /* AudioBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBtn.swift; sourceTree = "<group>"; };
 		3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageModifier.swift; sourceTree = "<group>"; };
@@ -143,6 +140,8 @@
 		3BC6E803297797C8008DA312 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		3BC6E8052977AC47008DA312 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
 		3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewModel.swift; sourceTree = "<group>"; };
+		3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingManager.swift; sourceTree = "<group>"; };
+		3BD74DC029CF4B02005E4DE1 /* CheckInBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInBtn.swift; sourceTree = "<group>"; };
 		3BDB1DAB2997D4100083204D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		3BDB1DAF299806180083204D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		3BDB1DB129993F910083204D /* NavBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarModifier.swift; sourceTree = "<group>"; };
@@ -168,8 +167,7 @@
 		3BFF161E298FFFAE00930D9D /* ContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetails.swift; sourceTree = "<group>"; };
 		3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithHeading.swift; sourceTree = "<group>"; };
 		3BFF162429900BB200930D9D /* DefaultTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextLabel.swift; sourceTree = "<group>"; };
-		3BFF16282990113100930D9D /* ContactPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerView.swift; sourceTree = "<group>"; };
-		3BFF162B2990165900930D9D /* ContactPickerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerVM.swift; sourceTree = "<group>"; };
+		3BFF162B2990165900930D9D /* ContactPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerView.swift; sourceTree = "<group>"; };
 		3BFF162F299052DA00930D9D /* ChangePIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePIN.swift; sourceTree = "<group>"; };
 		3BFF16352990566C00930D9D /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		3BFF16372990572300930D9D /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
@@ -228,8 +226,6 @@
 				3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */,
 				3B0849F0293D364F00FC96B9 /* Assets.xcassets */,
 				3B0849F2293D364F00FC96B9 /* Preview Content */,
-				3B948D4729B0EA2D0013C991 /* testView.swift */,
-				3B948D4929B0EA4A0013C991 /* testModel.swift */,
 			);
 			path = Guardian;
 			sourceTree = "<group>";
@@ -262,6 +258,7 @@
 				3BDB1DAB2997D4100083204D /* MainButton.swift */,
 				3B94D1C229A6770500935AF3 /* TabButton.swift */,
 				3B94D1C429A91EF100935AF3 /* AudioBtn.swift */,
+				3BD74DC029CF4B02005E4DE1 /* CheckInBtn.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -336,6 +333,7 @@
 				3B483DB32992BB9E009DE38C /* ImageExtension.swift */,
 				3B483DB52992BE4D009DE38C /* ImagePicker.swift */,
 				3B483DB92992D076009DE38C /* MessageHelper.swift */,
+				3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -395,7 +393,6 @@
 		3B3AE6802988140500DF9435 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				3BDB1DAE2997EF150083204D /* NavigationBars */,
 				3BDB1DAD2997EEC40083204D /* TextFields */,
 				3B2E94BC2989935D00EF8032 /* Buttons */,
 				3BDB1DAF299806180083204D /* TabBar.swift */,
@@ -451,13 +448,6 @@
 				3B483DC12993DA10009DE38C /* PINTextField.swift */,
 			);
 			path = TextFields;
-			sourceTree = "<group>";
-		};
-		3BDB1DAE2997EF150083204D /* NavigationBars */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NavigationBars;
 			sourceTree = "<group>";
 		};
 		3BDB1DB52999A7120083204D /* ResetPassword */ = {
@@ -546,7 +536,7 @@
 				3BFF161B298FFD7500930D9D /* ContactList.swift */,
 				3BFF1619298FF0C400930D9D /* ContactItemCell.swift */,
 				3BFF161E298FFFAE00930D9D /* ContactDetails.swift */,
-				3BFF16282990113100930D9D /* ContactPickerView.swift */,
+				3BFF162B2990165900930D9D /* ContactPickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -555,7 +545,6 @@
 			isa = PBXGroup;
 			children = (
 				3BFF1604298FE83E00930D9D /* ContactVM.swift */,
-				3BFF162B2990165900930D9D /* ContactPickerVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -697,12 +686,12 @@
 				3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */,
 				3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */,
 				3B94D1C529A91EF100935AF3 /* AudioBtn.swift in Sources */,
+				3BD74DC129CF4B02005E4DE1 /* CheckInBtn.swift in Sources */,
 				3B483DC829951598009DE38C /* MapVM.swift in Sources */,
 				3BFF15FE298E889D00930D9D /* UserAccount.swift in Sources */,
 				3BDB1DB0299806180083204D /* TabBar.swift in Sources */,
 				3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */,
 				3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */,
-				3BFF16292990113100930D9D /* ContactPickerView.swift in Sources */,
 				3BFF161C298FFD7500930D9D /* ContactList.swift in Sources */,
 				3B2E94C22989944800EF8032 /* CommonButton.swift in Sources */,
 				3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */,
@@ -714,14 +703,12 @@
 				3BFF1608298FE92A00930D9D /* EmergencyContact.swift in Sources */,
 				3B2E94CC298ADD7500EF8032 /* ResetPassword.swift in Sources */,
 				3BFF15EB298C189800930D9D /* RegisterDetails.swift in Sources */,
-				3B948D4829B0EA2D0013C991 /* testView.swift in Sources */,
 				3BFF1610298FED8300930D9D /* User.swift in Sources */,
 				3BC2663729B6BA6B00726035 /* CheckInTimeSet.swift in Sources */,
 				3BAC045C29BA01C100F47CA6 /* UnsafeReportView.swift in Sources */,
 				3BDB1DB42999A2230083204D /* LoginEmailViewModel.swift in Sources */,
 				3BFF15FB298D785200930D9D /* SessionService.swift in Sources */,
 				3B483DBA2992D076009DE38C /* MessageHelper.swift in Sources */,
-				3B948D4A29B0EA4A0013C991 /* testModel.swift in Sources */,
 				3B2E94BB2989824E00EF8032 /* PreviewLayoutModifier.swift in Sources */,
 				3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */,
 				3BC6E8062977AC47008DA312 /* CommonTextField.swift in Sources */,
@@ -732,13 +719,14 @@
 				3BC6E8022977974B008DA312 /* LoginPhone.swift in Sources */,
 				3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */,
 				3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */,
+				3BD74DBF29CF4603005E4DE1 /* AudioRecordingManager.swift in Sources */,
 				3BAC046029BA086500F47CA6 /* chevronRightBtn.swift in Sources */,
 				3B2E94C629899FE800EF8032 /* LoginEmail.swift in Sources */,
 				3B483DC42993E432009DE38C /* PINModifier.swift in Sources */,
 				3B99F85F297B5BCF0011B8E9 /* FirstPage.swift in Sources */,
 				3B483DB42992BB9E009DE38C /* ImageExtension.swift in Sources */,
 				3BFF161F298FFFAE00930D9D /* ContactDetails.swift in Sources */,
-				3BFF162C2990165900930D9D /* ContactPickerVM.swift in Sources */,
+				3BFF162C2990165900930D9D /* ContactPickerView.swift in Sources */,
 				3B483DC22993DA10009DE38C /* PINTextField.swift in Sources */,
 				3B3AE68A29881CBF00DF9435 /* SharedMethods.swift in Sources */,
 			);

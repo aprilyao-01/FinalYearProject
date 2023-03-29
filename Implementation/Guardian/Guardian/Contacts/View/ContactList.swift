@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContactList: View {
     @StateObject var contactVM: ContactVM
-    @State var showContactDetailsView: Bool = false
-    @State var selectedContactItem: EmergencyContact = EmergencyContact(contactName: "", isEmergencyContact: false, phoneNo: "", profileImage: "")
+    @Binding var showContactDetailsView: Bool
+    @Binding var selectedContactItem: EmergencyContact
     
     var body: some View {
         VStack{
@@ -35,7 +35,7 @@ struct ContactList: View {
 
 struct contactList_Previews: PreviewProvider {
     static var previews: some View {
-        ContactList(contactVM: ContactVM())
+        ContactList(contactVM: ContactVM(), showContactDetailsView: .constant(false), selectedContactItem: .constant(EmergencyContact(contactName: "", isEmergencyContact: false, phoneNo: "", profileImage: "")))
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  AudioVideoBtn.swift
+//  AudioBtn.swift
 //  Guardian
 //
 //  Created by Siyu Yao on 24/02/2023.
@@ -30,13 +30,6 @@ struct AudioBtn: View {
     
     var body: some View {
         ZStack {
-//            Toggle(isOn: $is_active){
-//                Label(buttonName, systemImage: is_active ? img_on : img_off)
-//            }
-//                .toggleStyle(.button)
-//                .foregroundColor(Color("main"))
-//                .frame(width: 100, height: 40)
-//
             //MARK: background
             Circle()
                 .foregroundColor(Color("lightMain").opacity(is_active ? 0.4 : 0.2))
@@ -67,7 +60,7 @@ struct AudioBtn: View {
     }
 }
 
-struct AudioVideoBtn_Previews: PreviewProvider {
+struct AudioBtn_Previews: PreviewProvider {
     static var previews: some View {
         AudioBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
             .preview(with: "Audio button")

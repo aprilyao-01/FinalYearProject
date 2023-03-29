@@ -16,7 +16,7 @@ struct PINModifier: ViewModifier {
             .font(.system(size: 25, design: .rounded))
             .frame(width: 60, height: 60, alignment: .center)
             .multilineTextAlignment(.center)
-            .background(isFocus ? .gray.opacity(0.2) : .gray.opacity(0.5))
+            .background(isFocus ? .gray.opacity(0.2) : .gray.opacity(0.4))
             .cornerRadius(10)
             .keyboardType(.numberPad)
             .focused($isFocus)

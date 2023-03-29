@@ -6,8 +6,10 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+
 protocol ContactViewModel {
     func addContact()
     func fetchContact()
@@ -18,23 +20,32 @@ protocol ContactViewModel {
 class ContactVM: ObservableObject, ContactViewModel {
     @Published var selectedContacts: [EmergencyContact] = []
     @Published var fetchedContactList: [EmergencyContact] = []
+    @Published var contactAddErrorMessage: String = ""
     
     // database reference
     let ref: DatabaseReference! = Database.database().reference()
-//    let activityIndicator = Loading()
     let activityIndicator = ActivityIndicator()
-    // TODO: replace this loading
-//    @Published var isLoading: Bool = false
     
     
     func addContact() {
+        // avoid repeat contacts
+        var contactsNotAdded: [String] = []
+        
         do{
             let currentUID = Auth.auth().currentUser!.uid
             for item in selectedContacts{
-                //This block of code used to convert object models to json string
-                let jsonData = try JSONEncoder().encode(item)
-                let jsonString = String(data: jsonData, encoding: .utf8)!
-                ref.child("contact").child(currentUID).child(item.id).setValue(SharedMethods().jsonToDictionary(from: jsonString))
+                let existingContacts = fetchedContactList.filter({$0.phoneNo == item.phoneNo})
+                if existingContacts.count == 0{
+                    //This block of code used to convert object models to json string
+                    let jsonData = try JSONEncoder().encode(item)
+                    let jsonString = String(data: jsonData, encoding: .utf8)!
+                    ref.child("contact").child(currentUID).child(item.id).setValue(SharedMethods().jsonToDictionary(from: jsonString))
+                }else{
+                    contactsNotAdded.append(item.phoneNo)
+                }
+            }
+            if contactsNotAdded.count > 0{
+                contactAddErrorMessage = "Following phone number/s were not added as they already exists.\n\(contactsNotAdded.joined(separator: ", "))"
             }
         }catch{
             print("ContactVM: cannot add contact\n %s", error)
@@ -42,10 +53,9 @@ class ContactVM: ObservableObject, ContactViewModel {
     }
     
     func fetchContact() {
+        //MARK: loading
         DispatchQueue.main.async{
-//            self.activityIndicator.isAnimating = true
             self.activityIndicator.showActivityIndicator()
-
         }
         
         var currentUID : String
@@ -59,7 +69,6 @@ class ContactVM: ObservableObject, ContactViewModel {
             
             _ = ref.child("contact").child(currentUID).observe(DataEventType.value, with: { snapshot in
                 let value = snapshot.value as? NSDictionary
-    //            let contactItemList = contactList?[SettingsStore().currentUserId] as? NSDictionary
                 
                 let contactListArray = value?.allValues
                 do {
@@ -70,9 +79,9 @@ class ContactVM: ObservableObject, ContactViewModel {
                     let decodedContacts = try decoder.decode([EmergencyContact].self, from: json)
                     self.fetchedContactList = decodedContacts
                     
-                    print(self.fetchedContactList)
+//                    print(self.fetchedContactList)
+                    //MARK: dismiss loading
                     DispatchQueue.main.async{
-    //                    self.activityIndicator.isAnimating = false
                         self.activityIndicator.hideActivityIndicator()
                     }
                 } catch {

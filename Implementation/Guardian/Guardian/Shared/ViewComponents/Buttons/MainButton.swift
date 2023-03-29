@@ -17,6 +17,7 @@ struct MainButton: View {
     var fontSize: CGFloat
     var action: () -> Void
     var onPressEnded: () -> Void
+    var onPressStarted: () -> Void
     
     internal init(buttonName: String,
                   radius: CGFloat = 150,
@@ -25,7 +26,8 @@ struct MainButton: View {
                   fontColor: Color = .white,
                   fontSize: CGFloat = 23,
                   action: @escaping () -> Void,
-                  onPressEnded: @escaping () -> Void) {
+                  onPressEnded: @escaping () -> Void,
+                  onPressStarted: @escaping () -> Void) {
         self.buttonName = buttonName
         self.radius = radius
         self.backgroundColour1 = backgroundColour1
@@ -34,6 +36,7 @@ struct MainButton: View {
         self.fontSize = fontSize
         self.action = action
         self.onPressEnded = onPressEnded
+        self.onPressStarted = onPressStarted
     }
 
     var body: some View {
@@ -74,6 +77,8 @@ struct MainButton: View {
             } onPressingChanged: { inProgress in
                 if !inProgress{
                     onPressEnded()
+                }else{
+                    onPressStarted()
                 }
             }
         }
@@ -82,7 +87,8 @@ struct MainButton: View {
 
 struct MainButton_Previews: PreviewProvider {
     static var previews: some View {
-        MainButton(buttonName: "SOS", action: {}, onPressEnded: {}).preview(with: "Main function button, release to send help")
+        MainButton(buttonName: "SOS", action: {}, onPressEnded: {}, onPressStarted: {})
+            .preview(with: "Main function button, release to send help")
     }
 }
 

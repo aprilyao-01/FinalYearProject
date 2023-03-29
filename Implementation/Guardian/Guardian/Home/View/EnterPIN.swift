@@ -19,6 +19,7 @@ struct EnterPIN: View {
     @ObservedObject var homeVM : HomeVM
     @ObservedObject var locationManager: MapVM
     @StateObject var contactVM: ContactVM
+    @StateObject var accountVM: AccountVM
     
     var userName: String
     
@@ -57,7 +58,7 @@ struct EnterPIN: View {
             Spacer()
             
             CommonButton(buttonName: "Confirm Cancel", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 200, action: {
-                homeVM.cancelTimer(PIN: "\(pin1)\(pin2)\(pin3)\(pin4)")
+                homeVM.cancelTimer(userEnteredPIN: "\(pin1)\(pin2)\(pin3)\(pin4)", actualPIN: accountVM.currentUser.PIN)
                 pin1 = ""
                 pin2 = ""
                 pin3 = ""
@@ -84,6 +85,6 @@ struct EnterPIN: View {
 
 struct EnterPIN_Previews: PreviewProvider {
     static var previews: some View {
-        EnterPIN(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM(), userName: "")
+        EnterPIN(homeVM: HomeVM(), locationManager: MapVM(), contactVM: ContactVM(), accountVM: AccountVM(), userName: "")
     }
 }

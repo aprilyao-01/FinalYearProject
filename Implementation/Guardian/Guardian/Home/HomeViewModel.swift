@@ -15,6 +15,29 @@ enum AlertCancelationViewType{
     case alertCancelationConfView
 }
 
+enum CustomTimerTypes: Int, CaseIterable{
+    case min15 = 15
+    case min30 = 30
+    case min45 = 45
+    case min60 = 60
+    
+    var name: String{
+        get{
+            switch self {
+            case .min15:
+                return "15 min"
+            case .min30:
+                return "30 min"
+            case .min45:
+                return "45 min"
+            case .min60:
+                return "60 min"
+            }
+        }
+        
+    }
+}
+
 protocol HomeViewModel {
     var timer:  Publishers.Autoconnect<Timer.TimerPublisher> { get }
     var timerVal: Int { get }
@@ -24,7 +47,7 @@ protocol HomeViewModel {
     var showMessageUI: Bool { get }
     
     func getHelpButtonTapped()
-    func cancelTimer(PIN: String)
+    func cancelTimer(userEnteredPIN: String,actualPIN: String)
     func endTimer()
     func sendEmergencyMessage(userName: String, coordinate: CLLocationCoordinate2D?,contactList: [EmergencyContact])
     
@@ -39,6 +62,11 @@ class HomeVM: ObservableObject, HomeViewModel {
     @Published var showAlertCancelView: Bool = false
     @Published var showMessageUI: Bool = false
     @Published var remainingRetryCount: Int = 3
+    @Published var arManager = AudioRecordingManager.shared()
+    
+    // MARK: check in Properties
+    var checkInTimer = Timer()
+    @Published var checkInTimerVal: Int = 0
     
     //MARK: action for get help button
     func getHelpButtonTapped(){
@@ -53,12 +81,12 @@ class HomeVM: ObservableObject, HomeViewModel {
     }
     
     //MARK: cancel button action in PIN confirmation view
-    func cancelTimer(PIN: String){
+    func cancelTimer(userEnteredPIN: String,actualPIN: String){
         if remainingRetryCount == 0{
             SharedMethods.showMessage("Error", message: "Please try again later", onVC: UIApplication.topViewController())
         }else{
             //check whether PIN is valid
-            if SettingsStore.shared().appPIN == PIN{
+            if actualPIN == userEnteredPIN{
                 timer.upstream.connect().cancel()
                 showAlertCancelView.toggle()
             }else{
@@ -79,7 +107,28 @@ class HomeVM: ObservableObject, HomeViewModel {
         endTimer()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             let contacts = contactList.filter({$0.isEmergencyContact}).map({$0.phoneNo})
-            MessageHelper.shared.sendMessage(recipients: contacts, body: "Emergency alert from \(userName) in: \nLongitude:\(coordinate?.longitude ?? -1)\nLatitude:\(coordinate?.latitude ?? -1)\n need your help.")
+            MessageHelper.shared.sendMessage(recipients: contacts, body: "Emergency alert from \(userName) in: \nLongitude:\(coordinate?.longitude ?? -1)\nLatitude:\(coordinate?.latitude ?? -1)\nneed your help.")
+        }
+    }
+    
+    func startCheckinTimer(){
+        checkInTimer.invalidate() // just in case this button is tapped multiple times
+        
+        // start the timer
+        checkInTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(checkInTimerAction), userInfo: nil, repeats: true)
+    }
+   
+    func endCheckinTimer(){
+        checkInTimer.invalidate()
+        
+    }
+    
+    // Timer.scheduledTimer needs Objective-C selector
+    @objc func checkInTimerAction() {
+        if checkInTimerVal > 0 {
+            checkInTimerVal -= 1
+        }else{
+            endCheckinTimer()
         }
     }
 }
