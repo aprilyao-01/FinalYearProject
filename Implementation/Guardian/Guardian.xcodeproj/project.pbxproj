@@ -343,6 +343,7 @@
 				3B2E94B92989822A00EF8032 /* ViewModifier */,
 				3B3AE6802988140500DF9435 /* ViewComponents */,
 				3B3AE68929881CBF00DF9435 /* SharedMethods.swift */,
+				3BDB1DAF299806180083204D /* TabBar.swift */,
 				3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */,
 				3B483DB32992BB9E009DE38C /* ImageExtension.swift */,
 				3B483DB52992BE4D009DE38C /* ImagePicker.swift */,
@@ -410,7 +411,6 @@
 			children = (
 				3BDB1DAD2997EEC40083204D /* TextFields */,
 				3B2E94BC2989935D00EF8032 /* Buttons */,
-				3BDB1DAF299806180083204D /* TabBar.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -890,7 +890,6 @@
 				INFOPLIST_KEY_NSContactsUsageDescription = "This app use your contacts to send emergency messages.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -923,7 +922,6 @@
 				INFOPLIST_KEY_NSContactsUsageDescription = "This app use your contacts to send emergency messages.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find you.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

@@ -42,7 +42,7 @@ struct MapView: View {
                             .foregroundColor(Color("main").opacity(0.8))
                     }
             }
-            .padding(.bottom, 700)
+            .padding(.bottom, 660)
             .padding(.leading, 300)
             
             Menu{
@@ -81,15 +81,16 @@ struct MapView: View {
             .padding(.top, 600)
         }
         .fullScreenCover(isPresented: $showMissing, content: {
-            MissingReportView(pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude), mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude),span: MapDetails.span))
+            MissingReportView(pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation?.coordinate.latitude ?? MapDetails.startingLocation.latitude, longitude: mapVM.userLocation?.coordinate.longitude ?? MapDetails.startingLocation.longitude), mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation?.coordinate.latitude ?? MapDetails.startingLocation.latitude, longitude: mapVM.userLocation?.coordinate.longitude ?? MapDetails.startingLocation.longitude),span: MapDetails.span))
         })
-        .sheet(isPresented: $showUnsafe, content: {UnsafeReportView(mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude),span: MapDetails.span), pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude))})
+        .sheet(isPresented: $showUnsafe, content: {UnsafeReportView(mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation?.coordinate.latitude ?? MapDetails.startingLocation.latitude, longitude: mapVM.userLocation?.coordinate.longitude ?? MapDetails.startingLocation.longitude),span: MapDetails.span), pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation?.coordinate.latitude ?? MapDetails.startingLocation.latitude, longitude: mapVM.userLocation?.coordinate.longitude ?? MapDetails.startingLocation.longitude))})
     }
 }
 
 struct Map_Previews: PreviewProvider {
     static var previews: some View {
         MapView()
+            .environmentObject(MapVM())
             .preview(with: "Map")
     }
 }

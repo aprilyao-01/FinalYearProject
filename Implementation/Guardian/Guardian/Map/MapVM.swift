@@ -143,28 +143,29 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
         checkLocationAuthorisation()
     }
     
+    // required delegate method
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            self.userLocation = location
+
+            if annotations.isEmpty {
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = location.coordinate
+                annotations.append(annotation)
+            }
+
+            if !hasSetRegion {
+                self.region = MKCoordinateRegion(center: location.coordinate,
+                                                 span: MapDetails.span)
+                hasSetRegion = true
+            }
+        }
+    }
     
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.last {
-//            self.userLocation = location
-//
-//            if annotations.isEmpty {
-//                let annotation = MKPointAnnotation()
-//                annotation.coordinate = location.coordinate
-//                annotations.append(annotation)
-//            }
-//
-//            if !hasSetRegion {
-//                self.region = MKCoordinateRegion(center: location.coordinate,
-//                                                 span: MapDetails.span)
-//                hasSetRegion = true
-//            }
-//        }
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-//        print("MapVM: locationManager error: %s", error)
-//    }
+    // required delegate method
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("MapVM: locationManager error: %s", error)
+    }
     
     func addReportItem(reportType:Int,locLong: Double,locLat: Double,missingPersonGender: String = "", missingPersonName: String = "", missingPersonAge: String = "", missingPersonWornCloths: String = "", missingPersonImage: String = "") {
         DispatchQueue.main.async{

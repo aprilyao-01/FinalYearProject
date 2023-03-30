@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TabBar: View {
-    @State var current = "Map"
+    @State var current = "Home"
     @StateObject var sessionService = SessionServiceImpl()
     
     var body: some View {
