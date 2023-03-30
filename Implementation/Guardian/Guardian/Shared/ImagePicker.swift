@@ -14,6 +14,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Binding var sourceType: UIImagePickerController.SourceType
     @Binding var fileName: String?
+    @Binding var showingImagePicker: Bool
     
     func makeCoordinator() -> UIImagePickerCoordinator {
         return UIImagePickerCoordinator(self, image: $image, fileName: $fileName)

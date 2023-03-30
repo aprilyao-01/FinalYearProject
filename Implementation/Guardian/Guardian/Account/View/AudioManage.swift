@@ -8,8 +8,29 @@
 import SwiftUI
 
 struct AudioManage: View {
+    @ObservedObject var arManager = AudioRecordingManager.shared()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView(showsIndicators: false){
+                ForEach(arManager.recordingsList, id: \.createdAt) { recording in
+                    AudioCell(arManager: arManager, recording: recording)
+                }
+            }
+            
+        }
+        .padding(.top,30)
+        .padding(.horizontal,15)
+        .navigationBarTitle("Recordings")
+        .onAppear(){
+            arManager.downloadRecordingsFromFirebase()
+        }
+        .onDisappear(){
+            if arManager.audioPlayer != nil{
+                arManager.audioPlayer.stop()
+            }
+            
+        }
     }
 }
 

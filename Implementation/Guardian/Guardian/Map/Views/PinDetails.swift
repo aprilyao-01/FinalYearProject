@@ -7,47 +7,22 @@
 
 import SwiftUI
 
-enum Report {
-    case Unsafe
-    case PoorLight
-    case Restricted
-    case Missing
-}
 
 struct PinDetails: View {
     
-    var reportDistance: Float
-    var reportType: Report
-    var reportNumber: Int
-    var timeFrame: String
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State var reportDistance: Float
+    @State var reportType: Report
+    @State var reportNumber: Int
+    @State var timeFrame: String
     
     // MARK: diff type with diff img and title
-    var imgName: String = ""
-    var title: String = ""
-    
-    internal init(reportDistance: Float, reportType: Report, reportNumber: Int, timeFrame: String, imgName: String = "", title: String = "") {
-        self.reportDistance = reportDistance
-        self.reportType = reportType
-        self.reportNumber = reportNumber
-        self.timeFrame = timeFrame
-        
-        // deter info based on type
-        switch reportType {
-        case .Unsafe:
-            self.imgName = "xmark.shield.fill"
-            self.title = "Feels Unsafe"
-        case .PoorLight:
-            self.imgName = "lightbulb.fill"
-            self.title = "Poor Lighting"
-        case .Restricted:
-            self.imgName = "hand.raised.slash.fill"
-            self.title = "Restricted Access"
-        case .Missing:
-            self.imgName = "person.fill.questionmark.rtl"
-            self.title = "Missing Person"
-        }
-        
-    }
+    @State var imgName: String = ""
+    @State var title: String = ""
+    @Binding var showPlaceDetails: Bool
+    @StateObject var mapVM: MapVM
+    @ObservedObject var annotationItem: ReportItem
     
     var body: some View {
         ZStack {
@@ -68,7 +43,7 @@ struct PinDetails: View {
                         .font(.title2))
                     
                     Button {
-                       // TODO: dismiss
+                        showPlaceDetails.toggle()
                     } label: {
                         Image(systemName: "xmark")
                             .font(.title3.bold())
@@ -118,12 +93,32 @@ struct PinDetails: View {
                 .padding(.top, 270)
             
         }
+        .onAppear(){
+            setUIData()
+        }
+    }
+    
+    func setUIData(){
+        switch reportType {
+        case .Unsafe:
+            imgName = "xmark.shield.fill"
+            title = "Feels Unsafe"
+        case .PoorLight:
+            imgName = "lightbulb.fill"
+            title = "Poor Lighting"
+        case .Restricted:
+            imgName = "hand.raised.slash.fill"
+            title = "Restricted Access"
+        case .Missing:
+            imgName = "person.fill.questionmark.rtl"
+            title = "Missing Person"
+        }
     }
 }
 
 struct PinDetails_Previews: PreviewProvider {
     static var previews: some View {
-        PinDetails( reportDistance: 48.9, reportType: Report.Unsafe, reportNumber: 2, timeFrame: "March - 03")
+        PinDetails(reportDistance: 48.9, reportType: Report.Unsafe, reportNumber: 2, timeFrame: "March - 03", showPlaceDetails: .constant(true), mapVM: MapVM(), annotationItem: ReportItem(reportType: 0, locLongitude: 53.2345, locLatitude: 2.3456, reportedTime: "21-03-2023", reportedBy: "by", deleteRequestedBy: [], missingPersonGender: "F", missingPersonName: "Bob", missingPersonAge: "8", missingPersonWornCloths: "white cloth", missingPersonImage: "", reportingConfirmedByUsers: []))
             .preview(with: "Example Pin")
     }
 }

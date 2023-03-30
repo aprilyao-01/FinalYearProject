@@ -17,14 +17,21 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $mapVM.region, showsUserLocation: true, userTrackingMode: $trackingMode)
-                .ignoresSafeArea()
-                .accentColor(Color("mainRed"))
-                .onAppear{ mapVM.checkLocationServicesisEnable()
+            Map(coordinateRegion: $mapVM.region, showsUserLocation: true, annotationItems: mapVM.fetchedReportedItemList) { annotation in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: annotation.locLatitude, longitude: annotation.locLongitude) ){
+                    CustomAnnotation(currentLocation: mapVM.userLocation ?? CLLocation(latitude: 52.952082, longitude: -1.185445), mapVM: mapVM,annotationItem: annotation)
                 }
+            }
+            .ignoresSafeArea()
+            .accentColor(Color("mainRed"))
+            .onAppear{
+                mapVM.checkLocationServicesisEnable()
+                mapVM.fetchReportedItems()
+            }
             
             Button {
                 // back to userlocation as center
+                mapVM.reloadCurrentLocation()
             } label: {
                 Image(systemName: "mappin.and.ellipse")
                     .font(.system(size: 30))
@@ -72,17 +79,17 @@ struct MapView: View {
                 .cornerRadius(15)
             }
             .padding(.top, 600)
-            
-            // MARK: navigation links
-            NavigationLink ("", destination: MissingReportView(), isActive: $showMissing)
-//            NavigationLink ("", destination: UnsafeReportView(), isActive: $showUnsafe)
         }
-        .sheet(isPresented: $showUnsafe, content: {UnsafeReportView()})
+        .fullScreenCover(isPresented: $showMissing, content: {
+            MissingReportView(pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude), mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude),span: MapDetails.span))
+        })
+        .sheet(isPresented: $showUnsafe, content: {UnsafeReportView(mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude),span: MapDetails.span), pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation!.coordinate.latitude, longitude: mapVM.userLocation!.coordinate.longitude))})
     }
 }
 
 struct Map_Previews: PreviewProvider {
     static var previews: some View {
-        MapView().preview(with: "Map")
+        MapView()
+            .preview(with: "Map")
     }
 }

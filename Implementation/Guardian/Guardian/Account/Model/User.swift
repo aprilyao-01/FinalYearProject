@@ -12,7 +12,6 @@ struct User: Codable,Hashable{
     var userName: String
     var fullName: String
     var phoneNo: String
-    var password: String
     var PIN: String
     var userImage: String
 }

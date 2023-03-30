@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B024DC629D4FCAC00F66347 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DC529D4FCAC00F66347 /* AudioCell.swift */; };
+		3B024DC929D5071300F66347 /* ReportItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DC829D5071300F66347 /* ReportItem.swift */; };
+		3B024DCB29D50C1C00F66347 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DCA29D50C1C00F66347 /* Constants.swift */; };
+		3B024DCD29D5964C00F66347 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DCC29D5964C00F66347 /* CustomAnnotation.swift */; };
+		3B024DCF29D5974E00F66347 /* MissingPinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DCE29D5974E00F66347 /* MissingPinDetails.swift */; };
+		3B024DD129D59CD700F66347 /* SelectLocationOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DD029D59CD700F66347 /* SelectLocationOnMap.swift */; };
 		3B0849ED293D364E00FC96B9 /* GuardianApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0849EC293D364E00FC96B9 /* GuardianApp.swift */; };
 		3B0849EF293D364E00FC96B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0849EE293D364E00FC96B9 /* ContentView.swift */; };
 		3B0849F1293D364F00FC96B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0849F0293D364F00FC96B9 /* Assets.xcassets */; };
@@ -44,7 +50,6 @@
 		3B99F863297B86AD0011B8E9 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 3B99F862297B86AD0011B8E9 /* AlertToast */; };
 		3BAC045A29B8D51E00F47CA6 /* MissingReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045929B8D51E00F47CA6 /* MissingReportView.swift */; };
 		3BAC045C29BA01C100F47CA6 /* UnsafeReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */; };
-		3BAC045E29BA085800F47CA6 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045D29BA085800F47CA6 /* SettingsStore.swift */; };
 		3BAC046029BA086500F47CA6 /* chevronRightBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */; };
 		3BAC046729BA1AD800F47CA6 /* AudioManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC046629BA1AD800F47CA6 /* AudioManage.swift */; };
 		3BC2663729B6BA6B00726035 /* CheckInTimeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */; };
@@ -76,7 +81,6 @@
 		3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1602298ED2FD00930D9D /* LoginService.swift */; };
 		3BFF1605298FE83E00930D9D /* ContactVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1604298FE83E00930D9D /* ContactVM.swift */; };
 		3BFF1608298FE92A00930D9D /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1607298FE92A00930D9D /* EmergencyContact.swift */; };
-		3BFF160A298FEAC600930D9D /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1609298FEAC600930D9D /* Loading.swift */; };
 		3BFF160E298FEC8500930D9D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */; };
 		3BFF1610298FED8300930D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF160F298FED8300930D9D /* User.swift */; };
 		3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1613298FEDE600930D9D /* Contacts.swift */; };
@@ -93,6 +97,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B024DC529D4FCAC00F66347 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
+		3B024DC829D5071300F66347 /* ReportItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItem.swift; sourceTree = "<group>"; };
+		3B024DCA29D50C1C00F66347 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3B024DCC29D5964C00F66347 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		3B024DCE29D5974E00F66347 /* MissingPinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingPinDetails.swift; sourceTree = "<group>"; };
+		3B024DD029D59CD700F66347 /* SelectLocationOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationOnMap.swift; sourceTree = "<group>"; };
 		3B0849E9293D364E00FC96B9 /* Guardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0849EC293D364E00FC96B9 /* GuardianApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianApp.swift; sourceTree = "<group>"; };
 		3B0849EE293D364E00FC96B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -130,7 +140,6 @@
 		3B99F85E297B5BCF0011B8E9 /* FirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPage.swift; sourceTree = "<group>"; };
 		3BAC045929B8D51E00F47CA6 /* MissingReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingReportView.swift; sourceTree = "<group>"; };
 		3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeReportView.swift; sourceTree = "<group>"; };
-		3BAC045D29BA085800F47CA6 /* SettingsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
 		3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chevronRightBtn.swift; sourceTree = "<group>"; };
 		3BAC046629BA1AD800F47CA6 /* AudioManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManage.swift; sourceTree = "<group>"; };
 		3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeSet.swift; sourceTree = "<group>"; };
@@ -157,7 +166,6 @@
 		3BFF1602298ED2FD00930D9D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3BFF1604298FE83E00930D9D /* ContactVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVM.swift; sourceTree = "<group>"; };
 		3BFF1607298FE92A00930D9D /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
-		3BFF1609298FEAC600930D9D /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		3BFF160F298FED8300930D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3BFF1613298FEDE600930D9D /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
@@ -193,6 +201,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B024DC729D5070600F66347 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B024DC829D5071300F66347 /* ReportItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3B0849E0293D364E00FC96B9 = {
 			isa = PBXGroup;
 			children = (
@@ -326,14 +342,13 @@
 			children = (
 				3B2E94B92989822A00EF8032 /* ViewModifier */,
 				3B3AE6802988140500DF9435 /* ViewComponents */,
-				3BFF1609298FEAC600930D9D /* Loading.swift */,
 				3B3AE68929881CBF00DF9435 /* SharedMethods.swift */,
-				3BAC045D29BA085800F47CA6 /* SettingsStore.swift */,
 				3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */,
 				3B483DB32992BB9E009DE38C /* ImageExtension.swift */,
 				3B483DB52992BE4D009DE38C /* ImagePicker.swift */,
 				3B483DB92992D076009DE38C /* MessageHelper.swift */,
 				3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */,
+				3B024DCA29D50C1C00F66347 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -421,6 +436,7 @@
 		3BDB1DA92997D23F0083204D /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				3B024DC729D5070600F66347 /* Model */,
 				3B483DC729951598009DE38C /* MapVM.swift */,
 				3BDB1DAA2997D24E0083204D /* Views */,
 			);
@@ -435,6 +451,9 @@
 				3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */,
 				3B483DCB29952625009DE38C /* CustomPin.swift */,
 				3B512CF029BAAAF900F7F137 /* PinDetails.swift */,
+				3B024DCC29D5964C00F66347 /* CustomAnnotation.swift */,
+				3B024DCE29D5974E00F66347 /* MissingPinDetails.swift */,
+				3B024DD029D59CD700F66347 /* SelectLocationOnMap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -501,6 +520,7 @@
 				3BFF162F299052DA00930D9D /* ChangePIN.swift */,
 				3BFF16352990566C00930D9D /* ChangePassword.swift */,
 				3BAC046629BA1AD800F47CA6 /* AudioManage.swift */,
+				3B024DC529D4FCAC00F66347 /* AudioCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -662,7 +682,6 @@
 				3BFF15ED298C1C2500930D9D /* RegisterService.swift in Sources */,
 				3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */,
 				3BFF1618298FEFCD00930D9D /* ProfileImage.swift in Sources */,
-				3BAC045E29BA085800F47CA6 /* SettingsStore.swift in Sources */,
 				3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */,
 				3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */,
 				3BFF16382990572300930D9D /* AccountVM.swift in Sources */,
@@ -671,13 +690,14 @@
 				3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */,
 				3B483DCC29952625009DE38C /* CustomPin.swift in Sources */,
 				3BC6E804297797C8008DA312 /* Register.swift in Sources */,
+				3B024DCF29D5974E00F66347 /* MissingPinDetails.swift in Sources */,
 				3BAC045A29B8D51E00F47CA6 /* MissingReportView.swift in Sources */,
 				3B483DC02993D993009DE38C /* EnterPIN.swift in Sources */,
 				3BFF162329900B8A00930D9D /* TextFieldWithHeading.swift in Sources */,
 				3BFF15F9298D775400930D9D /* SessionUserDetails.swift in Sources */,
 				3BFF1601298E994800930D9D /* LoginCredentials.swift in Sources */,
-				3BFF160A298FEAC600930D9D /* Loading.swift in Sources */,
 				3B3AE671298428A000DF9435 /* RegisterViewModel.swift in Sources */,
+				3B024DC629D4FCAC00F66347 /* AudioCell.swift in Sources */,
 				3BAC046729BA1AD800F47CA6 /* AudioManage.swift in Sources */,
 				3B483DBE2993D5B7009DE38C /* AlertCountDown.swift in Sources */,
 				3B2E94CA298AD58A00EF8032 /* CreatePIN.swift in Sources */,
@@ -685,13 +705,16 @@
 				3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */,
 				3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */,
 				3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */,
+				3B024DC929D5071300F66347 /* ReportItem.swift in Sources */,
 				3B94D1C529A91EF100935AF3 /* AudioBtn.swift in Sources */,
 				3BD74DC129CF4B02005E4DE1 /* CheckInBtn.swift in Sources */,
+				3B024DD129D59CD700F66347 /* SelectLocationOnMap.swift in Sources */,
 				3B483DC829951598009DE38C /* MapVM.swift in Sources */,
 				3BFF15FE298E889D00930D9D /* UserAccount.swift in Sources */,
 				3BDB1DB0299806180083204D /* TabBar.swift in Sources */,
 				3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */,
 				3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */,
+				3B024DCB29D50C1C00F66347 /* Constants.swift in Sources */,
 				3BFF161C298FFD7500930D9D /* ContactList.swift in Sources */,
 				3B2E94C22989944800EF8032 /* CommonButton.swift in Sources */,
 				3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */,
@@ -716,6 +739,7 @@
 				3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */,
 				3B0849ED293D364E00FC96B9 /* GuardianApp.swift in Sources */,
 				3BFF1605298FE83E00930D9D /* ContactVM.swift in Sources */,
+				3B024DCD29D5964C00F66347 /* CustomAnnotation.swift in Sources */,
 				3BC6E8022977974B008DA312 /* LoginPhone.swift in Sources */,
 				3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */,
 				3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */,

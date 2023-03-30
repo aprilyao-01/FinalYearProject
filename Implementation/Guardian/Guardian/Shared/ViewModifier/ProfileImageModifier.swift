@@ -29,7 +29,7 @@ struct ProfileImageModifier: ViewModifier {
                 })
             }
             .sheet(isPresented: $showingImagePicker) {
-                ImagePicker(image: $profileVM.fetchedImage, sourceType: $sourceType, fileName: $fetchedImageName)
+                ImagePicker(image: $profileVM.fetchedImage, sourceType: $sourceType, fileName: $fetchedImageName, showingImagePicker: $showingImagePicker)
             }
     }
     

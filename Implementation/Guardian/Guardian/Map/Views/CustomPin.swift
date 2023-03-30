@@ -10,27 +10,23 @@ import SwiftUI
 
 struct CustomPin: View {
     
-    var pinImg: String
+    @Binding var pinImg: String
     var color: Color
     var width: CGFloat
     var height: CGFloat
     
     var body: some View {
         Image(systemName: pinImg)
-        .foregroundColor(color)
-        .frame(width: 40, height: 40)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .foregroundColor(color)
+            .frame(width: width, height: height)
     }
 }
 
-extension MKPointAnnotation {
-    static func createAnnotationView(pinImg: String? = "mappin.and.ellipse",
-                                      pinColor: Color? = Color("mainRed"),
-                                      width: CGFloat? = 20,
-                                      height: CGFloat? = 20) -> some View {
-        CustomPin(pinImg: pinImg ?? "mappin.and.ellipse",
-                  color: pinColor ?? Color("mainRed"),
-                  width: width ?? 20,
-                  height: height ?? 20)
+struct CustomPin_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomPin(pinImg: .constant(""), color: .white, width: 40, height: 40)
     }
 }
 
