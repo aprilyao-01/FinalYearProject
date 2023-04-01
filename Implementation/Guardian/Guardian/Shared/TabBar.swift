@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     @State var current = "Home"
-    @StateObject var sessionService = SessionServiceImpl()
+    @StateObject var sessionService = SessionServiceImpl(authSignOut: FirebaseAuthWrapper())
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {

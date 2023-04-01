@@ -21,6 +21,18 @@ protocol SessionService {
     func logout()
 }
 
+// warpper, to easy implement unit testing for login()
+protocol AuthSignOut {
+    func signOut() throws
+}
+
+class FirebaseAuthWrapper: AuthSignOut {
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+}
+
+
 final class SessionServiceImpl: ObservableObject, SessionService {
     
     @Published var state: SessionState = .loggedOut
@@ -28,12 +40,16 @@ final class SessionServiceImpl: ObservableObject, SessionService {
     
     private var handler: AuthStateDidChangeListenerHandle?
     
-    init(){
+    //warpper, to easy implement unit testing
+    private let authSignOut: AuthSignOut
+
+    init(authSignOut: AuthSignOut) {
+        self.authSignOut = authSignOut
         setupFirebaseAuthHandler()
     }
     
     func logout() {
-        try? Auth.auth().signOut()
+        try? authSignOut.signOut()
     }
     
     
@@ -41,6 +57,7 @@ final class SessionServiceImpl: ObservableObject, SessionService {
 
 
 private extension SessionServiceImpl {
+//extension SessionServiceImpl {
     
     func setupFirebaseAuthHandler() {
         handler = Auth.auth().addStateDidChangeListener { [weak self] res, user in
@@ -61,7 +78,6 @@ private extension SessionServiceImpl {
                   let fullName = value[RegisterKeys.fullName.rawValue] as? String,
                   let userName = value[RegisterKeys.userName.rawValue] as? String,
                   let pin = value[RegisterKeys.PIN.rawValue] as? String
-//                  let userID = value[uid] as? String
             else { return }
             
             DispatchQueue.main.async {

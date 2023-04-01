@@ -44,13 +44,13 @@ struct LoginEmail: View {
                                 .fill(Color("main"))
                                 .frame(width: 50, height: 1)
                         }
-                        
-                        NavigationLink(destination: LoginPhone()){
-                                Text("Phone")
-                                    .opacity(0.9)
-                                    .foregroundColor(.gray.opacity(0.5))
-                                    .font(.system(size: 20))
-                        }
+                        //MARK: discarded phone login since Feb.
+//                        NavigationLink(destination: LoginPhone()){
+//                                Text("Phone")
+//                                    .opacity(0.9)
+//                                    .foregroundColor(.gray.opacity(0.5))
+//                                    .font(.system(size: 20))
+//                        }
                     }
                     .padding(.bottom, 20)
                     

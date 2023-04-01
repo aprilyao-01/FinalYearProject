@@ -11,7 +11,6 @@ import Firebase
 import FirebaseDatabase
 
 enum RegisterKeys: String {
-//    case phoneNo
     case userName
     case fullName
     case PIN

@@ -8,11 +8,26 @@
 import Foundation
 import Combine
 
-enum LoginState {
+// subclass Equatable for unit testing
+enum LoginState: Equatable {
+    static func == (lhs: LoginState, rhs: LoginState) -> Bool {
+        switch (lhs, rhs) {
+        case (.successful, .successful):
+            return true
+        case let (.failed(lhsError), .failed(rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        case (.notAvailable, .notAvailable):
+            return true
+        default:
+            return false
+        }
+    }
+
     case successful
     case failed(error: Error)
     case notAvailable
 }
+
 
 protocol LoginEmailViewModel {
     func login()

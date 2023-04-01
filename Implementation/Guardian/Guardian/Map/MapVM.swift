@@ -76,10 +76,32 @@ struct Place: Identifiable {
       let coordinate: CLLocationCoordinate2D
 }
 
+// protocol to isolate and control location manager for testing
+protocol LocationManagerProtocol: AnyObject {
+    var delegate: CLLocationManagerDelegate? { get set }
+    var location: CLLocation? { get }
+    var desiredAccuracy: CLLocationAccuracy { get set }
+    var distanceFilter: CLLocationDistance { get set }
+    var authorizationStatus: CLAuthorizationStatus { get }
+    
+    func requestWhenInUseAuthorization()
+    func requestLocation()
+    func startUpdatingLocation()
+}
+
+extension CLLocationManager: LocationManagerProtocol {
+    var authorizationStatus: CLAuthorizationStatus {
+        return CLLocationManager.authorizationStatus()
+    }
+}
+
+
+
 
 final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    var locationManager: CLLocationManager?
+//    var locationManager: CLLocationManager?
+    var locationManager: LocationManagerProtocol?
     
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation,span: MapDetails.span)
     

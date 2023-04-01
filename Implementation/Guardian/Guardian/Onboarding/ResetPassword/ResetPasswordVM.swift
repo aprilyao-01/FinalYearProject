@@ -8,24 +8,39 @@
 import Foundation
 import Combine
 
-enum ResetState {
+enum ResetState: Equatable{
     case successful
     case failed(error: Error)
     case notAvailable
+    
+    static func == (lhs: ResetState, rhs: ResetState) -> Bool {
+            switch (lhs, rhs) {
+            case (.successful, .successful):
+                return true
+            case (.notAvailable, .notAvailable):
+                return true
+            case (.failed(let lhsError), .failed(let rhsError)):
+                return lhsError.localizedDescription == rhsError.localizedDescription
+            default:
+                return false
+            }
+        }
 }
 
 protocol ResetPasswordViewModel {
     func sendPasswordReset()
-    var service: ResetPasswordService { get }
     var email: String { get }
-    init(service: ResetPasswordService)
     var hasError: Bool { get }
     var isSent: Bool { get }
     var errorMessage: String { get }
     var state: ResetState { get }
+    
+    var service: ResetPasswordServiceProtocol { get }
+    init(service: ResetPasswordServiceProtocol)
 }
 
 final class ResetPasswordVM: ObservableObject, ResetPasswordViewModel {
+    
     @Published var email: String = ""
     
     // MARK: error and success sent variables
@@ -34,11 +49,11 @@ final class ResetPasswordVM: ObservableObject, ResetPasswordViewModel {
     @Published var errorMessage: String = ""
     @Published var state: ResetState = .notAvailable
     
-    let service: ResetPasswordService
+    let service: ResetPasswordServiceProtocol
     
     private var subscriptions = Set<AnyCancellable>()
     
-    init(service: ResetPasswordService){
+    init(service: ResetPasswordServiceProtocol){
         self.service = service
         setupErrorSubscriptions()
     }

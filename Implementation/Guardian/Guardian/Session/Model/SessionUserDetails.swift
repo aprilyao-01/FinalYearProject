@@ -12,5 +12,4 @@ struct SessionUserDetails {
     let userName: String
     let PIN: String
     let userID: String
-//    var userImage: String
 }

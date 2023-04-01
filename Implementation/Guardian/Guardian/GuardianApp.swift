@@ -14,7 +14,7 @@ struct GuardianApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     // MARK: propotie handle login logout
-    @StateObject var sessionService = SessionServiceImpl()
+    @StateObject var sessionService = SessionServiceImpl(authSignOut: FirebaseAuthWrapper())
     var body: some Scene {
         WindowGroup {
             NavigationView{

@@ -8,7 +8,21 @@
 import Foundation
 import Combine
 
-enum RegisterState {
+// subclass Equatable for unit testing
+enum RegisterState: Equatable {
+    static func == (lhs: RegisterState, rhs: RegisterState) -> Bool {
+        switch (lhs, rhs) {
+            case (.successful, .successful):
+                return true
+            case let (.failed(lhsError), .failed(rhsError)):
+                return lhsError.localizedDescription == rhsError.localizedDescription
+            case (.notAvailable, .notAvailable):
+                return true
+            default:
+                return false
+        }
+    }
+    
     case successful
     case failed(error: Error)
     case notAvailable

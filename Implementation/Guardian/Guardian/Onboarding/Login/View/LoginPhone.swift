@@ -8,6 +8,8 @@
 import SwiftUI
 import AlertToast
 
+
+/// discarded since Feb.
 struct LoginPhone: View {
     @StateObject var loginModel: LoginPhoneViewModel = .init()
     

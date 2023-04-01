@@ -9,6 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 
+/// discarded since Feb.
 class LoginPhoneViewModel: ObservableObject {
     // MARK: View Properties
     @Published var phoneNo: String = ""

@@ -16,7 +16,7 @@ struct NavBarModifier: ViewModifier {
     
     var midTitle: String
     var midColour: Color
-    var midFont: Font
+    var midFont: Font?
     
     var rightImg: String
     var rightText: String

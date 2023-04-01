@@ -175,7 +175,7 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            Home().environmentObject(SessionServiceImpl())
+            Home().environmentObject(SessionServiceImpl(authSignOut: FirebaseAuthWrapper()))
         }
     }
 }

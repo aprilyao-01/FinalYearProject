@@ -17,7 +17,7 @@ struct CommonButton: View {
     var fontIsBold: Bool
     var width: CGFloat
     var height: CGFloat
-    var imgName: String
+    var imgName: String?
     var action: () -> Void      // ActionHandler
     var cornerRadius: CGFloat
     

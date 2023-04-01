@@ -20,77 +20,76 @@ struct UserAccount: View {
     
     
     var body: some View {
-        VStack {
-            ScrollView{
-                VStack{
-                    ProfileImage(accountVM: accountVM)
-                        .withChangeOption()
-                    
-                    // MARK: User detail
-                    VStack(spacing: 20){
-                        TextFieldWithHeading(label: "Username", textFieldValue: $accountVM.currentUser.userName, placeholder: "Enter username", isLockButtonEnabled: true, isPasswordField: false)
+        NavigationView {
+            VStack {
+                ScrollView{
+                    VStack{
+                        ProfileImage(accountVM: accountVM)
+                            .withChangeOption()
                         
-                        TextFieldWithHeading(label: "Full Name", textFieldValue: $accountVM.currentUser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: true, isPasswordField: false)
-                        
-                        TextFieldWithHeading(label: "Contact Details", textFieldValue: $accountVM.currentUser.phoneNo, placeholder: "Enter phone number", isLockButtonEnabled: true, isPasswordField: false)
-                        
-                        chevronRightBtn(action: {
-                            showChangePasswordView.toggle()
-                        }, label: "Change Password")
-                            .padding(.top,25)
+                        // MARK: User detail
+                        VStack(spacing: 20){
+                            TextFieldWithHeading(label: "Username", textFieldValue: $accountVM.currentUser.userName, placeholder: "Enter username", isLockButtonEnabled: true, isPasswordField: false)
+                            
+                            TextFieldWithHeading(label: "Full Name", textFieldValue: $accountVM.currentUser.fullName, placeholder: "Enter Full Name", isLockButtonEnabled: true, isPasswordField: false)
+                            
+                            TextFieldWithHeading(label: "Contact Details", textFieldValue: $accountVM.currentUser.phoneNo, placeholder: "Enter phone number", isLockButtonEnabled: true, isPasswordField: false)
+                            
+                            chevronRightBtn(action: {
+                                showChangePasswordView.toggle()
+                            }, label: "Change Password")
+                                .padding(.top,25)
 
-                        chevronRightBtn(action: {
-                            showChangePINView.toggle()
-                        }, label: "Change PIN")
-                            .padding(.top,20)
+                            chevronRightBtn(action: {
+                                showChangePINView.toggle()
+                            }, label: "Change PIN")
+                                .padding(.top,20)
+                            
+                            chevronRightBtn(action: {
+                                showAudioManageView.toggle()
+                            }, label: "Audio Manage")
+                                .padding(.top,20)
+                        }
+                        .padding(.horizontal, 5)
                         
-                        chevronRightBtn(action: {
-                            showAudioManageView.toggle()
-                        }, label: "Audio Manage")
-                            .padding(.top,20)
+                        // MARK: logout and delete account
+                        CommonButton(buttonName: "Log Out", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {service.logout()})
+                            .padding(.top, 50)
+                        
+                        CommonButton(buttonName: "Delete account", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), width: 300, action: {
+                            accountVM.deleteCurrentUser()
+                        })
+                        
+                        Spacer()
                     }
-                    .padding(.horizontal, 5)
-                    
-                    // MARK: logout and delete account
-                    CommonButton(buttonName: "Log Out", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 300, action: {service.logout()})
-                        .padding(.top, 50)
-                    
-                    CommonButton(buttonName: "Delete account", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), width: 300, action: {
-                        accountVM.deleteCurrentUser()
-                    })
-                    
-                    Spacer()
+                    .padding(.horizontal, 15)
                 }
-                .padding(.horizontal, 15)
+                
+                // MARK: navigation links
+                NavigationLink ("", destination: AudioManage(), isActive: $showAudioManageView)
             }
-            
-            // MARK: navigation links
-//            NavigationLink ("", destination: ChangePassword(), isActive: $showChangePasswordView)
-//            NavigationLink ("", destination: ChangePIN(), isActive: $showChangePINView)
-            NavigationLink ("", destination: AudioManage(), isActive: $showAudioManageView)
+            //MARK: full screen - change password
+            .fullScreenCover(isPresented: $showChangePasswordView, content: {
+                ChangePassword(accountVM: accountVM)
+            })
+            //MARK: full screen - change pin
+            .fullScreenCover(isPresented: $showChangePINView, content: {
+                ChangePIN(accountVM: accountVM)
+            })
+            .withNavBar(leftAction: {
+//                presentationMode.wrappedValue.dismiss()
+            }, midTitle: "Profile", rightText: "Save", rightColour: .green, rightAction: {
+                accountVM.saveUserDetails()
+            })
+            .onAppear(){
+                accountVM.fetchCurrentUser()
         }
-        //MARK: full screen - change password
-        .fullScreenCover(isPresented: $showChangePasswordView, content: {
-            ChangePassword(accountVM: accountVM)
-        })
-        //MARK: full screen - change pin
-        .fullScreenCover(isPresented: $showChangePINView, content: {
-            ChangePIN(accountVM: accountVM)
-        })
-        .withNavBar(leftImg: "chevron.left", leftAction: {
-            presentationMode.wrappedValue.dismiss()
-        }, midTitle: "Profile", rightText: "Save", rightAction: {
-            accountVM.saveUserDetails()
-        })
-        .navigationBarBackButtonHidden(true)
-        .onAppear(){
-            accountVM.fetchCurrentUser()
         }
     }
 }
 
 struct UserAccount_Previews: PreviewProvider {
     static var previews: some View {
-        UserAccount().environmentObject(SessionServiceImpl())
+        UserAccount().environmentObject(SessionServiceImpl(authSignOut: FirebaseAuthWrapper()))
     }
 }

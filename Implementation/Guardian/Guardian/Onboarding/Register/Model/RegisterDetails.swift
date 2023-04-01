@@ -14,11 +14,8 @@ struct RegisterDetails {
     var password: String
     
     var PIN: String
-//    var phoneNo: String
     var fullName: String
     var userID: String
-    
-//    var lastName: String
 }
 
 extension RegisterDetails {
