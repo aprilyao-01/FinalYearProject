@@ -26,7 +26,7 @@ struct MapView: View {
             .accentColor(Color("mainRed"))
             .onAppear{
                 mapVM.checkLocationServicesisEnable()
-                mapVM.fetchReportedItems()
+                mapVM.fetchReportedItems(completion: {})
             }
             
             Button {

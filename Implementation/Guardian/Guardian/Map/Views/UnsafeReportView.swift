@@ -49,7 +49,7 @@ struct UnsafeReportView: View {
                 // MARK: submit
                 CommonButton(buttonName: "Add Report", backgroundColor1: Color("main"), backgroundColor2: Color("lightMain"), width: 300, action: {
                     presentationMode.wrappedValue.dismiss()
-                    mapVM.addReportItem(reportType: mapVM.selectedReportType.rawValue, locLong: pickedLocation.longitude, locLat: pickedLocation.latitude)
+                    mapVM.addReportItem(reportType: mapVM.selectedReportType.rawValue, locLong: pickedLocation.longitude, locLat: pickedLocation.latitude, completion: {})
                 })
                 .padding(.top, 150)
                 

@@ -12,43 +12,19 @@ import Combine
 
 final class RegisterTests: XCTestCase {
     
-    // MARK: mock RegisterService
-    class MockRegisterService: RegisterService {
-        var registerResult: Result<Void, Error> = .failure(MockError.notAvailableError)
-        
-        func register(with details: RegisterDetails) -> AnyPublisher<Void, Error> {
-            return Result.Publisher(registerResult).eraseToAnyPublisher()
-        }
-    }
-    
-    // MARK: mock Error
-    enum MockError: Error, LocalizedError {
-        case sampleError
-        case notAvailableError
-        
-        var errorDescription: String? {
-            switch self {
-            case .sampleError:
-                return "Sample Error Description"
-            case .notAvailableError:
-                return "Not Available Error Description"
-            }
-        }
-    }
-    
-    var viewModel: RegisterVM!
+    var sut_viewModel: RegisterVM!
     var mockService: MockRegisterService!
     
     // MARK: setUP
     override func setUp() {
         super.setUp()
         mockService = MockRegisterService()
-        viewModel = RegisterVM(service: mockService)
+        sut_viewModel = RegisterVM(service: mockService)
     }
     
     // MARK: tearDown
     override func tearDown() {
-        viewModel = nil
+        sut_viewModel = nil
         mockService = nil
         super.tearDown()
     }
@@ -58,30 +34,30 @@ final class RegisterTests: XCTestCase {
         mockService.registerResult = .success(())
         
         // When
-        viewModel.register()
+        sut_viewModel.register()
         
         // Then
-        XCTAssertEqual(viewModel.state, .successful)
+        XCTAssertEqual(sut_viewModel.state, .successful)
     }
     
     func testFailedRegister() {
         // Given
-        mockService.registerResult = .failure(MockError.sampleError)
+        mockService.registerResult = .failure(MockRegisterError.sampleError)
         
         // When
-        viewModel.register()
+        sut_viewModel.register()
         
         // Then
-        XCTAssertEqual(viewModel.state, .failed(error: MockError.sampleError))
+        XCTAssertEqual(sut_viewModel.state, .failed(error: MockRegisterError.sampleError))
     }
     
     func testNotAvailableRegister() {
         // When
-        viewModel.register()
+        sut_viewModel.register()
         
         // Then
-        XCTAssertNotEqual(viewModel.state, .successful)
-        XCTAssertNotEqual(viewModel.state, .failed(error: MockError.sampleError))
-        XCTAssertEqual(viewModel.state, .failed(error: MockError.notAvailableError))
+        XCTAssertNotEqual(sut_viewModel.state, .successful)
+        XCTAssertNotEqual(sut_viewModel.state, .failed(error: MockRegisterError.sampleError))
+        XCTAssertEqual(sut_viewModel.state, .failed(error: MockRegisterError.notAvailableError))
     }
 }

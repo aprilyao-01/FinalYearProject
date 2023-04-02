@@ -9,9 +9,6 @@ import Foundation
 import Combine
 import FirebaseAuth
 
-protocol LoginService {
-    func login(with credentials: LoginCredentials) -> AnyPublisher<Void, Error>
-}
 
 final class LoginServiceImpl: LoginService {
     func login(with credentials: LoginCredentials) -> AnyPublisher<Void, Error> {

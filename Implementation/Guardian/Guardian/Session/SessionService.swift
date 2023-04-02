@@ -21,17 +21,6 @@ protocol SessionService {
     func logout()
 }
 
-// warpper, to easy implement unit testing for login()
-protocol AuthSignOut {
-    func signOut() throws
-}
-
-class FirebaseAuthWrapper: AuthSignOut {
-    func signOut() throws {
-        try Auth.auth().signOut()
-    }
-}
-
 
 final class SessionServiceImpl: ObservableObject, SessionService {
     
@@ -41,9 +30,9 @@ final class SessionServiceImpl: ObservableObject, SessionService {
     private var handler: AuthStateDidChangeListenerHandle?
     
     //warpper, to easy implement unit testing
-    private let authSignOut: AuthSignOut
+    private let authSignOut: AuthHandler
 
-    init(authSignOut: AuthSignOut) {
+    init(authSignOut: AuthHandler) {
         self.authSignOut = authSignOut
         setupFirebaseAuthHandler()
     }
@@ -57,7 +46,6 @@ final class SessionServiceImpl: ObservableObject, SessionService {
 
 
 private extension SessionServiceImpl {
-//extension SessionServiceImpl {
     
     func setupFirebaseAuthHandler() {
         handler = Auth.auth().addStateDidChangeListener { [weak self] res, user in

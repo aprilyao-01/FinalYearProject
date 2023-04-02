@@ -76,45 +76,36 @@ struct Place: Identifiable {
       let coordinate: CLLocationCoordinate2D
 }
 
-// protocol to isolate and control location manager for testing
-protocol LocationManagerProtocol: AnyObject {
-    var delegate: CLLocationManagerDelegate? { get set }
-    var location: CLLocation? { get }
-    var desiredAccuracy: CLLocationAccuracy { get set }
-    var distanceFilter: CLLocationDistance { get set }
-    var authorizationStatus: CLAuthorizationStatus { get }
-    
-    func requestWhenInUseAuthorization()
-    func requestLocation()
-    func startUpdatingLocation()
-}
-
-extension CLLocationManager: LocationManagerProtocol {
-    var authorizationStatus: CLAuthorizationStatus {
-        return CLLocationManager.authorizationStatus()
-    }
-}
-
-
-
 
 final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
-//    var locationManager: CLLocationManager?
-    var locationManager: LocationManagerProtocol?
-    
+        
     @Published var region = MKCoordinateRegion(center: MapDetails.startingLocation,span: MapDetails.span)
     
-    //MARK
+    
     @Published var annotations : [MKPointAnnotation] = []
     @Published var userLocation: CLLocation? = CLLocation(latitude: 52.952082, longitude: -1.185445)
-    @Published var fetchedReportedItemList: [ReportItem] = []
+    @Published var fetchedReportedItemList: [ReportItem]
     
     private var hasSetRegion = false
-    let ref: DatabaseReference! = Database.database().reference()
     let activityIndicator = ActivityIndicator()
     @Published var missingPersonImage: UIImage?
-    @Published var selectedReportType: Report = .Unsafe
+    @Published var selectedReportType: Report
+    
+    // MARK: modified protocols for testing
+    var locationManager: LocationManagerProtocol?
+    let ref: DatabaseReferenceProtocol
+    private let authHandler: AuthHandler
+    
+    init(databaseReference: DatabaseReferenceProtocol = DatabaseReferenceWrapper(Database.database().reference()), authHandler: AuthHandler = FirebaseAuthWrapper()) {
+        self.ref = databaseReference
+        self.selectedReportType = .Unsafe
+        self.fetchedReportedItemList = []
+        self.authHandler = authHandler
+        super.init()
+        self.checkLocationServicesisEnable()
+        self.fetchReportedItems(completion: {})
+    }
+
 
     
     func reloadCurrentLocation(){
@@ -131,7 +122,10 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
             locationManager!.distanceFilter = kCLDistanceFilterNone
             locationManager!.startUpdatingLocation()
             
-            locationManager!.requestLocation()  // request current location
+            // request current location
+            DispatchQueue.main.async {
+                self.locationManager!.requestLocation()
+           }
         } else {
             // TODO: alart show error and let trun on
             print("show alart let user know this is off and to go turn it on")
@@ -156,7 +150,7 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
             region = MKCoordinateRegion(center: locationManager.location?.coordinate ?? MapDetails.startingLocation,
                                         span: MapDetails.span)
         @unknown default:
-            break
+            fatalError("Unexpected CLLocationManager.authorizationStatus() value")
         }
     }
     
@@ -189,13 +183,22 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
         print("MapVM: locationManager error: %s", error)
     }
     
-    func addReportItem(reportType:Int,locLong: Double,locLat: Double,missingPersonGender: String = "", missingPersonName: String = "", missingPersonAge: String = "", missingPersonWornCloths: String = "", missingPersonImage: String = "") {
+    
+    func addReportItem(reportType:Int,locLong: Double,locLat: Double,missingPersonGender: String = "", missingPersonName: String = "", missingPersonAge: String = "", missingPersonWornCloths: String = "", missingPersonImage: String = "", completion: @escaping () -> Void) {
         DispatchQueue.main.async{
             self.activityIndicator.showActivityIndicator()
         }
         let repTime = SharedMethods.dateToStringConverter(date: Date())
         var isReportDataUpdated: Bool = false
-        let currentUID = Auth.auth().currentUser!.uid
+//        let currentUID = Auth.auth().currentUser!.uid
+        
+        var currentUID : String
+        if authHandler.currentUser == nil {
+            currentUID = "test"
+        } else {
+            currentUID = authHandler.currentUser!.uid
+        }
+            
         do{
             for item in fetchedReportedItemList{
                 let distanceInMeters = CLLocation(latitude: locLat, longitude: locLong).distance(from: CLLocation(latitude: item.locLatitude, longitude: item.locLongitude))
@@ -216,6 +219,8 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
                                     SharedMethods.showMessage("Error", message: error?.localizedDescription, onVC: UIApplication.topViewController())
                                 }
                             }
+                            
+                            completion() // Call the completion closure
                         })
                     }else{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
@@ -245,6 +250,8 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
                             SharedMethods.showMessage("Error", message: error?.localizedDescription, onVC: UIApplication.topViewController())
                         }
                     }
+                    
+                    completion() // Call the completion closure
                 })
             }else{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1){
@@ -258,11 +265,18 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     }
     
-    func deleteReportItem(reportItem:ReportItem) {
+    func deleteReportItem(reportItem:ReportItem, completion: @escaping () -> Void) {
         DispatchQueue.main.async{
             self.activityIndicator.showActivityIndicator()
         }
-        let currentUID = Auth.auth().currentUser!.uid
+//        let currentUID = Auth.auth().currentUser!.uid
+        var currentUID : String
+        if authHandler.currentUser == nil {
+            currentUID = "test"
+        } else {
+            currentUID = authHandler.currentUser!.uid
+        }
+        
         if(reportItem.reportedBy == currentUID){
             ref.child("report_data").child(reportItem.id).removeValue(completionBlock: { error, result in   //delete report if it is created by current user
                 DispatchQueue.main.async{
@@ -287,6 +301,7 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
                         if error != nil{
                             SharedMethods.showMessage("Error", message: error?.localizedDescription, onVC: UIApplication.topViewController())
                         }
+                        completion() // Call the completion closure
                     })
                 }
             }else{
@@ -294,8 +309,10 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
                 do{
                     let jsonData = try JSONEncoder().encode(reportItem)
                     let jsonString = String(data: jsonData, encoding: .utf8)!
-                    ref.child("report_data").child(reportItem.id).setValue(SharedMethods().jsonToDictionary(from: jsonString)) {    //updating report item's delete requested by field to current user
-                      (error:Error?, ref:DatabaseReference) in
+                    
+                    //updating report item's delete requested by field to current user
+                    ref.child("report_data").child(reportItem.id).setValue(SharedMethods().jsonToDictionary(from: jsonString)) {
+                        (error: Error?, databaseReferenceProtocol: DatabaseReferenceProtocol) in
                         DispatchQueue.main.async{
                             self.activityIndicator.hideActivityIndicator()
                         }
@@ -317,7 +334,7 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
         
     }
     
-    func fetchReportedItems() {
+    func fetchReportedItems(completion: @escaping () -> Void) {
         DispatchQueue.main.async{
             self.activityIndicator.showActivityIndicator()
         }
@@ -339,6 +356,8 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
             } catch {
                 print("MapVM: cannot fetch report data\n %s", error)
             }
+            
+            completion() // Call the completion closure
         })
         
     }

@@ -63,6 +63,7 @@ import UIKit
     class func dateToStringConverter(date:Date) ->String{
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.timeZone = TimeZone.current // Set the time zone to current timezone
         let timeString = dateFormatter.string(from: date)
         return timeString
     }

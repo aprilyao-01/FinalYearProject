@@ -10,33 +10,24 @@ import XCTest
 
 final class SessionServiceTests: XCTestCase {
     
-    // MARK: mock authetication
-    class MockAuthSignOut: AuthSignOut {
-        var signOutCalled = false
-        
-        func signOut() throws {
-            signOutCalled = true
-        }
-    }
-    
-    var sessionService: SessionServiceImpl!
+    var sut_sessionService: SessionServiceImpl!
     var mockAuthSignOut: MockAuthSignOut!
     
     override func setUp() {
         super.setUp()
         mockAuthSignOut = MockAuthSignOut()
-        sessionService = SessionServiceImpl(authSignOut: mockAuthSignOut)
+        sut_sessionService = SessionServiceImpl(authSignOut: mockAuthSignOut)
     }
     
     override func tearDown() {
-        sessionService = nil
+        sut_sessionService = nil
         mockAuthSignOut = nil
         super.tearDown()
     }
     
     func testLogout() {
         // When
-        sessionService.logout()
+        sut_sessionService.logout()
         
         // Then
         XCTAssertTrue(mockAuthSignOut.signOutCalled)

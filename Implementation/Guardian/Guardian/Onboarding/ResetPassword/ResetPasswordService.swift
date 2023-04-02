@@ -9,11 +9,6 @@ import Foundation
 import Combine
 import FirebaseAuth
 
-// to implement unit test
-protocol ResetPasswordServiceProtocol {
-    func sendPasswordReset(to email: String) -> AnyPublisher<Void, Error>
-}
-
 
 final class ResetPasswordService: ResetPasswordServiceProtocol {
     func sendPasswordReset(to email: String) -> AnyPublisher<Void, Error> {

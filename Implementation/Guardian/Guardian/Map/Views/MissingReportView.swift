@@ -128,7 +128,7 @@ struct MissingReportView: View {
                     if mapVM.missingPersonImage != nil{
                         personImage = mapVM.missingPersonImage!.toJpegString(compressionQuality: 0.2) ?? ""
                     }
-                    mapVM.addReportItem(reportType: Report.Missing.rawValue, locLong: pickedLocation.longitude, locLat: pickedLocation.latitude,missingPersonGender: selectedGender.name,missingPersonName: name, missingPersonAge: age, missingPersonWornCloths: character,missingPersonImage: personImage)
+                    mapVM.addReportItem(reportType: Report.Missing.rawValue, locLong: pickedLocation.longitude, locLat: pickedLocation.latitude,missingPersonGender: selectedGender.name,missingPersonName: name, missingPersonAge: age, missingPersonWornCloths: character,missingPersonImage: personImage, completion: {})
                 })
                 .padding(.top, 30)
                 

@@ -16,9 +16,6 @@ enum RegisterKeys: String {
     case PIN
 }
 
-protocol RegisterService {
-    func register(with details: RegisterDetails) -> AnyPublisher<Void, Error>
-}
 
 final class RegisterServiceImpl: RegisterService {
     

@@ -10,29 +10,6 @@ import Combine
 
 @testable import Guardian
 
-// MARK: mock sercive class
-// to isolate from external dependencies, i.e. network requests(Combine)
-class ResetPasswordServiceMock: ResetPasswordServiceProtocol {
-    var sendPasswordResetResult: Result<Void, Error>?
-
-    func sendPasswordReset(to email: String) -> AnyPublisher<Void, Error> {
-        if let result = sendPasswordResetResult {
-            return Future { promise in
-                switch result {
-                case .success:
-                    promise(.success(()))
-                case .failure(let error):
-                    promise(.failure(error))
-                }
-            }
-            .eraseToAnyPublisher()
-        } else {
-            let originalService = ResetPasswordService()
-            return originalService.sendPasswordReset(to: email)
-        }
-    }
-}
-
 final class ResetPasswordVMTests: XCTestCase {
     private var cancellables: Set<AnyCancellable>!
 
@@ -50,7 +27,7 @@ final class ResetPasswordVMTests: XCTestCase {
 
     func testSendPasswordReset_Success() {
         // Given
-        let service = ResetPasswordServiceMock()
+        let service = MockResetPasswordService()
         service.sendPasswordResetResult = .success(())
         let viewModel = ResetPasswordVM(service: service)
         viewModel.email = "test@example.com"
@@ -74,7 +51,7 @@ final class ResetPasswordVMTests: XCTestCase {
 
     func testSendPasswordReset_Failure() {
         // Given
-        let service = ResetPasswordServiceMock()
+        let service = MockResetPasswordService()
         let testError = NSError(domain: "TestError", code: 1, userInfo: nil)
         service.sendPasswordResetResult = .failure(testError)
         let viewModel = ResetPasswordVM(service: service)

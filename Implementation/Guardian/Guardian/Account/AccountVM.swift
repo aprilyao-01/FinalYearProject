@@ -14,6 +14,7 @@ import FirebaseStorage
 protocol AccountViewModel {
     var fetchedImage: UIImage? { get }
     var currentUser: User { get }
+    var authHandler: AuthHandler { get set }
     
     func saveUserDetails()
     func fetchCurrentUser()
@@ -37,6 +38,8 @@ class AccountVM: ObservableObject, AccountViewModel {
     let storageRef = Storage.storage().reference()
     let activityIndicator = ActivityIndicator()
     
+    @Published var authHandler: AuthHandler = FirebaseAuthWrapper()
+    
     // status change properties
     @Published var isUserPinChangeSuccess: Bool = false
     @Published var isUserPasswordChangeSuccess: Bool = false
@@ -48,10 +51,10 @@ class AccountVM: ObservableObject, AccountViewModel {
         }
         
         var uid : String
-        if Auth.auth().currentUser == nil {
+        if authHandler.currentUser == nil {
             uid = "test"
         } else {
-            uid = Auth.auth().currentUser!.uid
+            uid = authHandler.currentUser!.uid
         }
         
         do{
@@ -85,10 +88,10 @@ class AccountVM: ObservableObject, AccountViewModel {
     
     func fetchCurrentUser() {
         var uid : String
-        if Auth.auth().currentUser == nil {
+        if authHandler.currentUser == nil {
             uid = "test"
         } else {
-            uid = Auth.auth().currentUser!.uid
+            uid = authHandler.currentUser!.uid
         }
         
         let userRef = ref.child("user").child(uid)

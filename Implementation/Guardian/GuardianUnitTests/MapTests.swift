@@ -6,46 +6,56 @@
 //
 
 import XCTest
-@testable import Guardian
 import CoreLocation
 
-class MockLocationManager: LocationManagerProtocol {
-    weak var delegate: CLLocationManagerDelegate?
-    var location: CLLocation?
-    var desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBest
-    var distanceFilter: CLLocationDistance = kCLDistanceFilterNone
-    var authorizationStatus: CLAuthorizationStatus = .notDetermined
-    
-    func requestWhenInUseAuthorization() {}
-    func requestLocation() {}
-    func startUpdatingLocation() {}
-}
+@testable import Guardian
 
 final class MapVMTests: XCTestCase {
     var mapViewModel: MapVM!
     var mockLocationManager: MockLocationManager!
+    var mockDatabaseReference: MockDatabaseReference!
+    var mockAuthHandler: MockAuthSignOut!
+    var reportItem: ReportItem!
 
     // MARK: setUP
     override func setUp() {
         super.setUp()
         mockLocationManager = MockLocationManager()
-        mapViewModel = MapVM()
+        mockDatabaseReference = MockDatabaseReference()
+        mockAuthHandler = MockAuthSignOut()
+        mapViewModel = MapVM(databaseReference: mockDatabaseReference)
         mapViewModel.locationManager = mockLocationManager
+        
+        reportItem = ReportItem(
+            id: UUID().uuidString,
+            reportType: 1,
+            locLongitude: 10.0,
+            locLatitude: 20.0,
+            reportedTime: "2023-04-01",
+            reportedBy: "testUser",
+            deleteRequestedBy: [],
+            // though not used in type==1
+            missingPersonGender: "Male",
+            missingPersonName: "John Doe",
+            missingPersonAge: "30",
+            missingPersonWornCloths: "Blue shirt, jeans",
+            missingPersonImage: "image_url",
+            reportingConfirmedByUsers: []
+        )
     }
 
     // MARK: tearDown
     override func tearDown() {
         mapViewModel = nil
+        mockAuthHandler = nil
+        mockDatabaseReference = nil
         mockLocationManager = nil
+        reportItem = nil
         super.tearDown()
     }
 
     func testReloadCurrentLocation() {
         // Given
-        let locationManager = MockLocationManager()
-        let mapViewModel = MapVM()
-        mapViewModel.locationManager = locationManager
-
         let mockLocation = CLLocation(latitude: 52.951082, longitude: -1.184445) // Some different location
         mapViewModel.userLocation = mockLocation
         
@@ -69,6 +79,43 @@ final class MapVMTests: XCTestCase {
         XCTAssertNotNil(mapViewModel.locationManager)
         XCTAssertNotNil(mapViewModel.locationManager?.delegate)
     }
+    
+    func testAddReportItem() {
+        // Given
+        let childMockDatabaseReference = mockDatabaseReference.child("report_data")
+        
+        // When
+        mapViewModel.addReportItem(reportType: reportItem.reportType, locLong: reportItem.locLongitude, locLat: reportItem.locLatitude, completion: {})
+        
+       // Then
+        XCTAssertEqual(childMockDatabaseReference.key, "report_data", "The key path should be equal to 'report_data'")
+        XCTAssertTrue(mockDatabaseReference.calledStatus["setValue"] ?? false, "setValue should be called")
+    }
 
+    func testDeleteReportItem() {
+        // Given
+        let childMockDatabaseReference = mockDatabaseReference.child("report_data").child(reportItem.id)
+        let reportItemKeyPath = "report_data/\(reportItem.id)"
+        
+        // When
+        mapViewModel.deleteReportItem(reportItem: reportItem, completion: {})
+        
+       // Then
+        XCTAssertEqual(childMockDatabaseReference.key, reportItemKeyPath, "The key path should be equal to 'report_data/<item_id>'")
+        XCTAssertTrue(mockDatabaseReference.calledStatus["removeValue"] ?? false, "removeValue should be called")
+
+    }
+
+    func testFetchReportedItems() {
+        // Given
+        let childMockDatabaseReference = mockDatabaseReference.child("report_data")
+        
+        // When
+        mapViewModel.fetchReportedItems(completion: {})
+        
+        // Then
+        XCTAssertEqual(childMockDatabaseReference.key, "report_data", "The key path should be equal to 'report_data'")
+        XCTAssertTrue(mockDatabaseReference.calledStatus["observe"] ?? false, "observe should be called")
+    }
 }
 

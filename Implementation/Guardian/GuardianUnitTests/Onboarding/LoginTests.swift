@@ -12,43 +12,19 @@ import Combine
 
 class LoginTests: XCTestCase {
 
-    // MARK: mock LoginService
-    class MockLoginService: LoginService {
-        var loginResult: Result<Void, Error> = .failure(MockError.notAvailableError)
-
-        func login(with credentials: LoginCredentials) -> AnyPublisher<Void, Error> {
-            return Result.Publisher(loginResult).eraseToAnyPublisher()
-        }
-    }
-
-    // MARK: mock Error
-    enum MockError: Error, LocalizedError {
-        case sampleError
-        case notAvailableError
-
-        var errorDescription: String? {
-            switch self {
-            case .sampleError:
-                return "Sample Error Description"
-            case .notAvailableError:
-                return "Not Available Error Description"
-            }
-        }
-    }
-
-    var viewModel: LoginEmailVM!
+    var sut_viewModel: LoginEmailVM!
     var mockService: MockLoginService!
 
     // MARK: setUP
     override func setUp() {
         super.setUp()
         mockService = MockLoginService()
-        viewModel = LoginEmailVM(service: mockService)
+        sut_viewModel = LoginEmailVM(service: mockService)
     }
 
     // MARK: tearDown
     override func tearDown() {
-        viewModel = nil
+        sut_viewModel = nil
         mockService = nil
         super.tearDown()
     }
@@ -58,30 +34,30 @@ class LoginTests: XCTestCase {
         mockService.loginResult = .success(())
 
         // When
-        viewModel.login()
+        sut_viewModel.login()
 
         // Then
-        XCTAssertEqual(viewModel.state, .successful)
+        XCTAssertEqual(sut_viewModel.state, .successful)
     }
 
     func testFailedLogin() {
         // Given
-        mockService.loginResult = .failure(MockError.sampleError)
+        mockService.loginResult = .failure(MockLoginError.sampleError)
 
         // When
-        viewModel.login()
+        sut_viewModel.login()
 
         // Then
-        XCTAssertEqual(viewModel.state, .failed(error: MockError.sampleError))
+        XCTAssertEqual(sut_viewModel.state, .failed(error: MockLoginError.sampleError))
     }
 
     func testNotAvailableLogin() {
         // When
-        viewModel.login()
+        sut_viewModel.login()
 
         // Then
-        XCTAssertNotEqual(viewModel.state, .successful)
-        XCTAssertNotEqual(viewModel.state, .failed(error: MockError.sampleError))
-        XCTAssertEqual(viewModel.state, .failed(error: MockError.notAvailableError))
+        XCTAssertNotEqual(sut_viewModel.state, .successful)
+        XCTAssertNotEqual(sut_viewModel.state, .failed(error: MockLoginError.sampleError))
+        XCTAssertEqual(sut_viewModel.state, .failed(error: MockLoginError.notAvailableError))
     }
 }

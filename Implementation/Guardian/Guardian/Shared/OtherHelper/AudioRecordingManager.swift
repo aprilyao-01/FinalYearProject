@@ -20,7 +20,7 @@ struct Recording : Equatable {
 class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate, AVAudioRecorderDelegate{
     
     var audioRecorder : AVAudioRecorder!
-    var audioPlayer : AVAudioPlayer!
+//    var audioPlayer : AVAudioPlayer!
     let activityIndicator = ActivityIndicator()
     var indexOfPlayer = 0
     @Published var recordingsList = [Recording]()
@@ -35,6 +35,10 @@ class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate
     let formatter = DateComponentsFormatter()
     @Published var formattedDuration: String = ""
     @Published var formattedProgress: String = "00:00"
+    
+    // for unit test
+//    var audioPlayer: AudioPlayer!
+    var audioPlayer: AudioPlayerProtocol!
 
     override init(){
         super.init()
@@ -159,18 +163,7 @@ class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate
         }
     }
     
-//    func fetchAllRecording(){
-//        let path = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        let recDirectory = path.appendingPathComponent("recordings")
-//        let directoryContents = try! fileManager.contentsOfDirectory(at: recDirectory, includingPropertiesForKeys: nil)
-//        for i in directoryContents {
-//            recordingsList.append(Recording(fileURL : i, createdAt:getFileDate(for: i), isPlaying: false))
-//        }
-//        recordingsList.sort(by: { $0.createdAt.compare($1.createdAt) == .orderedDescending})
-//    }
-    
-    
-    func startPlaying(url : URL) {
+    func startPlaying(url: URL) {
         playingURL = url
         let playSession = AVAudioSession.sharedInstance()
         
@@ -181,8 +174,9 @@ class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate
         }
         
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer.delegate = self
+//            audioPlayer = try AVAudioPlayer(contentsOf: url)
+//            audioPlayer.delegate = self
+            audioPlayer = try MockAudioPlayer(delegate: self)
             audioPlayer.prepareToPlay()
             formattedDuration = formatter.string(from: TimeInterval(self.audioPlayer.duration))!
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
