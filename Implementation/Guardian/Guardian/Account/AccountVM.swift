@@ -34,15 +34,28 @@ class AccountVM: ObservableObject, AccountViewModel {
     
     // DatabaseReference
     let ref: DatabaseReference! = Database.database().reference()
-    
+
     let storageRef = Storage.storage().reference()
     let activityIndicator = ActivityIndicator()
-    
-    @Published var authHandler: AuthHandler = FirebaseAuthWrapper()
     
     // status change properties
     @Published var isUserPinChangeSuccess: Bool = false
     @Published var isUserPasswordChangeSuccess: Bool = false
+    
+    // MARK: modified protocols for testing
+    @Published var authHandler: AuthHandler = FirebaseAuthWrapper()
+//    let ref: DatabaseReferenceProtocol
+//    let storageRef: StorageReferenceProtocol = StorageReferenceWrapper(storageReference: Storage.storage().reference())
+//    private let activityIndicator: ActivityIndicatorProtocol = ActivityIndicatorWrapper(activityIndicator: UIActivityIndicatorView())
+//
+//    // Add an initializer to accept the dependencies as parameters
+//    init(ref: DatabaseReferenceProtocol = DatabaseReferenceWrapper(Database.database().reference()),
+//         authHandler: AuthHandler = FirebaseAuthWrapper(),
+//         activityIndicator: ActivityIndicatorProtocol = ActivityIndicatorWrapper(activityIndicator: UIActivityIndicatorView())) {
+//        self.ref = ref
+//        self.authHandler = authHandler
+//        self.activityIndicator = activityIndicator
+//    }
 
     func saveUserDetails(){
         //MARK: loading

@@ -8,19 +8,25 @@
 import XCTest
 @testable import Guardian
 
-class AudioRecordingManagerTests: XCTestCase {
+
+final class AudioRecordingManagerTests: XCTestCase {
     var sut_shared: AudioRecordingManager!
     var sut_audioRecordingManager: AudioRecordingManager!
+    var url: URL!
+    
 
     override func setUp() {
         super.setUp()
         sut_shared = AudioRecordingManager.shared()
         sut_audioRecordingManager = AudioRecordingManager()
+        url = URL(fileURLWithPath: "testFile.m4a")
+        sut_audioRecordingManager.audioPlayer = MockAudioPlayer(delegate: sut_audioRecordingManager)
     }
 
     override func tearDown() {
         sut_shared = nil
         sut_audioRecordingManager = nil
+        url = nil
         super.tearDown()
     }
 
@@ -60,10 +66,6 @@ class AudioRecordingManagerTests: XCTestCase {
     }
         
     func testStartPlaying() {
-        // Given
-        let url = URL(fileURLWithPath: "testFile.m4a")
-        sut_audioRecordingManager.audioPlayer = MockAudioPlayer(delegate: sut_audioRecordingManager)
-        
         // When
         sut_audioRecordingManager.startPlaying(url: url)
 
@@ -72,10 +74,6 @@ class AudioRecordingManagerTests: XCTestCase {
     }
 
     func testStopPlaying() {
-        // Given
-        let url = URL(fileURLWithPath: "testFile.m4a")
-        sut_audioRecordingManager.audioPlayer = MockAudioPlayer(delegate: sut_audioRecordingManager)
-        
         // When
         sut_audioRecordingManager.startPlaying(url: url)
         sut_audioRecordingManager.stopPlaying(url: url)
@@ -85,9 +83,7 @@ class AudioRecordingManagerTests: XCTestCase {
     }
     
     func testAudioPlayerDidFinishPlaying() {
-        // Given
-        sut_audioRecordingManager.audioPlayer = MockAudioPlayer(delegate: sut_audioRecordingManager)
-        sut_audioRecordingManager.recordingsList = [Recording(fileURL: URL(fileURLWithPath: "testFile1.m4a"), createdAt: Date(), isPlaying: true)]
+        sut_audioRecordingManager.recordingsList = [Recording(fileURL: url, createdAt: Date(), isPlaying: true)]
         sut_audioRecordingManager.playingURL = sut_audioRecordingManager.recordingsList[0].fileURL
         
         // When
@@ -95,12 +91,49 @@ class AudioRecordingManagerTests: XCTestCase {
         
         // Then
         XCTAssertFalse(sut_audioRecordingManager.recordingsList[0].isPlaying, "Audio player should not be playing after finishing.")
+        
+        // Given
+        let url1 = URL(fileURLWithPath: "path/to/recording1")
+        let url2 = URL(fileURLWithPath: "path/to/recording2")
+        let recording1 = Recording(fileURL: url1, createdAt: Date(), isPlaying: true)
+        let recording2 = Recording(fileURL: url2, createdAt: Date(), isPlaying: false)
+
+        sut_audioRecordingManager.recordingsList = [recording1, recording2]
+        sut_audioRecordingManager.playingURL = url1
+
+        // When
+        sut_audioRecordingManager.audioPlayerDidFinishPlaying(sut_audioRecordingManager.audioPlayer!, successfully: true)
+
+        // Then
+        XCTAssertFalse(sut_audioRecordingManager.recordingsList[0].isPlaying, "The isPlaying property of the first recording should be set to false after audioPlayerDidFinishPlaying is called")
+        XCTAssertFalse(sut_audioRecordingManager.recordingsList[1].isPlaying, "The isPlaying property of the second recording should not be changed")
+    }
+
+        
+    /// Verify if the putFile method of the MockStorageReference is called correctly
+    func testAudioRecorderDidFinishRecording() {
+        // Given
+        let mockStorageReference = MockStorageReference()
+        sut_audioRecordingManager.storageRef = mockStorageReference
+        
+        let recordingURL = URL(fileURLWithPath: "path/to/recording")
+        let settings: [String: Any] = [:] // use an empty settings dictionary for testing purposes
+        
+        // force-unwrap the result since this is a test case, and any error would indicate a problem
+        let mockAudioRecorder = try! MockAudioRecorder(url: recordingURL, settings: settings)
+        
+        sut_audioRecordingManager.audioRecorder = mockAudioRecorder
+        
+        // When
+        sut_audioRecordingManager.audioRecorderDidFinishRecording(sut_audioRecordingManager.audioRecorder, successfully: true)
+        
+        // Then
+        XCTAssertTrue(mockStorageReference.putFileCalled, "putFile method should be called on MockStorageReference")
     }
     
 
     func testDeleteFileFromLocalPath() {
         // Given
-        let url = URL(fileURLWithPath: "testFile.m4a")
         sut_audioRecordingManager.recordingsList = [Recording(fileURL: url, createdAt: Date(), isPlaying: false)]
         
         // When
@@ -112,10 +145,7 @@ class AudioRecordingManagerTests: XCTestCase {
     
     /// checks if the file date is within a 5-second range of the current date
     func testGetFileDate() {
-        // Given
-        let url = URL(fileURLWithPath: "testFile.m4a")
-        
-        // Create a test file
+        // Given, create a test file
         FileManager.default.createFile(atPath: url.path, contents: Data(), attributes: nil)
         defer { try? FileManager.default.removeItem(at: url) } // Clean up the test file after the test
         
@@ -126,4 +156,53 @@ class AudioRecordingManagerTests: XCTestCase {
         // Then
         XCTAssert(abs(fileDate.timeIntervalSince(currentDate)) < 5, "File date should be within a 5-second range of the current date.")
     }
+    
+    /// Verify if the delete method of the MockStorageReference is called correctly
+    func testDeleteRecording() {
+        let mockStorageReference = MockStorageReference()
+        sut_audioRecordingManager.storageRef = mockStorageReference
+        
+        let recordingURL = URL(fileURLWithPath: "path/to/recording")
+        
+        sut_audioRecordingManager.deleteRecording(url: recordingURL)
+        
+        
+        XCTAssertTrue(mockStorageReference.deleteCalled, "delete method should be called on MockStorageReference")
+    }
+    
+    /// Verify if the listAll method of the MockStorageReference is called correctly/
+    func testDownloadRecordingsFromFirebase() {
+        // Given
+        let mockStorageReference = MockStorageReference()
+        sut_audioRecordingManager.storageRef = mockStorageReference
+
+        // When
+        sut_audioRecordingManager.downloadRecordingsFromFirebase()
+
+        // Then
+        XCTAssertTrue(mockStorageReference.listAllCalled, "listAll method should be called on MockStorageReference")
+        
+        
+        // Given, test the for loop
+        let itemCount = 2
+        let items = (0..<itemCount).map { _ in MockStorageReference() }
+        let listResult = TestStorageListResult(items: items)
+
+        mockStorageReference.listAllResult = listResult
+
+        let semaphore = DispatchSemaphore(value: 0)
+        sut_audioRecordingManager.activityIndicator = MockActivityIndicator {
+            semaphore.signal()
+        }
+
+        // When
+        sut_audioRecordingManager.downloadRecordingsFromFirebase()
+
+        _ = semaphore.wait(timeout: .now() + 10) // Adjust the timeout as needed
+
+        // Then
+        XCTAssertEqual(sut_audioRecordingManager.recordingsList.count, itemCount, "The number of recordings downloaded should be equal to the number of items in the result")
+    }
+
+
 }

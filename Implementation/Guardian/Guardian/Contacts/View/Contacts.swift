@@ -41,7 +41,7 @@ struct Contacts: View {
         //MARK: sheet - add new contact
         .sheet(isPresented: $showContactPickSheet, onDismiss: nil) {
             ContactPickerView(selectedContacts: $contactVM.selectedContacts,contactPickingFinished: {
-                contactVM.addContact()
+                contactVM.addContact(completion: {})
                 showContactPickSheet.toggle()
             })
         }

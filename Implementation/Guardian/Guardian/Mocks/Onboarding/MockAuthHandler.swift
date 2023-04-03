@@ -15,6 +15,14 @@ protocol UserProtocol {
 
 extension FirebaseAuth.User: UserProtocol { }
 
+class MockUser: UserProtocol {
+    var uid: String
+    
+    init(uid: String) {
+        self.uid = uid
+    }
+}
+
 /// protocol for testing SessionService() and MapVM() report related
 protocol AuthHandler {
     var currentUser: UserProtocol? { get }
@@ -40,7 +48,7 @@ class FirebaseAuthWrapper: AuthHandler {
 
 
 /// mock class for testing SessionService()
-class MockAuthSignOut: AuthHandler {
+class MockAuthHandler: AuthHandler {
     var signOutCalled = false
     var mockCurrentUser: UserProtocol?
 

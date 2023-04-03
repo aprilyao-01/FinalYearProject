@@ -19,13 +19,14 @@ struct Recording : Equatable {
 
 class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate, AVAudioRecorderDelegate{
     
-    var audioRecorder : AVAudioRecorder!
+//    var audioRecorder : AVAudioRecorder!
 //    var audioPlayer : AVAudioPlayer!
-    let activityIndicator = ActivityIndicator()
+//    let activityIndicator = ActivityIndicator()
     var indexOfPlayer = 0
     @Published var recordingsList = [Recording]()
     @Published var toggleColor : Bool = false
-    let storageRef = Storage.storage().reference()
+//    let storageRef = Storage.storage().reference()
+    
     let fileManager = FileManager.default
     let currentUID = Auth.auth().currentUser == nil ? "test" : Auth.auth().currentUser!.uid
     @Published var currentTime : Double = 0.0
@@ -36,11 +37,15 @@ class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate
     @Published var formattedDuration: String = ""
     @Published var formattedProgress: String = "00:00"
     
-    // for unit test
-//    var audioPlayer: AudioPlayer!
+    // MARK: update for unit test
     var audioPlayer: AudioPlayerProtocol!
+    var audioRecorder: AudioRecorderProtocol!
+    var storageRef: StorageReferenceProtocol
+    var audioRecorderType: (AudioRecorderProtocol.Type)?
+    var activityIndicator: ActivityIndicatorProtocol = ActivityIndicatorWrapper(activityIndicator: UIActivityIndicatorView())
 
-    override init(){
+    init(storageRef: StorageReferenceProtocol = StorageReferenceWrapper(storageReference: Storage.storage().reference())){
+        self.storageRef = storageRef
         super.init()
         formatter.allowedUnits = [.minute, .second]
         formatter.unitsStyle = .positional
@@ -77,7 +82,12 @@ class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate
         ]
         
         do {
-            audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
+            if let audioRecorderType = audioRecorderType {
+                audioRecorder = try audioRecorderType.init(url: fileName, settings: settings)
+            } else {
+                audioRecorder = try MockAudioRecorder(url: fileName, settings: settings)
+            }
+//            audioRecorder = try AVAudioRecorder(url: fileName, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.prepareToRecord()
             audioRecorder.record()
@@ -99,7 +109,7 @@ class AudioRecordingManager : NSObject, ObservableObject , AVAudioPlayerDelegate
         }
     }
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    func audioRecorderDidFinishRecording(_ recorder: AudioRecorderProtocol, successfully flag: Bool) {
         //uploading th recorded audio to firebase
         let recordingRef = storageRef.child("recordings/\(currentUID)/\(recorder.url.lastPathComponent)")
         let metaData = StorageMetadata()

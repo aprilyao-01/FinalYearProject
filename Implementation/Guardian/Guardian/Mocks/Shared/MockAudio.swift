@@ -20,8 +20,6 @@ protocol AudioPlayerProtocol: AnyObject {
     func prepareToPlay() -> Bool
 }
 
-//extension AVAudioPlayer: AudioPlayerProtocol {}
-
 
 /// mock class for to testing AudioRecordingManager()
 class MockAudioPlayer: AudioPlayerProtocol {
@@ -60,6 +58,42 @@ extension AudioRecordingManager: AudioPlayerDelegateProtocol {
                 recordingsList[i].isPlaying = false
             }
         }
+    }
+}
+
+/// protocol for to testing AudioRecordingManager()
+protocol AudioRecorderProtocol {
+    var delegate: AVAudioRecorderDelegate? { get set }
+    var isRecording: Bool { get }
+    var url: URL { get set }
+    
+    func prepareToRecord() -> Bool
+    func record()
+    func stop()
+    
+    init?(url: URL, settings: [String: Any]) throws
+}
+
+/// mock class for to testing AudioRecordingManager()
+class MockAudioRecorder: NSObject, AudioRecorderProtocol, AVAudioRecorderDelegate {
+    var delegate: AVAudioRecorderDelegate?
+    var isRecording: Bool = false
+    var url: URL
+
+    required init?(url: URL, settings: [String: Any]) throws {
+        self.url = url
+        }
+
+    func prepareToRecord() -> Bool {
+        return true
+    }
+
+    func record() {
+        isRecording = true
+    }
+
+    func stop() {
+        isRecording = false
     }
 }
 

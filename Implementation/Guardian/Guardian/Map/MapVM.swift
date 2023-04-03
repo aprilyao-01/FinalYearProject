@@ -87,7 +87,7 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var fetchedReportedItemList: [ReportItem]
     
     private var hasSetRegion = false
-    let activityIndicator = ActivityIndicator()
+//    let activityIndicator = ActivityIndicator()
     @Published var missingPersonImage: UIImage?
     @Published var selectedReportType: Report
     
@@ -95,6 +95,8 @@ final class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     var locationManager: LocationManagerProtocol?
     let ref: DatabaseReferenceProtocol
     private let authHandler: AuthHandler
+    private let activityIndicator: ActivityIndicatorProtocol = ActivityIndicatorWrapper(activityIndicator: UIActivityIndicatorView())
+
     
     init(databaseReference: DatabaseReferenceProtocol = DatabaseReferenceWrapper(Database.database().reference()), authHandler: AuthHandler = FirebaseAuthWrapper()) {
         self.ref = databaseReference

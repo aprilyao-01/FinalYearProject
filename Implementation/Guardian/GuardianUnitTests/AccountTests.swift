@@ -6,22 +6,63 @@
 //
 
 import XCTest
+@testable import Guardian
 
-final class AccountTests: XCTestCase {
+final class AccountVMTests: XCTestCase {
+    var sut: AccountVM!
+    var mockAuthHandler: MockAuthHandler!
+    var mockDatabaseReference: MockDatabaseReference!
+    var onHideCalled = false
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        mockAuthHandler = MockAuthHandler()
+        mockDatabaseReference = MockDatabaseReference()
+        let mockActivityIndicator = MockActivityIndicator { [weak self] in
+            self?.onHideCalled = true
+        }
+        sut = AccountVM()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        mockAuthHandler = nil
+        mockDatabaseReference = nil
+        onHideCalled = false
+        super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testSaveUserDetails_callsSetValueOnDatabaseReference() {
+        sut.saveUserDetails()
+        XCTAssertTrue(mockDatabaseReference.calledStatus["setValue"] ?? false)
+    }
+
+    func testSaveUserDetails_callsHideActivityIndicator() {
+        sut.saveUserDetails()
+        XCTAssertTrue(onHideCalled)
+    }
+
+    func testChangePassword_callsShowAndHideActivityIndicator() {
+        let expectation = self.expectation(description: "ActivityIndicatorExpectation")
+        sut.activityIndicator.showActivityIndicator()
+        sut.changePassword(oldPassword: "oldPassword", newPassword: "newPassword")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            XCTAssertTrue(self.onHideCalled)
+            expectation.fulfill()
+        }
+//        waitForExpectations(timeout: 3, handler: nil)
+    }
+
+    func testChangePIN_callsShowAndHideActivityIndicator() {
+        let expectation = self.expectation(description: "ActivityIndicatorExpectation")
+        sut.activityIndicator.showActivityIndicator()
+        sut.changePIN(oldPin: "oldPin", newPin: "newPin")
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            XCTAssertTrue(self.onHideCalled)
+            expectation.fulfill()
+        }
+//        waitForExpectations(timeout: 3, handler: nil)
     }
 }

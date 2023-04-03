@@ -42,7 +42,7 @@ struct ContactDetails: View {
             .padding(.top,20)
                 
             CommonButton(buttonName: "Delete Contact", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 250, action: {
-                contactVM.deleteContact(item: selectedContactItem)
+                contactVM.deleteContact(item: selectedContactItem, completion: {})
                 presentationMode.wrappedValue.dismiss()
             })
             .padding(.top,15)

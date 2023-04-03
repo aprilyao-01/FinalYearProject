@@ -11,11 +11,11 @@ import XCTest
 final class SessionServiceTests: XCTestCase {
     
     var sut_sessionService: SessionServiceImpl!
-    var mockAuthSignOut: MockAuthSignOut!
+    var mockAuthSignOut: MockAuthHandler!
     
     override func setUp() {
         super.setUp()
-        mockAuthSignOut = MockAuthSignOut()
+        mockAuthSignOut = MockAuthHandler()
         sut_sessionService = SessionServiceImpl(authSignOut: mockAuthSignOut)
     }
     

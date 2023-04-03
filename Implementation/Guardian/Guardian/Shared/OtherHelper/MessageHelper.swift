@@ -14,26 +14,28 @@ class MessageHelper: NSObject, MFMessageComposeViewControllerDelegate {
     
     public static let shared = MessageHelper()
     
+    weak var delegate: MessageComposeViewControllerDelegateProtocol?
+    
     private override init() {
         //
     }
     
-    func sendMessage(recipients:[String], body:String){
-        if !MFMessageComposeViewController.canSendText() {
+    func sendMessage(recipients: [String], body: String, messageComposeViewController: MessageComposeViewControllerProtocol = MFMessageComposeViewControllerWrapper()) {
+        if !type(of: messageComposeViewController).canSendText() {
             print("Can not send message with this device")
             return //EXIT
         }
-        let picker = MFMessageComposeViewController()
-        picker.recipients = recipients
-        picker.body = body
-        picker.messageComposeDelegate = self
-        
-        MessageHelper.getRootViewController()?.present(picker, animated: true, completion: nil)
+        messageComposeViewController.recipients = recipients
+        messageComposeViewController.body = body
+        messageComposeViewController.messageComposeDelegate = self
+
+        MessageHelper.getRootViewController()?.present(messageComposeViewController, animated: true, completion: nil)
     }
     
     
     // from MFMessageComposeViewControllerDelegate protocol
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult){
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        delegate?.messageComposeViewController(controller, didFinishWith: result)
         MessageHelper.getRootViewController()?.dismiss(animated: true, completion: nil)
     }
     

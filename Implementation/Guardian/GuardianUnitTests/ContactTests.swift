@@ -6,22 +6,82 @@
 //
 
 import XCTest
+//import FirebaseAuth
+//import FirebaseDatabase
 
-final class ContactTests: XCTestCase {
+@testable import Guardian
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class ContactVMTests: XCTestCase {
+
+    var sut: ContactVM!
+    var mockDatabaseReference: MockDatabaseReference!
+    var mockAuthHandler: MockAuthHandler!
+    var mockActivityIndicator: MockActivityIndicator!
+    var contact: EmergencyContact!
+
+    override func setUp() {
+        super.setUp()
+        
+        mockDatabaseReference = MockDatabaseReference()
+        mockAuthHandler = MockAuthHandler()
+        mockActivityIndicator = MockActivityIndicator(onHide: { })
+        sut = ContactVM()
+        contact = EmergencyContact(contactName: "John Preview", isEmergencyContact: true, phoneNo: "23455678", profileImage: "")
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        sut = nil
+        mockDatabaseReference = nil
+        mockAuthHandler = nil
+        mockActivityIndicator = nil
+        contact = nil
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testAddContact() {
+        let addContactExpectation = expectation(description: "Add contact")
+        
+        mockAuthHandler.mockCurrentUser = MockUser(uid: "testUser")
+        
+        sut.selectedContacts = [contact]
+        
+        mockDatabaseReference.setValueCallback = { _ in
+            return .success(())
+        }
+
+        sut.addContact {
+            print("mockDatabaseReference.calledStatus['setValue']:", self.mockDatabaseReference.calledStatus["setValue"] ?? "nil")
+            XCTAssertTrue(self.mockDatabaseReference.calledStatus["setValue"] ?? false)
+            addContactExpectation.fulfill()
+        }
+        
+//        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testFetchContact() {
+        sut.fetchContact()
+        XCTAssertTrue(mockDatabaseReference.calledStatus["observe"] ?? false)
+    }
+
+    func testDeleteContact() {
+        let deleteContactExpectation = expectation(description: "Delete contact")
+
+        sut.deleteContact(item: contact) {
+            XCTAssertTrue(self.mockDatabaseReference.calledStatus["removeValue"] ?? false)
+            deleteContactExpectation.fulfill()
+        }
+
+//        waitForExpectations(timeout: 5, handler: nil)
+    }
+
+    func testUpdateContact() {
+        let updateContactExpectation = expectation(description: "Update contact")
+
+        sut.updateContact(item: contact) {
+            XCTAssertTrue(self.mockDatabaseReference.calledStatus["updateChildValues"] ?? false)
+            updateContactExpectation.fulfill()
+        }
+
+//        waitForExpectations(timeout: 5, handler: nil)
     }
 }

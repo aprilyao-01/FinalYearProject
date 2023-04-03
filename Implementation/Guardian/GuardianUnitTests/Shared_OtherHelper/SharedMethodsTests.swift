@@ -48,8 +48,4 @@ final class SharedMethodsTests: XCTestCase {
         // Then
         XCTAssertEqual(resultDateString, expectedDateString)
     }
-
-
-
-
 }

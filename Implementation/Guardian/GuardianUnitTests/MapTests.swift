@@ -14,7 +14,7 @@ final class MapVMTests: XCTestCase {
     var mapViewModel: MapVM!
     var mockLocationManager: MockLocationManager!
     var mockDatabaseReference: MockDatabaseReference!
-    var mockAuthHandler: MockAuthSignOut!
+    var mockAuthHandler: MockAuthHandler!
     var reportItem: ReportItem!
 
     // MARK: setUP
@@ -22,7 +22,7 @@ final class MapVMTests: XCTestCase {
         super.setUp()
         mockLocationManager = MockLocationManager()
         mockDatabaseReference = MockDatabaseReference()
-        mockAuthHandler = MockAuthSignOut()
+        mockAuthHandler = MockAuthHandler()
         mapViewModel = MapVM(databaseReference: mockDatabaseReference)
         mapViewModel.locationManager = mockLocationManager
         
