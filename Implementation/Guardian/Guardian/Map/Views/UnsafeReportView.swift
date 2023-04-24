@@ -11,11 +11,6 @@ import MapKit
 struct UnsafeReportView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    //MARK: detail properties
-//    @State var name: String = ""
-//    @State var age: String = ""
-//    @State var character: String = ""
-    
     //MARK: map properties
     @StateObject var mapVM: MapVM
     @State var showMapLocPicker: Bool = false
@@ -49,7 +44,7 @@ struct UnsafeReportView: View {
                 // MARK: submit
                 CommonButton(buttonName: "Add Report", backgroundColor1: Color("main"), backgroundColor2: Color("lightMain"), width: 300, action: {
                     presentationMode.wrappedValue.dismiss()
-                    mapVM.addReportItem(reportType: mapVM.selectedReportType.rawValue, locLong: pickedLocation.longitude, locLat: pickedLocation.latitude, completion: {})
+                    mapVM.addReportItem(reportType: mapVM.selectedReportType.rawValue, locLong: pickedLocation.longitude, locLat: pickedLocation.latitude)
                 })
                 .padding(.top, 150)
                 

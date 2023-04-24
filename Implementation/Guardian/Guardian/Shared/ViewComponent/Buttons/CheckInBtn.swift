@@ -57,7 +57,11 @@ struct CheckInBtn: View {
 
 struct CheckInBtn_Previews: PreviewProvider {
     static var previews: some View {
-        CheckInBtn(buttonName: "check in", image: "", action: {}, isCheckinTimerRunning: .constant(true), timerVal: .constant(100))
-            .preview(with: "CheckIn button")
+        Group {
+            CheckInBtn(buttonName: "Check In", image: "clock.badge.checkmark", action: {}, isCheckinTimerRunning: .constant(false), timerVal: .constant(100))
+                .preview(with: "CheckIn button")
+            CheckInBtn(buttonName: "Check In", image: "clock.badge.checkmark", action: {}, isCheckinTimerRunning: .constant(true), timerVal: .constant(60))
+                .preview(with: "CheckIn button")
+        }
     }
 }

@@ -14,7 +14,8 @@ struct AlertCountDown: View {
     @StateObject var contactVM: ContactVM
     
     var userName: String
-    
+    @Environment (\.colorScheme) var colorScheme
+
     var body: some View {
         VStack(spacing: 40){
             Image(systemName: "exclamationmark.triangle.fill")
@@ -25,8 +26,8 @@ struct AlertCountDown: View {
             // contdown
             Text("Sending message to your emergency contacts in \(homeVM.timerVal) s")
                 .font(.system(size: 16, design: .rounded))
-                .foregroundColor(.black.opacity(0.7))
-            
+                .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
+
             Spacer()
             
             CommonButton(buttonName: "Cancel", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 200, action: {

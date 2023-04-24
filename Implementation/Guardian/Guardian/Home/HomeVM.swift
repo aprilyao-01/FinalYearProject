@@ -6,6 +6,7 @@
 //
 
 import Combine
+import SwiftUI
 import MapKit
 import MessageUI
 
@@ -119,7 +120,8 @@ class HomeVM: ObservableObject, HomeViewModel {
    
     func endCheckinTimer(){
         checkInTimer.invalidate()
-        
+        showAlertCancelView == false ? showAlertCancelView.toggle() : nil
+//        showAlertCancelView.toggle()
     }
     
     // Timer.scheduledTimer needs Objective-C selector

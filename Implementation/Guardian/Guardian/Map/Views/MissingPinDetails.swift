@@ -103,7 +103,7 @@ struct MissingPinDetails: View {
                 Spacer()
                 CommonButton(buttonName: "All Good", backgroundColor1: Color("lightRed"), backgroundColor2: Color("lightRed"), width: 180, imgName: "trash", action: {
                     showPlaceDetails.toggle()
-                    mapVM.deleteReportItem(reportItem: annotationItem, completion: {})
+                    mapVM.deleteReportItem(reportItem: annotationItem)
                 })
                 .padding(.bottom, -22.5)
 

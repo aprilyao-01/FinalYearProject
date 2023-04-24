@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-// TODO: change this into toggle?
 struct AudioBtn: View {
     
     var buttonName: String

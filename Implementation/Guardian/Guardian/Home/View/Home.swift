@@ -54,7 +54,7 @@ struct Home: View {
                         //MARK: show location in text
                         VStack(spacing:5) {
                             if let userLocation = locationManager.userLocation {
-                                Text("Latitude: \(userLocation.coordinate.latitude) \nLongitude:  \(userLocation.coordinate.longitude)")
+                                Text("Latitude: \(userLocation.coordinate.latitude, specifier: "%.2f") \nLongitude:  \(userLocation.coordinate.longitude, specifier: "%.2f")")
                                 NavigationLink(destination: MapView(), label: {
                                     Text("See location")
                                     Image(systemName: "mappin")
@@ -75,13 +75,18 @@ struct Home: View {
                     Spacer()
                     //MARK: audio and checkIn btns
                     HStack{
-                        AudioBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {})
+                        AudioBtn(buttonName: "Audio", img_on: "speaker.wave.1.fill", img_off: "speaker.slash.fill", action: {
+                            isAudioRecordingEnabled.toggle()
+                        })
                         Spacer()
                         CheckInBtn(buttonName: "Check In", image: "clock.badge.checkmark", action: {
                             showCheckInTimeView.toggle()
                         },isCheckinTimerRunning: $isCheckinTimerRunning,timerVal: $homeVM.checkInTimerVal)
                     }
                     .padding(.horizontal, 20)
+                    Spacer()
+                    Text("Hold the button")
+                    Text("release to send help")
                     Spacer()
                     MainButton(buttonName: "SOS", action: {}, onPressEnded: {
                         if !isCheckinTimerRunning{

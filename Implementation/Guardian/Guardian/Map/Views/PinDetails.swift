@@ -37,10 +37,13 @@ struct PinDetails: View {
                                 .foregroundColor(Color("lightRed"))
                         )
                         .foregroundColor(.black.opacity(0.8))
-                    (Text(title)
-                        .font(.title.bold())
-                     + Text("\n\(reportDistance, specifier: "%.2f") metres away")
-                        .font(.title2))
+                    VStack{
+                        Text(title)
+                            .font(.title.bold())
+                        Text("\(reportDistance, specifier: "%.2f") metres away")
+                            .font(.title2)
+                    }
+                    .frame(minWidth: 220, maxWidth: .infinity,minHeight: 45)
                     
                     Button {
                         showPlaceDetails.toggle()
@@ -65,33 +68,40 @@ struct PinDetails: View {
                 VStack(spacing: 8){
                     Text("Source")
                         .padding(.trailing, 200)
+                        .foregroundColor(.black)
                     Text("Has reported this:  \(reportNumber) times")
                         .font(.headline)
+                        .foregroundColor(.black)
                     
                     Text("Timeframe")
                         .padding(.trailing, 200)
+                        .foregroundColor(.black)
                     Text("First reported in: \(timeFrame)")
                         .font(.headline)
+                        .foregroundColor(.black)
                     
                     Rectangle()
                         .frame(height: 1)
                         .foregroundColor(.gray.opacity(0.8))
                         .padding(.leading, 20)
                     Text("     Looks like solved?")
+                        .foregroundColor(.black)
                 }
-                .padding(.trailing, 30)
                 .padding(.bottom, 20)
-            }
-            .background{
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(.white)
-                    .frame(width: 350, height: 260)
             }
             
             // MARK: delete btn
-            CommonButton(buttonName: "All Good", backgroundColor1: Color("lightRed"), backgroundColor2: Color("lightRed"), width: 180, imgName: "trash", action: {})
-                .padding(.top, 270)
+            CommonButton(buttonName: "All Good", backgroundColor1: Color("lightRed"), backgroundColor2: Color("lightRed"), width: 180, imgName: "trash", action: {
+                showPlaceDetails.toggle()
+                mapVM.deleteReportItem(reportItem: annotationItem)
+            })
+                .padding(.top, 260)
             
+        }
+        .background{
+            RoundedRectangle(cornerRadius: 10)
+                .fill(.white)
+                .frame(width: 350, height: 260)
         }
         .onAppear(){
             setUIData()

@@ -17,13 +17,6 @@
 			</array>
 		</dict>
 	</array>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<true/>
-		<key>UISceneConfigurations</key>
-		<dict/>
-	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -31,7 +24,7 @@
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIImageName</key>
-		<string>lunchScreen</string>
+		<string>launchScreen</string>
 	</dict>
 </dict>
 </plist>

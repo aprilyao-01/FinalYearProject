@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileImageModifier: ViewModifier {
-    @StateObject var profileVM: AccountVM = AccountVM()
+    @StateObject var profileVM: AccountVM
     @State var showingImagePicker: Bool = false
     @State var sourceType: UIImagePickerController.SourceType = .savedPhotosAlbum
     @State var fetchedImageName: String?
@@ -20,7 +20,10 @@ struct ProfileImageModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .overlay(alignment: .bottomTrailing) {
-                Button(action: {showingImagePicker.toggle()}, label: {
+                Button(action: {
+                    showingImagePicker.toggle()
+                    profileVM.isProfilePictureChanged.toggle()
+                }, label: {
                     Image("pencil")
                         .resizable()
                         .foregroundColor(Color("main"))
@@ -36,7 +39,7 @@ struct ProfileImageModifier: ViewModifier {
 }
 
 extension View {
-    func withChangeOption() -> some View {
-        self.modifier(ProfileImageModifier())
+    func withChangeOption(accountVM: AccountVM) -> some View {
+        self.modifier(ProfileImageModifier(profileVM: accountVM))
     }
 }

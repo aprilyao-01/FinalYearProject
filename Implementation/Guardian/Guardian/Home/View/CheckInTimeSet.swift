@@ -42,47 +42,66 @@ struct CheckInTimeSet: View {
 
                         }
                         //MARK: text
-                        VStack(alignment: .center){
-                            TextField("", text: $timerValue)
-                                .font(.system(size: 35))
-                                .foregroundColor( .black.opacity(0.7))
-                                .frame(width: 100)
-                                .multilineTextAlignment(.center)
-                                .keyboardType(.numberPad)
-
-                            Text("min")
-                                .font(.system(size: 20))
-                                .foregroundColor( .black.opacity(0.7))
-
+                        if !isCheckinTimerRunning {
+                            VStack(alignment: .center){
+                                TextField("", text: $timerValue)
+                                    .font(.system(size: 35))
+                                    .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
+                                    .frame(width: 100)
+                                    .multilineTextAlignment(.center)
+                                    .keyboardType(.numberPad)
+                                
+                                Text("min")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
+                            }
+                            .padding(.top,10)
+                        } else {
+                            VStack(alignment: .center, spacing: 10){
+                                Text("\(homeVM.checkInTimerVal)")
+                                    .font(.system(size: 35, design: .rounded))
+                                    .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
+                                
+                                Text("s left")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(colorScheme == .light ? .black.opacity(0.7) : .white)
+                            }
+                            .padding(.top,10)
                         }
-                        .padding(.top,10)
+                        
                     }
                     
                     Spacer()
                     //MARK: preset times
-                    VStack{
-                        HStack{
+                    if !isCheckinTimerRunning {
+                        VStack{
+                            HStack{
+                                
+                                CommonButton(buttonName: CustomTimerTypes.min15.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
+                                    timerValue = "\(CustomTimerTypes.min15.rawValue)"
+                                },cornerRadius: 30)
+                                CommonButton(buttonName: CustomTimerTypes.min30.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
+                                    timerValue = "\(CustomTimerTypes.min30.rawValue)"
+
+                                },cornerRadius: 30)
+                            }
                             
-                            CommonButton(buttonName: CustomTimerTypes.min15.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
-                                timerValue = "\(CustomTimerTypes.min15.rawValue)"
-                            },cornerRadius: 30)
-                            CommonButton(buttonName: CustomTimerTypes.min30.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
-                                timerValue = "\(CustomTimerTypes.min30.rawValue)"
+                            HStack{
+                                
+                                CommonButton(buttonName: CustomTimerTypes.min45.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
+                                    timerValue = "\(CustomTimerTypes.min45.rawValue)"
 
-                            },cornerRadius: 30)
+                                },cornerRadius: 30)
+                                CommonButton(buttonName: CustomTimerTypes.min60.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
+                                    timerValue = "\(CustomTimerTypes.min60.rawValue)"
+
+                                },cornerRadius: 30)
+                            }
                         }
-                        
-                        HStack{
-                            
-                            CommonButton(buttonName: CustomTimerTypes.min45.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
-                                timerValue = "\(CustomTimerTypes.min45.rawValue)"
-
-                            },cornerRadius: 30)
-                            CommonButton(buttonName: CustomTimerTypes.min60.name, backgroundColor1: Color("lightMain"), backgroundColor2: Color("lightMain"), width: 100, action: {
-                                timerValue = "\(CustomTimerTypes.min60.rawValue)"
-
-                            },cornerRadius: 30)
-                        }
+                    } else {
+                        Text("Timer is running")
+                            .font(.system(size: 20, design: .rounded))
+                            .padding(.trailing, 30)
                     }
                     
                 }
@@ -115,7 +134,7 @@ struct CheckInTimeSet: View {
             .navigationBarBackButtonHidden(true)
             .withNavBar(leftImg: "chevron.left", leftAction: {
                 presentationMode.wrappedValue.dismiss()
-            }, midTitle: "Check In", midColour: colorScheme == .light ? .black : .white, rightAction: {})
+            }, midTitle: isCheckinTimerRunning ? "Stop Check In" : "Set Check In", midColour: colorScheme == .light ? .black : .white, rightAction: {})
 
         }
 

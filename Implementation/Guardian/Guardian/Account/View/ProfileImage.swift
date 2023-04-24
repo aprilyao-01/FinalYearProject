@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileImage: View {
-    @StateObject var accountVM: AccountVM = AccountVM()
+    @StateObject var accountVM: AccountVM
     
     var myWidth: CGFloat = 100
     var myHeight: CGFloat = 100
@@ -37,7 +37,7 @@ struct ProfileImage: View {
 
 struct ContactListView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileImage()
+        ProfileImage(accountVM: AccountVM())
             .preview(with: "Profile Image")
     }
 }

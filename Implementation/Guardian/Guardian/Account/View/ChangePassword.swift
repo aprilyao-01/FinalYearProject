@@ -18,11 +18,11 @@ struct ChangePassword: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 30){
-                TextFieldWithHeading(label: "Old Password", textFieldValue: $oldPassword, placeholder: "Enter old password", isLockButtonEnabled: false, isPasswordField: true)
+                TextFieldWithHeading(label: "Old Password", textFieldValue: $oldPassword, placeholder: "Enter old password", isLockButtonEnabled: true, isPasswordField: true)
                     .padding(.top,10)
-                TextFieldWithHeading(label: "New Password", textFieldValue: $newPassword, placeholder: "Enter new password", isLockButtonEnabled: false,isPasswordField: true)
+                TextFieldWithHeading(label: "New Password", textFieldValue: $newPassword, placeholder: "Enter new password", isLockButtonEnabled: true,isPasswordField: true)
                     .padding(.top,10)
-                TextFieldWithHeading(label: "Confirm Password", textFieldValue: $confirmPassword, placeholder: "Confirm password", isLockButtonEnabled: false,isPasswordField: true)
+                TextFieldWithHeading(label: "Confirm Password", textFieldValue: $confirmPassword, placeholder: "Confirm password", isLockButtonEnabled: true,isPasswordField: true)
                     .padding(.top,10)
                 
                 CommonButton(buttonName: "Confirm", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 200, action: {
@@ -36,6 +36,7 @@ struct ChangePassword: View {
                         SharedMethods.showMessage("Error", message: "Please fill all the fields", onVC: UIApplication.topViewController())
                     }
                 })
+                .padding(.top, 30)
                 Spacer()
             }
             .withNavBar(leftImg: "chevron.left", leftAction: {

@@ -18,11 +18,11 @@ struct ChangePIN: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 30){
-                TextFieldWithHeading(label: "Old PIN", textFieldValue: $oldPIN, placeholder: "Enter old PIN", isLockButtonEnabled: false,isPasswordField: true)
+                TextFieldWithHeading(label: "Old PIN", textFieldValue: $oldPIN, placeholder: "Enter old PIN", isLockButtonEnabled: true,isPasswordField: true)
                     .padding(.top,10)
-                TextFieldWithHeading(label: "New PIN", textFieldValue: $newPIN, placeholder: "Enter new PIN", isLockButtonEnabled: false,isPasswordField: true)
+                TextFieldWithHeading(label: "New PIN", textFieldValue: $newPIN, placeholder: "Enter new PIN", isLockButtonEnabled: true,isPasswordField: true)
                     .padding(.top,10)
-                TextFieldWithHeading(label: "Confirm PIN", textFieldValue: $confirmPIN, placeholder: "Confirm PIN", isLockButtonEnabled: false,isPasswordField: true)
+                TextFieldWithHeading(label: "Confirm PIN", textFieldValue: $confirmPIN, placeholder: "Confirm PIN", isLockButtonEnabled: true,isPasswordField: true)
                     .padding(.top,10)
                   
                 CommonButton(buttonName: "Confirm", backgroundColor1: Color("mainRed"), backgroundColor2: Color("mainRed"), width: 200, action: {

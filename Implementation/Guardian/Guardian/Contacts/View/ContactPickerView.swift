@@ -17,13 +17,17 @@ struct ContactPickerView: UIViewControllerRepresentable {
     var contactPickingFinished: () -> Void
     
     
-    func makeUIViewController(context: Context) -> CNContactPickerViewController {
+    func makeUIViewController(context: Context) -> UINavigationController {
         let picker = CNContactPickerViewController()
         picker.delegate = context.coordinator
-        return picker
+        
+        // MARK: fix bug on ios 15.5
+        let navController = UINavigationController()
+        navController.present(picker, animated: false, completion: nil)
+        return navController
     }
     
-    func updateUIViewController(_ uiViewController: CNContactPickerViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
         
     }
     
@@ -32,7 +36,7 @@ struct ContactPickerView: UIViewControllerRepresentable {
         return ContactsCoordinator(self)
     }
     
-    class ContactsCoordinator: NSObject, CNContactPickerDelegate {
+    class ContactsCoordinator: NSObject, UINavigationControllerDelegate, CNContactPickerDelegate {
         
         let parent: ContactPickerView
         

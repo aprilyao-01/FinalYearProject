@@ -48,7 +48,7 @@ struct AudioCell: View {
                     Button(action: {
                         arManager.deleteRecording(url:recording.fileURL)
                     }) {
-                        Image(systemName:"bin.xmark.fill")
+                        Image(systemName:"xmark.circle.fill")
                             .foregroundColor(Color("mainRed"))
                             .font(.system(size:20))
                     }
@@ -76,7 +76,7 @@ struct AudioCell: View {
             .padding()
         }
         .padding(.horizontal,10)
-        .background(Color.gray)
+        .background(Color("lightGray"))
         .cornerRadius(25)
         .shadow(color: Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)).opacity(0.3), radius: 10, x: 0, y: 10)
     }

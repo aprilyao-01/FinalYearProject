@@ -26,7 +26,7 @@ struct CustomPin: View {
 
 struct CustomPin_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPin(pinImg: .constant(""), color: .white, width: 40, height: 40)
+        CustomPin(pinImg: .constant("xmark.shield.fill"), color: .red, width: 40, height: 40)
     }
 }
 

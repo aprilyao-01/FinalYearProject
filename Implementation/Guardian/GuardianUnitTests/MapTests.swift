@@ -23,8 +23,8 @@ final class MapVMTests: XCTestCase {
         mockLocationManager = MockLocationManager()
         mockDatabaseReference = MockDatabaseReference()
         mockAuthHandler = MockAuthHandler()
-        mapViewModel = MapVM(databaseReference: mockDatabaseReference)
-        mapViewModel.locationManager = mockLocationManager
+        mapViewModel = MapVM()
+//        mapViewModel.locationManager = mockLocationManager
         
         reportItem = ReportItem(
             id: UUID().uuidString,
@@ -85,7 +85,7 @@ final class MapVMTests: XCTestCase {
         let childMockDatabaseReference = mockDatabaseReference.child("report_data")
         
         // When
-        mapViewModel.addReportItem(reportType: reportItem.reportType, locLong: reportItem.locLongitude, locLat: reportItem.locLatitude, completion: {})
+        mapViewModel.addReportItem(reportType: reportItem.reportType, locLong: reportItem.locLongitude, locLat: reportItem.locLatitude)
         
        // Then
         XCTAssertEqual(childMockDatabaseReference.key, "report_data", "The key path should be equal to 'report_data'")
@@ -98,7 +98,7 @@ final class MapVMTests: XCTestCase {
         let reportItemKeyPath = "report_data/\(reportItem.id)"
         
         // When
-        mapViewModel.deleteReportItem(reportItem: reportItem, completion: {})
+        mapViewModel.deleteReportItem(reportItem: reportItem)
         
        // Then
         XCTAssertEqual(childMockDatabaseReference.key, reportItemKeyPath, "The key path should be equal to 'report_data/<item_id>'")
@@ -111,7 +111,7 @@ final class MapVMTests: XCTestCase {
         let childMockDatabaseReference = mockDatabaseReference.child("report_data")
         
         // When
-        mapViewModel.fetchReportedItems(completion: {})
+        mapViewModel.fetchReportedItems()
         
         // Then
         XCTAssertEqual(childMockDatabaseReference.key, "report_data", "The key path should be equal to 'report_data'")

@@ -25,7 +25,7 @@ struct UserAccount: View {
                 ScrollView{
                     VStack{
                         ProfileImage(accountVM: accountVM)
-                            .withChangeOption()
+                            .withChangeOption(accountVM: accountVM)
                         
                         // MARK: User detail
                         VStack(spacing: 20){
@@ -76,14 +76,14 @@ struct UserAccount: View {
             .fullScreenCover(isPresented: $showChangePINView, content: {
                 ChangePIN(accountVM: accountVM)
             })
-            .withNavBar(leftAction: {
-//                presentationMode.wrappedValue.dismiss()
-            }, midTitle: "Profile", rightText: "Save", rightColour: .green, rightAction: {
+            .navigationBarItems(trailing: Button(action: {
                 accountVM.saveUserDetails()
-            })
-            .onAppear(){
-                accountVM.fetchCurrentUser()
+            }, label: {Text("Save")}))
+            .navigationBarTitle("Profile", displayMode: .inline)
+            .navigationBarBackButtonHidden(true)
         }
+        .onAppear(){
+            accountVM.fetchCurrentUser()
         }
     }
 }

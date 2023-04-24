@@ -20,7 +20,7 @@ struct EnterPIN: View {
     @ObservedObject var locationManager: MapVM
     @StateObject var contactVM: ContactVM
     @StateObject var accountVM: AccountVM
-    
+
     var userName: String
     
     // handle dark mode
