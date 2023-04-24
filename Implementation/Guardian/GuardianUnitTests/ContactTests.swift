@@ -6,10 +6,13 @@
 //
 
 import XCTest
-//import FirebaseAuth
-//import FirebaseDatabase
+
 
 @testable import Guardian
+
+import FirebaseAuth
+import FirebaseDatabase
+import Firebase
 
 final class ContactVMTests: XCTestCase {
 
@@ -27,6 +30,8 @@ final class ContactVMTests: XCTestCase {
         mockActivityIndicator = MockActivityIndicator(onHide: { })
         sut = ContactVM()
         contact = EmergencyContact(contactName: "John Preview", isEmergencyContact: true, phoneNo: "23455678", profileImage: "")
+        FirebaseApp.configure()
+    
     }
 
     override func tearDown() {
@@ -41,47 +46,85 @@ final class ContactVMTests: XCTestCase {
     func testAddContact() {
         let addContactExpectation = expectation(description: "Add contact")
         
-        mockAuthHandler.mockCurrentUser = MockUser(uid: "testUser")
+        mockAuthHandler.mockCurrentUser = MockUser(uid: "9hGl3bIr1pcU4wVfzdhskL8HZ5M2")
+        sut.authHandler = mockAuthHandler
         
-        sut.selectedContacts = [contact]
+        let mockContact = EmergencyContact(id:  "EA840A91-9C32-41C2-AF5C-8F7B5AFF0C45" , contactName: "Kate Bell", isEmergencyContact: false,   phoneNo: "(555) 564-8583", profileImage: "")
         
-        mockDatabaseReference.setValueCallback = { _ in
-            return .success(())
-        }
+        sut.selectedContacts = [mockContact]
+        
 
-        sut.addContact {
-            print("mockDatabaseReference.calledStatus['setValue']:", self.mockDatabaseReference.calledStatus["setValue"] ?? "nil")
-            XCTAssertTrue(self.mockDatabaseReference.calledStatus["setValue"] ?? false)
+        sut.addContact { status in
+            XCTAssertTrue(status)
             addContactExpectation.fulfill()
         }
         
-//        waitForExpectations(timeout: 5, handler: nil)
+        wait(for: [addContactExpectation], timeout: 25.0)
+
+        
     }
 
-    func testFetchContact() {
-        sut.fetchContact()
-        XCTAssertTrue(mockDatabaseReference.calledStatus["observe"] ?? false)
+    func testFetchContact(){
+        let fetchContactExpectation = expectation(description: "fetchContact")
+
+        mockAuthHandler.mockCurrentUser = MockUser(uid: "9hGl3bIr1pcU4wVfzdhskL8HZ5M2")
+        sut.authHandler = mockAuthHandler
+        sut.fetchContact(){ status in
+            XCTAssertEqual(self.sut.fetchedContactList.count, 2)
+            let product = self.sut.fetchedContactList.first!
+            XCTAssertEqual(product.id, "8DE56025-E8A1-4F65-9A3D-E872454BDF93")
+            XCTAssertEqual(product.contactName , "John Appleseed")
+            fetchContactExpectation.fulfill()
+            
+        }
+        wait(for: [fetchContactExpectation], timeout: 15.0)
+
+       // XCTAssertTrue(mockDatabaseReference.calledStatus["observe"] ?? false)
     }
 
     func testDeleteContact() {
         let deleteContactExpectation = expectation(description: "Delete contact")
+        
+        mockAuthHandler.mockCurrentUser = MockUser(uid: "9hGl3bIr1pcU4wVfzdhskL8HZ5M2")
+        sut.authHandler = mockAuthHandler
 
-        sut.deleteContact(item: contact) {
-            XCTAssertTrue(self.mockDatabaseReference.calledStatus["removeValue"] ?? false)
+        let mockContact = EmergencyContact(id:  "EA840A91-9C32-41C2-AF5C-8F7B5AFF0C45" , contactName: "Kate Bell", isEmergencyContact: false,   phoneNo: "(555) 564-8583", profileImage: "")
+        sut.deleteContact(item: mockContact) { status in
+            XCTAssertTrue(status)
             deleteContactExpectation.fulfill()
         }
-
-//        waitForExpectations(timeout: 5, handler: nil)
+        wait(for: [deleteContactExpectation], timeout: 20.0)
     }
 
     func testUpdateContact() {
         let updateContactExpectation = expectation(description: "Update contact")
+        mockAuthHandler.mockCurrentUser = MockUser(uid: "9hGl3bIr1pcU4wVfzdhskL8HZ5M2")
+        sut.authHandler = mockAuthHandler
 
-        sut.updateContact(item: contact) {
-            XCTAssertTrue(self.mockDatabaseReference.calledStatus["updateChildValues"] ?? false)
+        
+        let mockContact = EmergencyContact(id:  "EA840A91-9C32-41C2-AF5C-8F7B5AFF0C45" , contactName: "Abdul Moiz", isEmergencyContact: false,   phoneNo: "(555) 564-8583", profileImage: "")
+
+        sut.updateContact(item: mockContact) { status in
+            XCTAssertTrue(status)
             updateContactExpectation.fulfill()
         }
 
-//        waitForExpectations(timeout: 5, handler: nil)
+        wait(for: [updateContactExpectation], timeout: 20.0)
+    }
+ 
+      func testUpdateContactFailure() {
+        let updateContactExpectation = expectation(description: "Update contact")
+        mockAuthHandler.mockCurrentUser = MockUser(uid: "12245uywe")
+        sut.authHandler = mockAuthHandler
+
+
+        let mockContact = EmergencyContact(id:  "test" , contactName: "Abdul Moiz", isEmergencyContact: false,   phoneNo: "(555) 564-8583", profileImage: "")
+
+        sut.updateContact(item: mockContact) { status in
+             XCTAssertFalse(status)
+            updateContactExpectation.fulfill()
+        }
+
+        wait(for: [updateContactExpectation], timeout: 20.0)
     }
 }

@@ -6,22 +6,85 @@
 //
 
 import XCTest
+import CoreLocation
+
+@testable import Guardian
+
 
 final class HomeTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    var sut: HomeVM!
+    
+    override func setUp() {
+        super.setUp()
+        sut = HomeVM()
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        sut = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testGetHelpButtonTapped() {
+        let initialShowAlertCancelView = sut.showAlertCancelView
+        let initialAlertCancelationViewType = sut.alertCancelationViewType
+        
+        sut.getHelpButtonTapped()
+        
+        XCTAssertFalse(sut.showAlertCancelView != initialShowAlertCancelView, "showAlertCancelView should be toggled")
+        XCTAssertEqual(sut.alertCancelationViewType, .alertCancelationView, "alertCancelationViewType should be set to .alertCancelationView")
+    }
+    
+    func testCancelTimerWithValidPIN() {
+        sut.remainingRetryCount = 3
+        sut.showAlertCancelView = true
+        let userEnteredPIN = "1234"
+        let actualPIN = "1234"
+        
+        sut.cancelTimer(userEnteredPIN: userEnteredPIN, actualPIN: actualPIN)
+        
+        XCTAssertFalse(sut.showAlertCancelView, "showAlertCancelView should be false after cancelTimer(userEnteredPIN:actualPIN:) is called with valid PIN")
+    }
+    
+    
+    
+    func testCancelTimerWithInvalidPIN() {
+        sut.remainingRetryCount = 3
+        sut.showAlertCancelView = true
+        let userEnteredPIN = "1234"
+        let actualPIN = "5678"
+        
+        sut.cancelTimer(userEnteredPIN: userEnteredPIN, actualPIN: actualPIN)
+        
+        XCTAssertTrue(sut.showAlertCancelView, "showAlertCancelView should still be true after cancelTimer(userEnteredPIN:actualPIN:) is called with invalid PIN")
+        XCTAssertEqual(sut.remainingRetryCount, 2, "remainingRetryCount should decrement by 1 after cancelTimer(userEnteredPIN:actualPIN:) is called with invalid PIN")
+    }
+    
+    
+    
+    
+    func testCancelButtonActionWithValidPIN() {
+        let initialRemainingRetryCount = sut.remainingRetryCount
+        let initialShowAlertCancelView = sut.showAlertCancelView
+        let validUserEnteredPIN = "1234"
+        let validActualPIN = "1234"
+        
+        sut.cancelTimer(userEnteredPIN: validUserEnteredPIN, actualPIN: validActualPIN)
+        
+        XCTAssertEqual(sut.remainingRetryCount, initialRemainingRetryCount, "remainingRetryCount should not change")
+        XCTAssertTrue(sut.showAlertCancelView != initialShowAlertCancelView, "showAlertCancelView should be toggled")
+    }
+    
+    func testCancelButtonActionWithInvalidPIN() {
+        let initialRemainingRetryCount = sut.remainingRetryCount
+        let initialShowAlertCancelView = sut.showAlertCancelView
+        let invalidUserEnteredPIN = "1111"
+        let validActualPIN = "1234"
+        
+        sut.cancelTimer(userEnteredPIN: invalidUserEnteredPIN, actualPIN: validActualPIN)
+        
+        XCTAssertLessThan(sut.remainingRetryCount, initialRemainingRetryCount, "remainingRetryCount should decrease")
+        XCTAssertEqual(sut.alertCancelationViewType, .alertCancelationView, "alertCancelationViewType should remain as .alertCancelationView")
+        XCTAssertFalse(sut.showAlertCancelView != initialShowAlertCancelView,"showAlertCancelView should be toggled")
     }
 }

@@ -20,7 +20,7 @@ final class AudioRecordingManagerTests: XCTestCase {
         sut_shared = AudioRecordingManager.shared()
         sut_audioRecordingManager = AudioRecordingManager()
         url = URL(fileURLWithPath: "testFile.m4a")
-        sut_audioRecordingManager.audioPlayer = MockAudioPlayer(delegate: sut_audioRecordingManager)
+//        sut_audioRecordingManager.audioPlayer = MockAudioPlayer(delegate: sut_audioRecordingManager)
     }
 
     override func tearDown() {
