@@ -23,7 +23,6 @@ struct MapView: View {
                 }
             }
             .ignoresSafeArea()
-            .accentColor(Color("mainRed"))
             .onAppear{
                 mapVM.checkLocationServicesisEnable()
                 mapVM.fetchReportedItems()
@@ -42,29 +41,33 @@ struct MapView: View {
                             .foregroundColor(Color("main").opacity(0.8))
                     }
             }
-            .padding(.bottom, 660)
+            .padding(.bottom, 700)
             .padding(.leading, 300)
             
             Menu{
                 Button {
+                    mapVM.selectedReportType = .Missing
                     showMissing = true
                 } label: {
                     Label("Report Missing Person", systemImage: "person.fill.questionmark.rtl")
                 }
                 
                 Button {
+                    mapVM.selectedReportType = .Restricted
                     showUnsafe = true
                 } label: {
                     Label("Restricted Access", systemImage: "hand.raised.slash.fill")
                 }
                 
                 Button {
+                    mapVM.selectedReportType = .PoorLight
                     showUnsafe = true
                 } label: {
                     Label("No Streetlights", systemImage: "lightbulb.fill")
                 }
                 
                 Button {
+                    mapVM.selectedReportType = .Unsafe
                     showUnsafe = true
                 } label: {
                     Label("Feels Unsafe", systemImage: "xmark.shield.fill")
@@ -79,6 +82,7 @@ struct MapView: View {
                 .cornerRadius(15)
             }
             .padding(.top, 600)
+            
         }
         .fullScreenCover(isPresented: $showMissing, content: {
             MissingReportView(pickedLocation: CLLocationCoordinate2D(latitude: mapVM.userLocation?.coordinate.latitude ?? MapDetails.startingLocation.latitude, longitude: mapVM.userLocation?.coordinate.longitude ?? MapDetails.startingLocation.longitude), mapVM: mapVM, region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: mapVM.userLocation?.coordinate.latitude ?? MapDetails.startingLocation.latitude, longitude: mapVM.userLocation?.coordinate.longitude ?? MapDetails.startingLocation.longitude),span: MapDetails.span))
@@ -89,8 +93,6 @@ struct MapView: View {
 
 struct Map_Previews: PreviewProvider {
     static var previews: some View {
-        MapView()
-            .environmentObject(MapVM())
-            .preview(with: "Map")
+        MapView().preview(with: "Map")
     }
 }

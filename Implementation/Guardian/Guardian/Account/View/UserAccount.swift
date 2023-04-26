@@ -57,7 +57,9 @@ struct UserAccount: View {
                             .padding(.top, 50)
                         
                         CommonButton(buttonName: "Delete account", backgroundColor1: .clear, backgroundColor2: .clear, fontColor: Color("mainRed"), width: 300, action: {
-                            accountVM.deleteCurrentUser()
+                            SharedMethods.showMessageWith2Buttons("Message", message: "Are you sure that you want to delete your account?", cancelMsg: "No", OKMessage: "Yes", onVC: UIApplication.topViewController(), proceedAction: {
+                                accountVM.deleteCurrentUser()
+                            })
                         })
                         
                         Spacer()

@@ -9,9 +9,8 @@ import SwiftUI
 
 
 struct PinDetails: View {
-    
     @Environment(\.presentationMode) var presentationMode
-    
+
     @State var reportDistance: Float
     @State var reportType: Report
     @State var reportNumber: Int
@@ -23,11 +22,10 @@ struct PinDetails: View {
     @Binding var showPlaceDetails: Bool
     @StateObject var mapVM: MapVM
     @ObservedObject var annotationItem: ReportItem
-    
+
     var body: some View {
-        ZStack {
+        ZStack{
             VStack{
-                // MARK: type info
                 HStack{
                     Image(systemName: imgName)
                         .font(.system(size: 30))
@@ -58,7 +56,7 @@ struct PinDetails: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.gray)
                         .frame(width: 350, height: 80)
-                        
+                    
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
@@ -67,15 +65,17 @@ struct PinDetails: View {
                 // MARK: source info
                 VStack(spacing: 8){
                     Text("Source")
-                        .padding(.trailing, 200)
                         .foregroundColor(.black)
+                    
+                        .padding(.trailing, 200)
                     Text("Has reported this:  \(reportNumber) times")
                         .font(.headline)
                         .foregroundColor(.black)
                     
                     Text("Timeframe")
-                        .padding(.trailing, 200)
                         .foregroundColor(.black)
+                    
+                        .padding(.trailing, 200)
                     Text("First reported in: \(timeFrame)")
                         .font(.headline)
                         .foregroundColor(.black)
@@ -86,17 +86,16 @@ struct PinDetails: View {
                         .padding(.leading, 20)
                     Text("     Looks like solved?")
                         .foregroundColor(.black)
+                    
                 }
                 .padding(.bottom, 20)
             }
-            
-            // MARK: delete btn
             CommonButton(buttonName: "All Good", backgroundColor1: Color("lightRed"), backgroundColor2: Color("lightRed"), width: 180, imgName: "trash", action: {
                 showPlaceDetails.toggle()
                 mapVM.deleteReportItem(reportItem: annotationItem)
             })
-                .padding(.top, 260)
-            
+            .padding(.top, 260)
+
         }
         .background{
             RoundedRectangle(cornerRadius: 10)
@@ -106,6 +105,7 @@ struct PinDetails: View {
         .onAppear(){
             setUIData()
         }
+        
     }
     
     func setUIData(){
@@ -124,7 +124,10 @@ struct PinDetails: View {
             title = "Missing Person"
         }
     }
+ 
 }
+
+
 
 struct PinDetails_Previews: PreviewProvider {
     static var previews: some View {

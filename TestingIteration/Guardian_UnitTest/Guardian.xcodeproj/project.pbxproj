@@ -1,0 +1,1367 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B024DC629D4FCAC00F66347 /* AudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DC529D4FCAC00F66347 /* AudioCell.swift */; };
+		3B024DC929D5071300F66347 /* ReportItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DC829D5071300F66347 /* ReportItem.swift */; };
+		3B024DCB29D50C1C00F66347 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DCA29D50C1C00F66347 /* Constants.swift */; };
+		3B024DCD29D5964C00F66347 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DCC29D5964C00F66347 /* CustomAnnotation.swift */; };
+		3B024DCF29D5974E00F66347 /* MissingPinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DCE29D5974E00F66347 /* MissingPinDetails.swift */; };
+		3B024DD129D59CD700F66347 /* SelectLocationOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B024DD029D59CD700F66347 /* SelectLocationOnMap.swift */; };
+		3B0849ED293D364E00FC96B9 /* GuardianApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0849EC293D364E00FC96B9 /* GuardianApp.swift */; };
+		3B0849F1293D364F00FC96B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0849F0293D364F00FC96B9 /* Assets.xcassets */; };
+		3B0849F4293D364F00FC96B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0849F3293D364F00FC96B9 /* Preview Assets.xcassets */; };
+		3B0C2AF929DA2AB40061551A /* MockActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C2AF829DA2AB40061551A /* MockActivityIndicator.swift */; };
+		3B0C2AFB29DA45CB0061551A /* MockMessageComposeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C2AFA29DA45CB0061551A /* MockMessageComposeDelegate.swift */; };
+		3B0C2AFD29DA46360061551A /* MessageHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C2AFC29DA46360061551A /* MessageHelperTests.swift */; };
+		3B0C2AFF29DA46D90061551A /* MockMessageComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C2AFE29DA46D90061551A /* MockMessageComposeViewController.swift */; };
+		3B0C2B0329DA4B070061551A /* ImageExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C2B0229DA4B070061551A /* ImageExtensionTests.swift */; };
+		3B29F92529D8B5AF003B4486 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F92429D8B5AF003B4486 /* LoginTests.swift */; };
+		3B29F92729D8BDB8003B4486 /* RegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F92629D8BDB8003B4486 /* RegisterTests.swift */; };
+		3B29F92929D8BFAE003B4486 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3B29F92829D8BFAE003B4486 /* FirebaseAuth */; };
+		3B29F92B29D8BFCA003B4486 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 3B29F92A29D8BFCA003B4486 /* FirebaseAppCheck */; };
+		3B29F92D29D8C155003B4486 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3B29F92C29D8C155003B4486 /* FirebaseDatabase */; };
+		3B29F92F29D8C15A003B4486 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3B29F92E29D8C15A003B4486 /* FirebaseDatabaseSwift */; };
+		3B29F93129D8C338003B4486 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 3B29F93029D8C338003B4486 /* FirebaseAuthCombine-Community */; };
+		3B29F93329D8C34D003B4486 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B29F93229D8C34D003B4486 /* FirebaseStorage */; };
+		3B29F93429D8C3CA003B4486 /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B483DBB2992D24E009DE38C /* Combine.framework */; };
+		3B29F93729D8CA87003B4486 /* SessionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F93629D8CA87003B4486 /* SessionServiceTests.swift */; };
+		3B29F93929D8D56A003B4486 /* ResetPasswordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F93829D8D56A003B4486 /* ResetPasswordTests.swift */; };
+		3B29F93B29D8D92A003B4486 /* MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F93A29D8D92A003B4486 /* MapTests.swift */; };
+		3B29F93D29D8D93E003B4486 /* ContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F93C29D8D93E003B4486 /* ContactTests.swift */; };
+		3B29F93F29D8D94F003B4486 /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F93E29D8D94F003B4486 /* HomeTests.swift */; };
+		3B29F94129D8D961003B4486 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94029D8D961003B4486 /* AccountTests.swift */; };
+		3B29F94429D8F134003B4486 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94329D8F134003B4486 /* MockLocationManager.swift */; };
+		3B29F94629D8F2FB003B4486 /* MockResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94529D8F2FB003B4486 /* MockResetPasswordService.swift */; };
+		3B29F94829D8F3C7003B4486 /* MockLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94729D8F3C7003B4486 /* MockLogin.swift */; };
+		3B29F94A29D8F47B003B4486 /* MockRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94929D8F47B003B4486 /* MockRegister.swift */; };
+		3B29F94C29D8F5B0003B4486 /* MockAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94B29D8F5B0003B4486 /* MockAuthHandler.swift */; };
+		3B29F94E29D8F668003B4486 /* MockDatabaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B29F94D29D8F668003B4486 /* MockDatabaseReference.swift */; };
+		3B2D46F329DAF531007817A0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2D46F229DAF531007817A0 /* FirebaseCrashlytics */; };
+		3B2D46F529DAF539007817A0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3B2D46F429DAF539007817A0 /* FirebaseAnalytics */; };
+		3B2E94BB2989824E00EF8032 /* PreviewLayoutModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E94BA2989824E00EF8032 /* PreviewLayoutModifier.swift */; };
+		3B2E94C22989944800EF8032 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E94C12989944800EF8032 /* CommonButton.swift */; };
+		3B2E94C629899FE800EF8032 /* LoginEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E94C529899FE800EF8032 /* LoginEmail.swift */; };
+		3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E94C7298AD19C00EF8032 /* CloseModifier.swift */; };
+		3B2E94CA298AD58A00EF8032 /* CreatePIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E94C9298AD58A00EF8032 /* CreatePIN.swift */; };
+		3B2E94CC298ADD7500EF8032 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2E94CB298ADD7500EF8032 /* ResetPassword.swift */; };
+		3B3AE671298428A000DF9435 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AE670298428A000DF9435 /* RegisterViewModel.swift */; };
+		3B3AE67529855D6000DF9435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */; };
+		3B3AE6822988151100DF9435 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AE6812988151100DF9435 /* HomeVM.swift */; };
+		3B3AE68A29881CBF00DF9435 /* SharedMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AE68929881CBF00DF9435 /* SharedMethods.swift */; };
+		3B3E0E6529D9D2F4005ECBF9 /* MockAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E0E6429D9D2F4005ECBF9 /* MockAccount.swift */; };
+		3B3E0E8729D9E6A7005ECBF9 /* SharedMethodsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E0E8629D9E6A7005ECBF9 /* SharedMethodsTests.swift */; };
+		3B3E0E8A29D9EF38005ECBF9 /* AudioRecordingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E0E8929D9EF38005ECBF9 /* AudioRecordingManagerTests.swift */; };
+		3B3E0E8C29D9F092005ECBF9 /* MockAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E0E8B29D9F092005ECBF9 /* MockAudio.swift */; };
+		3B3E0E8E29DA178D005ECBF9 /* MockStorageReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3E0E8D29DA178D005ECBF9 /* MockStorageReference.swift */; };
+		3B483DB42992BB9E009DE38C /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB32992BB9E009DE38C /* ImageExtension.swift */; };
+		3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB52992BE4D009DE38C /* ImagePicker.swift */; };
+		3B483DBA2992D076009DE38C /* MessageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DB92992D076009DE38C /* MessageHelper.swift */; };
+		3B483DBC2992D24E009DE38C /* Combine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B483DBB2992D24E009DE38C /* Combine.framework */; };
+		3B483DBE2993D5B7009DE38C /* AlertCountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DBD2993D5B7009DE38C /* AlertCountDown.swift */; };
+		3B483DC02993D993009DE38C /* EnterPIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DBF2993D993009DE38C /* EnterPIN.swift */; };
+		3B483DC22993DA10009DE38C /* PINTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC12993DA10009DE38C /* PINTextField.swift */; };
+		3B483DC42993E432009DE38C /* PINModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC32993E432009DE38C /* PINModifier.swift */; };
+		3B483DC829951598009DE38C /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC729951598009DE38C /* MapVM.swift */; };
+		3B483DCA29951E51009DE38C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DC929951E51009DE38C /* MapView.swift */; };
+		3B483DCC29952625009DE38C /* CustomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B483DCB29952625009DE38C /* CustomPin.swift */; };
+		3B4CBC5829B6692D008D70F6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3B4CBC5729B6692D008D70F6 /* FirebaseStorage */; };
+		3B512CF129BAAAF900F7F137 /* PinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B512CF029BAAAF900F7F137 /* PinDetails.swift */; };
+		3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A7CCF297CD29D007B5F2F /* Home.swift */; };
+		3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C229A6770500935AF3 /* TabButton.swift */; };
+		3B94D1C529A91EF100935AF3 /* AudioBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C429A91EF100935AF3 /* AudioBtn.swift */; };
+		3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */; };
+		3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99F85A297A0EE50011B8E9 /* LRPageButton.swift */; };
+		3B99F85D297A178D0011B8E9 /* LRPageBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */; };
+		3B99F85F297B5BCF0011B8E9 /* FirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B99F85E297B5BCF0011B8E9 /* FirstPage.swift */; };
+		3B99F863297B86AD0011B8E9 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 3B99F862297B86AD0011B8E9 /* AlertToast */; };
+		3BAC045A29B8D51E00F47CA6 /* MissingReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045929B8D51E00F47CA6 /* MissingReportView.swift */; };
+		3BAC045C29BA01C100F47CA6 /* UnsafeReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */; };
+		3BAC046029BA086500F47CA6 /* chevronRightBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */; };
+		3BAC046729BA1AD800F47CA6 /* AudioManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAC046629BA1AD800F47CA6 /* AudioManage.swift */; };
+		3BC2663729B6BA6B00726035 /* CheckInTimeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */; };
+		3BC6E7C62974EB36008DA312 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC6E7C52974EB36008DA312 /* FirebaseAnalytics */; };
+		3BC6E7C82974EB36008DA312 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC6E7C72974EB36008DA312 /* FirebaseCrashlytics */; };
+		3BC6E7EE297760E2008DA312 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3BC6E7ED297760E2008DA312 /* FirebaseAuth */; };
+		3BC6E7FC29778287008DA312 /* LoginDraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E7FB29778287008DA312 /* LoginDraft.swift */; };
+		3BC6E8022977974B008DA312 /* LoginPhone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8012977974B008DA312 /* LoginPhone.swift */; };
+		3BC6E804297797C8008DA312 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E803297797C8008DA312 /* Register.swift */; };
+		3BC6E8062977AC47008DA312 /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8052977AC47008DA312 /* CommonTextField.swift */; };
+		3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */; };
+		3BD74DBF29CF4603005E4DE1 /* AudioRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */; };
+		3BD74DC129CF4B02005E4DE1 /* CheckInBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD74DC029CF4B02005E4DE1 /* CheckInBtn.swift */; };
+		3BDB1DAC2997D4100083204D /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DAB2997D4100083204D /* MainButton.swift */; };
+		3BDB1DB0299806180083204D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DAF299806180083204D /* TabBar.swift */; };
+		3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB129993F910083204D /* NavBarModifier.swift */; };
+		3BDB1DB42999A2230083204D /* LoginEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB32999A2230083204D /* LoginEmailViewModel.swift */; };
+		3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB72999A75D0083204D /* ResetPasswordService.swift */; };
+		3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDB1DB92999A84E0083204D /* ResetPasswordVM.swift */; };
+		3BFF15EB298C189800930D9D /* RegisterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15EA298C189800930D9D /* RegisterDetails.swift */; };
+		3BFF15ED298C1C2500930D9D /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15EC298C1C2500930D9D /* RegisterService.swift */; };
+		3BFF15EF298C1CF100930D9D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15EE298C1CF100930D9D /* FirebaseDatabase */; };
+		3BFF15F1298C1D1A00930D9D /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15F0298C1D1A00930D9D /* FirebaseDatabaseSwift */; };
+		3BFF15F5298C1D3200930D9D /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */; };
+		3BFF15F9298D775400930D9D /* SessionUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15F8298D775400930D9D /* SessionUserDetails.swift */; };
+		3BFF15FB298D785200930D9D /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15FA298D785200930D9D /* SessionService.swift */; };
+		3BFF15FE298E889D00930D9D /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF15FD298E889D00930D9D /* UserAccount.swift */; };
+		3BFF1601298E994800930D9D /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1600298E994800930D9D /* LoginCredentials.swift */; };
+		3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1602298ED2FD00930D9D /* LoginService.swift */; };
+		3BFF1605298FE83E00930D9D /* ContactVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1604298FE83E00930D9D /* ContactVM.swift */; };
+		3BFF1608298FE92A00930D9D /* EmergencyContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1607298FE92A00930D9D /* EmergencyContact.swift */; };
+		3BFF160E298FEC8500930D9D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */; };
+		3BFF1610298FED8300930D9D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF160F298FED8300930D9D /* User.swift */; };
+		3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1613298FEDE600930D9D /* Contacts.swift */; };
+		3BFF1618298FEFCD00930D9D /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1617298FEFCD00930D9D /* ProfileImage.swift */; };
+		3BFF161A298FF0C400930D9D /* ContactItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF1619298FF0C400930D9D /* ContactItemCell.swift */; };
+		3BFF161C298FFD7500930D9D /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161B298FFD7500930D9D /* ContactList.swift */; };
+		3BFF161F298FFFAE00930D9D /* ContactDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF161E298FFFAE00930D9D /* ContactDetails.swift */; };
+		3BFF162329900B8A00930D9D /* TextFieldWithHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */; };
+		3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162429900BB200930D9D /* DefaultTextLabel.swift */; };
+		3BFF162C2990165900930D9D /* ContactPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162B2990165900930D9D /* ContactPickerView.swift */; };
+		3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF162F299052DA00930D9D /* ChangePIN.swift */; };
+		3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16352990566C00930D9D /* ChangePassword.swift */; };
+		3BFF16382990572300930D9D /* AccountVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF16372990572300930D9D /* AccountVM.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3B29F91F29D898FA003B4486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B0849E1293D364E00FC96B9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B0849E8293D364E00FC96B9;
+			remoteInfo = Guardian;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3B024DC529D4FCAC00F66347 /* AudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCell.swift; sourceTree = "<group>"; };
+		3B024DC829D5071300F66347 /* ReportItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItem.swift; sourceTree = "<group>"; };
+		3B024DCA29D50C1C00F66347 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3B024DCC29D5964C00F66347 /* CustomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
+		3B024DCE29D5974E00F66347 /* MissingPinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingPinDetails.swift; sourceTree = "<group>"; };
+		3B024DD029D59CD700F66347 /* SelectLocationOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationOnMap.swift; sourceTree = "<group>"; };
+		3B0849E9293D364E00FC96B9 /* Guardian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guardian.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B0849EC293D364E00FC96B9 /* GuardianApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuardianApp.swift; sourceTree = "<group>"; };
+		3B0849F0293D364F00FC96B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3B0849F3293D364F00FC96B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3B0C2AF829DA2AB40061551A /* MockActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivityIndicator.swift; sourceTree = "<group>"; };
+		3B0C2AFA29DA45CB0061551A /* MockMessageComposeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessageComposeDelegate.swift; sourceTree = "<group>"; };
+		3B0C2AFC29DA46360061551A /* MessageHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHelperTests.swift; sourceTree = "<group>"; };
+		3B0C2AFE29DA46D90061551A /* MockMessageComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessageComposeViewController.swift; sourceTree = "<group>"; };
+		3B0C2B0229DA4B070061551A /* ImageExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensionTests.swift; sourceTree = "<group>"; };
+		3B29F91B29D898FA003B4486 /* GuardianUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuardianUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B29F92429D8B5AF003B4486 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		3B29F92629D8BDB8003B4486 /* RegisterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTests.swift; sourceTree = "<group>"; };
+		3B29F93629D8CA87003B4486 /* SessionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionServiceTests.swift; sourceTree = "<group>"; };
+		3B29F93829D8D56A003B4486 /* ResetPasswordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordTests.swift; sourceTree = "<group>"; };
+		3B29F93A29D8D92A003B4486 /* MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTests.swift; sourceTree = "<group>"; };
+		3B29F93C29D8D93E003B4486 /* ContactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTests.swift; sourceTree = "<group>"; };
+		3B29F93E29D8D94F003B4486 /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
+		3B29F94029D8D961003B4486 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		3B29F94329D8F134003B4486 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
+		3B29F94529D8F2FB003B4486 /* MockResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResetPasswordService.swift; sourceTree = "<group>"; };
+		3B29F94729D8F3C7003B4486 /* MockLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogin.swift; sourceTree = "<group>"; };
+		3B29F94929D8F47B003B4486 /* MockRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRegister.swift; sourceTree = "<group>"; };
+		3B29F94B29D8F5B0003B4486 /* MockAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthHandler.swift; sourceTree = "<group>"; };
+		3B29F94D29D8F668003B4486 /* MockDatabaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabaseReference.swift; sourceTree = "<group>"; };
+		3B2E94BA2989824E00EF8032 /* PreviewLayoutModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewLayoutModifier.swift; sourceTree = "<group>"; };
+		3B2E94C12989944800EF8032 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
+		3B2E94C529899FE800EF8032 /* LoginEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmail.swift; sourceTree = "<group>"; };
+		3B2E94C7298AD19C00EF8032 /* CloseModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseModifier.swift; sourceTree = "<group>"; };
+		3B2E94C9298AD58A00EF8032 /* CreatePIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePIN.swift; sourceTree = "<group>"; };
+		3B2E94CB298ADD7500EF8032 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		3B34E5B229D85BA900FB2DA7 /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/Combine.framework; sourceTree = DEVELOPER_DIR; };
+		3B3AE670298428A000DF9435 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B3AE6812988151100DF9435 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		3B3AE68929881CBF00DF9435 /* SharedMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMethods.swift; sourceTree = "<group>"; };
+		3B3E0E6429D9D2F4005ECBF9 /* MockAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccount.swift; sourceTree = "<group>"; };
+		3B3E0E8629D9E6A7005ECBF9 /* SharedMethodsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMethodsTests.swift; sourceTree = "<group>"; };
+		3B3E0E8929D9EF38005ECBF9 /* AudioRecordingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingManagerTests.swift; sourceTree = "<group>"; };
+		3B3E0E8B29D9F092005ECBF9 /* MockAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAudio.swift; sourceTree = "<group>"; };
+		3B3E0E8D29DA178D005ECBF9 /* MockStorageReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorageReference.swift; sourceTree = "<group>"; };
+		3B483DB32992BB9E009DE38C /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		3B483DB52992BE4D009DE38C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3B483DB92992D076009DE38C /* MessageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageHelper.swift; sourceTree = "<group>"; };
+		3B483DBB2992D24E009DE38C /* Combine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Combine.framework; path = System/Library/Frameworks/Combine.framework; sourceTree = SDKROOT; };
+		3B483DBD2993D5B7009DE38C /* AlertCountDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCountDown.swift; sourceTree = "<group>"; };
+		3B483DBF2993D993009DE38C /* EnterPIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPIN.swift; sourceTree = "<group>"; };
+		3B483DC12993DA10009DE38C /* PINTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINTextField.swift; sourceTree = "<group>"; };
+		3B483DC32993E432009DE38C /* PINModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINModifier.swift; sourceTree = "<group>"; };
+		3B483DC729951598009DE38C /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
+		3B483DC929951E51009DE38C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3B483DCB29952625009DE38C /* CustomPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPin.swift; sourceTree = "<group>"; };
+		3B512CF029BAAAF900F7F137 /* PinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetails.swift; sourceTree = "<group>"; };
+		3B7A7CCF297CD29D007B5F2F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		3B94D1C229A6770500935AF3 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		3B94D1C429A91EF100935AF3 /* AudioBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioBtn.swift; sourceTree = "<group>"; };
+		3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageModifier.swift; sourceTree = "<group>"; };
+		3B99F8592979FFF50011B8E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3B99F85A297A0EE50011B8E9 /* LRPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPageButton.swift; sourceTree = "<group>"; };
+		3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRPageBackground.swift; sourceTree = "<group>"; };
+		3B99F85E297B5BCF0011B8E9 /* FirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPage.swift; sourceTree = "<group>"; };
+		3BAC045929B8D51E00F47CA6 /* MissingReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingReportView.swift; sourceTree = "<group>"; };
+		3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeReportView.swift; sourceTree = "<group>"; };
+		3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chevronRightBtn.swift; sourceTree = "<group>"; };
+		3BAC046629BA1AD800F47CA6 /* AudioManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManage.swift; sourceTree = "<group>"; };
+		3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInTimeSet.swift; sourceTree = "<group>"; };
+		3BC6E7F929778208008DA312 /* Guardian.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Guardian.entitlements; sourceTree = "<group>"; };
+		3BC6E7FB29778287008DA312 /* LoginDraft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDraft.swift; sourceTree = "<group>"; };
+		3BC6E8012977974B008DA312 /* LoginPhone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhone.swift; sourceTree = "<group>"; };
+		3BC6E803297797C8008DA312 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		3BC6E8052977AC47008DA312 /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
+		3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneViewModel.swift; sourceTree = "<group>"; };
+		3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecordingManager.swift; sourceTree = "<group>"; };
+		3BD74DC029CF4B02005E4DE1 /* CheckInBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInBtn.swift; sourceTree = "<group>"; };
+		3BDB1DAB2997D4100083204D /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		3BDB1DAF299806180083204D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3BDB1DB129993F910083204D /* NavBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarModifier.swift; sourceTree = "<group>"; };
+		3BDB1DB32999A2230083204D /* LoginEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailViewModel.swift; sourceTree = "<group>"; };
+		3BDB1DB72999A75D0083204D /* ResetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordService.swift; sourceTree = "<group>"; };
+		3BDB1DB92999A84E0083204D /* ResetPasswordVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVM.swift; sourceTree = "<group>"; };
+		3BFF15EA298C189800930D9D /* RegisterDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetails.swift; sourceTree = "<group>"; };
+		3BFF15EC298C1C2500930D9D /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		3BFF15F8298D775400930D9D /* SessionUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUserDetails.swift; sourceTree = "<group>"; };
+		3BFF15FA298D785200930D9D /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
+		3BFF15FD298E889D00930D9D /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		3BFF1600298E994800930D9D /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		3BFF1602298ED2FD00930D9D /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		3BFF1604298FE83E00930D9D /* ContactVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVM.swift; sourceTree = "<group>"; };
+		3BFF1607298FE92A00930D9D /* EmergencyContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyContact.swift; sourceTree = "<group>"; };
+		3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		3BFF160F298FED8300930D9D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3BFF1613298FEDE600930D9D /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		3BFF1617298FEFCD00930D9D /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
+		3BFF1619298FF0C400930D9D /* ContactItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactItemCell.swift; sourceTree = "<group>"; };
+		3BFF161B298FFD7500930D9D /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		3BFF161E298FFFAE00930D9D /* ContactDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetails.swift; sourceTree = "<group>"; };
+		3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithHeading.swift; sourceTree = "<group>"; };
+		3BFF162429900BB200930D9D /* DefaultTextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextLabel.swift; sourceTree = "<group>"; };
+		3BFF162B2990165900930D9D /* ContactPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerView.swift; sourceTree = "<group>"; };
+		3BFF162F299052DA00930D9D /* ChangePIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePIN.swift; sourceTree = "<group>"; };
+		3BFF16352990566C00930D9D /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
+		3BFF16372990572300930D9D /* AccountVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVM.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B0849E6293D364E00FC96B9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BFF15F5298C1D3200930D9D /* FirebaseAppCheck in Frameworks */,
+				3BFF15F1298C1D1A00930D9D /* FirebaseDatabaseSwift in Frameworks */,
+				3B4CBC5829B6692D008D70F6 /* FirebaseStorage in Frameworks */,
+				3BFF15EF298C1CF100930D9D /* FirebaseDatabase in Frameworks */,
+				3BC6E7C62974EB36008DA312 /* FirebaseAnalytics in Frameworks */,
+				3B99F863297B86AD0011B8E9 /* AlertToast in Frameworks */,
+				3BC6E7EE297760E2008DA312 /* FirebaseAuth in Frameworks */,
+				3B483DBC2992D24E009DE38C /* Combine.framework in Frameworks */,
+				3BC6E7C82974EB36008DA312 /* FirebaseCrashlytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B29F91829D898FA003B4486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B29F93429D8C3CA003B4486 /* Combine.framework in Frameworks */,
+				3B29F92F29D8C15A003B4486 /* FirebaseDatabaseSwift in Frameworks */,
+				3B29F92D29D8C155003B4486 /* FirebaseDatabase in Frameworks */,
+				3B29F92B29D8BFCA003B4486 /* FirebaseAppCheck in Frameworks */,
+				3B29F92929D8BFAE003B4486 /* FirebaseAuth in Frameworks */,
+				3B2D46F329DAF531007817A0 /* FirebaseCrashlytics in Frameworks */,
+				3B29F93129D8C338003B4486 /* FirebaseAuthCombine-Community in Frameworks */,
+				3B29F93329D8C34D003B4486 /* FirebaseStorage in Frameworks */,
+				3B2D46F529DAF539007817A0 /* FirebaseAnalytics in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B024DC729D5070600F66347 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B024DC829D5071300F66347 /* ReportItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3B0849E0293D364E00FC96B9 = {
+			isa = PBXGroup;
+			children = (
+				3B0849EB293D364E00FC96B9 /* Guardian */,
+				3B29F91C29D898FA003B4486 /* GuardianUnitTests */,
+				3B0849EA293D364E00FC96B9 /* Products */,
+				3BC6E7EC297760E2008DA312 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3B0849EA293D364E00FC96B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B0849E9293D364E00FC96B9 /* Guardian.app */,
+				3B29F91B29D898FA003B4486 /* GuardianUnitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B0849EB293D364E00FC96B9 /* Guardian */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15F6298D773C00930D9D /* Session */,
+				3BDB1DA92997D23F0083204D /* Map */,
+				3B3AE67C2988129F00DF9435 /* Account */,
+				3B3AE67B2988129300DF9435 /* Contacts */,
+				3B3AE67A2988128400DF9435 /* Home */,
+				3B3AE6792988126F00DF9435 /* Onboarding */,
+				3B3AE6782988122E00DF9435 /* Shared */,
+				3B29F94229D8F0D0003B4486 /* Mocks */,
+				3B99F8592979FFF50011B8E9 /* Info.plist */,
+				3B0849EC293D364E00FC96B9 /* GuardianApp.swift */,
+				3BC6E7F929778208008DA312 /* Guardian.entitlements */,
+				3B3AE67429855D6000DF9435 /* GoogleService-Info.plist */,
+				3B0849F0293D364F00FC96B9 /* Assets.xcassets */,
+				3B0849F2293D364F00FC96B9 /* Preview Content */,
+			);
+			path = Guardian;
+			sourceTree = "<group>";
+		};
+		3B0849F2293D364F00FC96B9 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3B0849F3293D364F00FC96B9 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3B0C2B0029DA4A3F0061551A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3B29F94529D8F2FB003B4486 /* MockResetPasswordService.swift */,
+				3B29F94729D8F3C7003B4486 /* MockLogin.swift */,
+				3B29F94929D8F47B003B4486 /* MockRegister.swift */,
+				3B29F94B29D8F5B0003B4486 /* MockAuthHandler.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		3B0C2B0129DA4A5A0061551A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3B3E0E8B29D9F092005ECBF9 /* MockAudio.swift */,
+				3B3E0E8D29DA178D005ECBF9 /* MockStorageReference.swift */,
+				3B0C2AF829DA2AB40061551A /* MockActivityIndicator.swift */,
+				3B0C2AFA29DA45CB0061551A /* MockMessageComposeDelegate.swift */,
+				3B0C2AFE29DA46D90061551A /* MockMessageComposeViewController.swift */,
+				3B29F94D29D8F668003B4486 /* MockDatabaseReference.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3B29F91C29D898FA003B4486 /* GuardianUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				3B3E0E8829D9EF1D005ECBF9 /* Shared_OtherHelper */,
+				3B29F93529D8CA24003B4486 /* Onboarding */,
+				3B29F93629D8CA87003B4486 /* SessionServiceTests.swift */,
+				3B29F93A29D8D92A003B4486 /* MapTests.swift */,
+				3B29F94029D8D961003B4486 /* AccountTests.swift */,
+				3B29F93C29D8D93E003B4486 /* ContactTests.swift */,
+				3B29F93E29D8D94F003B4486 /* HomeTests.swift */,
+			);
+			path = GuardianUnitTests;
+			sourceTree = "<group>";
+		};
+		3B29F93529D8CA24003B4486 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3B29F92429D8B5AF003B4486 /* LoginTests.swift */,
+				3B29F92629D8BDB8003B4486 /* RegisterTests.swift */,
+				3B29F93829D8D56A003B4486 /* ResetPasswordTests.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		3B29F94229D8F0D0003B4486 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3B0C2B0129DA4A5A0061551A /* Shared */,
+				3B0C2B0029DA4A3F0061551A /* Onboarding */,
+				3B29F94329D8F134003B4486 /* MockLocationManager.swift */,
+				3B3E0E6429D9D2F4005ECBF9 /* MockAccount.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3B29F94F29D8F6C2003B4486 /* OtherHelper */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AE68929881CBF00DF9435 /* SharedMethods.swift */,
+				3B483DB32992BB9E009DE38C /* ImageExtension.swift */,
+				3B483DB92992D076009DE38C /* MessageHelper.swift */,
+				3BD74DBE29CF4603005E4DE1 /* AudioRecordingManager.swift */,
+				3B024DCA29D50C1C00F66347 /* Constants.swift */,
+			);
+			path = OtherHelper;
+			sourceTree = "<group>";
+		};
+		3B2E94B92989822A00EF8032 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				3B2E94BA2989824E00EF8032 /* PreviewLayoutModifier.swift */,
+				3B2E94C7298AD19C00EF8032 /* CloseModifier.swift */,
+				3B483DC32993E432009DE38C /* PINModifier.swift */,
+				3BDB1DB129993F910083204D /* NavBarModifier.swift */,
+				3B94D1C629ABCA6500935AF3 /* ProfileImageModifier.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		3B2E94BC2989935D00EF8032 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC045F29BA086500F47CA6 /* chevronRightBtn.swift */,
+				3B2E94C12989944800EF8032 /* CommonButton.swift */,
+				3BDB1DAB2997D4100083204D /* MainButton.swift */,
+				3B94D1C229A6770500935AF3 /* TabButton.swift */,
+				3B94D1C429A91EF100935AF3 /* AudioBtn.swift */,
+				3BD74DC029CF4B02005E4DE1 /* CheckInBtn.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3B2E94CD298ADDA000EF8032 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15FF298E992D00930D9D /* Model */,
+				3B2E94D0298ADDC200EF8032 /* ViewModel */,
+				3B2E94CF298ADDBB00EF8032 /* View */,
+				3BFF1602298ED2FD00930D9D /* LoginService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3B2E94CE298ADDAB00EF8032 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15E9298C185700930D9D /* Model */,
+				3B2E94D2298ADE0400EF8032 /* ViewModel */,
+				3B2E94D1298ADDFE00EF8032 /* View */,
+				3BFF15EC298C1C2500930D9D /* RegisterService.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		3B2E94CF298ADDBB00EF8032 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E7FB29778287008DA312 /* LoginDraft.swift */,
+				3B2E94C529899FE800EF8032 /* LoginEmail.swift */,
+				3BC6E8012977974B008DA312 /* LoginPhone.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B2E94D0298ADDC200EF8032 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E8072977B1BB008DA312 /* LoginPhoneViewModel.swift */,
+				3BDB1DB32999A2230083204D /* LoginEmailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3B2E94D1298ADDFE00EF8032 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E803297797C8008DA312 /* Register.swift */,
+				3B2E94C9298AD58A00EF8032 /* CreatePIN.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B2E94D2298ADE0400EF8032 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AE670298428A000DF9435 /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3B3AE6782988122E00DF9435 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3B29F94F29D8F6C2003B4486 /* OtherHelper */,
+				3B2E94B92989822A00EF8032 /* ViewModifier */,
+				3B3AE6802988140500DF9435 /* ViewComponent */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3B3AE6792988126F00DF9435 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				3BAC046129BA087800F47CA6 /* Shared */,
+				3B2E94CE298ADDAB00EF8032 /* Register */,
+				3B2E94CD298ADDA000EF8032 /* Login */,
+				3BDB1DB52999A7120083204D /* ResetPassword */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		3B3AE67A2988128400DF9435 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3B3AE67E2988137200DF9435 /* View */,
+				3B3AE6812988151100DF9435 /* HomeVM.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3B3AE67B2988129300DF9435 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF162A2990164600930D9D /* ViewModel */,
+				3BFF1612298FEDC700930D9D /* View */,
+				3BFF1606298FE91F00930D9D /* Model */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		3B3AE67C2988129F00DF9435 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF1611298FED8A00930D9D /* Model */,
+				3BFF15FC298E888D00930D9D /* View */,
+				3BFF16372990572300930D9D /* AccountVM.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		3B3AE67E2988137200DF9435 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B7A7CCF297CD29D007B5F2F /* Home.swift */,
+				3B483DBD2993D5B7009DE38C /* AlertCountDown.swift */,
+				3B483DBF2993D993009DE38C /* EnterPIN.swift */,
+				3BC2663629B6BA6B00726035 /* CheckInTimeSet.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B3AE6802988140500DF9435 /* ViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF160D298FEC8500930D9D /* ActivityIndicator.swift */,
+				3B483DB52992BE4D009DE38C /* ImagePicker.swift */,
+				3BDB1DAF299806180083204D /* TabBar.swift */,
+				3BDB1DAD2997EEC40083204D /* TextFields */,
+				3B2E94BC2989935D00EF8032 /* Buttons */,
+			);
+			path = ViewComponent;
+			sourceTree = "<group>";
+		};
+		3B3E0E8829D9EF1D005ECBF9 /* Shared_OtherHelper */ = {
+			isa = PBXGroup;
+			children = (
+				3B3E0E8629D9E6A7005ECBF9 /* SharedMethodsTests.swift */,
+				3B3E0E8929D9EF38005ECBF9 /* AudioRecordingManagerTests.swift */,
+				3B0C2AFC29DA46360061551A /* MessageHelperTests.swift */,
+				3B0C2B0229DA4B070061551A /* ImageExtensionTests.swift */,
+			);
+			path = Shared_OtherHelper;
+			sourceTree = "<group>";
+		};
+		3BAC046129BA087800F47CA6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3B99F85E297B5BCF0011B8E9 /* FirstPage.swift */,
+				3B99F85A297A0EE50011B8E9 /* LRPageButton.swift */,
+				3B99F85C297A178D0011B8E9 /* LRPageBackground.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3BC6E7EC297760E2008DA312 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B34E5B229D85BA900FB2DA7 /* Combine.framework */,
+				3B483DBB2992D24E009DE38C /* Combine.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3BDB1DA92997D23F0083204D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3B024DC729D5070600F66347 /* Model */,
+				3B483DC729951598009DE38C /* MapVM.swift */,
+				3BDB1DAA2997D24E0083204D /* Views */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		3BDB1DAA2997D24E0083204D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B483DC929951E51009DE38C /* MapView.swift */,
+				3BAC045929B8D51E00F47CA6 /* MissingReportView.swift */,
+				3BAC045B29BA01C100F47CA6 /* UnsafeReportView.swift */,
+				3B483DCB29952625009DE38C /* CustomPin.swift */,
+				3B512CF029BAAAF900F7F137 /* PinDetails.swift */,
+				3B024DCC29D5964C00F66347 /* CustomAnnotation.swift */,
+				3B024DCE29D5974E00F66347 /* MissingPinDetails.swift */,
+				3B024DD029D59CD700F66347 /* SelectLocationOnMap.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3BDB1DAD2997EEC40083204D /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				3BC6E8052977AC47008DA312 /* CommonTextField.swift */,
+				3BFF162429900BB200930D9D /* DefaultTextLabel.swift */,
+				3BFF162229900B8A00930D9D /* TextFieldWithHeading.swift */,
+				3B483DC12993DA10009DE38C /* PINTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		3BDB1DB52999A7120083204D /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				3BDB1DB62999A7270083204D /* View */,
+				3BDB1DB72999A75D0083204D /* ResetPasswordService.swift */,
+				3BDB1DB92999A84E0083204D /* ResetPasswordVM.swift */,
+			);
+			path = ResetPassword;
+			sourceTree = "<group>";
+		};
+		3BDB1DB62999A7270083204D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B2E94CB298ADD7500EF8032 /* ResetPassword.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3BFF15E9298C185700930D9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15EA298C189800930D9D /* RegisterDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BFF15F6298D773C00930D9D /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15F7298D774400930D9D /* Model */,
+				3BFF15FA298D785200930D9D /* SessionService.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		3BFF15F7298D774400930D9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15F8298D775400930D9D /* SessionUserDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BFF15FC298E888D00930D9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF15FD298E889D00930D9D /* UserAccount.swift */,
+				3BFF1617298FEFCD00930D9D /* ProfileImage.swift */,
+				3BFF162F299052DA00930D9D /* ChangePIN.swift */,
+				3BFF16352990566C00930D9D /* ChangePassword.swift */,
+				3BAC046629BA1AD800F47CA6 /* AudioManage.swift */,
+				3B024DC529D4FCAC00F66347 /* AudioCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3BFF15FF298E992D00930D9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF1600298E994800930D9D /* LoginCredentials.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BFF1606298FE91F00930D9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF1607298FE92A00930D9D /* EmergencyContact.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BFF1611298FED8A00930D9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF160F298FED8300930D9D /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BFF1612298FEDC700930D9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF1613298FEDE600930D9D /* Contacts.swift */,
+				3BFF161B298FFD7500930D9D /* ContactList.swift */,
+				3BFF1619298FF0C400930D9D /* ContactItemCell.swift */,
+				3BFF161E298FFFAE00930D9D /* ContactDetails.swift */,
+				3BFF162B2990165900930D9D /* ContactPickerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3BFF162A2990164600930D9D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3BFF1604298FE83E00930D9D /* ContactVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B0849E8293D364E00FC96B9 /* Guardian */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B0849F7293D364F00FC96B9 /* Build configuration list for PBXNativeTarget "Guardian" */;
+			buildPhases = (
+				3B0849E5293D364E00FC96B9 /* Sources */,
+				3B0849E6293D364E00FC96B9 /* Frameworks */,
+				3B0849E7293D364E00FC96B9 /* Resources */,
+				3BC6E7C92974F5CD008DA312 /* Crashlytics Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Guardian;
+			packageProductDependencies = (
+				3BC6E7C52974EB36008DA312 /* FirebaseAnalytics */,
+				3BC6E7C72974EB36008DA312 /* FirebaseCrashlytics */,
+				3BC6E7ED297760E2008DA312 /* FirebaseAuth */,
+				3B99F862297B86AD0011B8E9 /* AlertToast */,
+				3BFF15EE298C1CF100930D9D /* FirebaseDatabase */,
+				3BFF15F0298C1D1A00930D9D /* FirebaseDatabaseSwift */,
+				3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */,
+				3B4CBC5729B6692D008D70F6 /* FirebaseStorage */,
+			);
+			productName = Guardian;
+			productReference = 3B0849E9293D364E00FC96B9 /* Guardian.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3B29F91A29D898FA003B4486 /* GuardianUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B29F92129D898FA003B4486 /* Build configuration list for PBXNativeTarget "GuardianUnitTests" */;
+			buildPhases = (
+				3B29F91729D898FA003B4486 /* Sources */,
+				3B29F91829D898FA003B4486 /* Frameworks */,
+				3B29F91929D898FA003B4486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3B29F92029D898FA003B4486 /* PBXTargetDependency */,
+			);
+			name = GuardianUnitTests;
+			packageProductDependencies = (
+				3B29F92829D8BFAE003B4486 /* FirebaseAuth */,
+				3B29F92A29D8BFCA003B4486 /* FirebaseAppCheck */,
+				3B29F92C29D8C155003B4486 /* FirebaseDatabase */,
+				3B29F92E29D8C15A003B4486 /* FirebaseDatabaseSwift */,
+				3B29F93029D8C338003B4486 /* FirebaseAuthCombine-Community */,
+				3B29F93229D8C34D003B4486 /* FirebaseStorage */,
+				3B2D46F229DAF531007817A0 /* FirebaseCrashlytics */,
+				3B2D46F429DAF539007817A0 /* FirebaseAnalytics */,
+			);
+			productName = GuardianUnitTests;
+			productReference = 3B29F91B29D898FA003B4486 /* GuardianUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B0849E1293D364E00FC96B9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1410;
+				TargetAttributes = {
+					3B0849E8293D364E00FC96B9 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					3B29F91A29D898FA003B4486 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 3B0849E8293D364E00FC96B9;
+					};
+				};
+			};
+			buildConfigurationList = 3B0849E4293D364E00FC96B9 /* Build configuration list for PBXProject "Guardian" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B0849E0293D364E00FC96B9;
+			packageReferences = (
+				3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3B99F861297B86AD0011B8E9 /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
+			productRefGroup = 3B0849EA293D364E00FC96B9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B0849E8293D364E00FC96B9 /* Guardian */,
+				3B29F91A29D898FA003B4486 /* GuardianUnitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B0849E7293D364E00FC96B9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B0849F4293D364F00FC96B9 /* Preview Assets.xcassets in Resources */,
+				3B0849F1293D364F00FC96B9 /* Assets.xcassets in Resources */,
+				3B3AE67529855D6000DF9435 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B29F91929D898FA003B4486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3BC6E7C92974F5CD008DA312 /* Crashlytics Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			name = "Crashlytics Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/newOutputFile",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B0849E5293D364E00FC96B9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B3AE6822988151100DF9435 /* HomeVM.swift in Sources */,
+				3BFF15ED298C1C2500930D9D /* RegisterService.swift in Sources */,
+				3B483DB62992BE4D009DE38C /* ImagePicker.swift in Sources */,
+				3BFF1618298FEFCD00930D9D /* ProfileImage.swift in Sources */,
+				3B29F94A29D8F47B003B4486 /* MockRegister.swift in Sources */,
+				3B94D1C329A6770500935AF3 /* TabButton.swift in Sources */,
+				3BDB1DBA2999A84E0083204D /* ResetPasswordVM.swift in Sources */,
+				3BFF16382990572300930D9D /* AccountVM.swift in Sources */,
+				3B512CF129BAAAF900F7F137 /* PinDetails.swift in Sources */,
+				3B483DCA29951E51009DE38C /* MapView.swift in Sources */,
+				3BFF1614298FEDE600930D9D /* Contacts.swift in Sources */,
+				3B483DCC29952625009DE38C /* CustomPin.swift in Sources */,
+				3BC6E804297797C8008DA312 /* Register.swift in Sources */,
+				3B024DCF29D5974E00F66347 /* MissingPinDetails.swift in Sources */,
+				3BAC045A29B8D51E00F47CA6 /* MissingReportView.swift in Sources */,
+				3B483DC02993D993009DE38C /* EnterPIN.swift in Sources */,
+				3BFF162329900B8A00930D9D /* TextFieldWithHeading.swift in Sources */,
+				3BFF15F9298D775400930D9D /* SessionUserDetails.swift in Sources */,
+				3B0C2AF929DA2AB40061551A /* MockActivityIndicator.swift in Sources */,
+				3BFF1601298E994800930D9D /* LoginCredentials.swift in Sources */,
+				3B3AE671298428A000DF9435 /* RegisterViewModel.swift in Sources */,
+				3B024DC629D4FCAC00F66347 /* AudioCell.swift in Sources */,
+				3BAC046729BA1AD800F47CA6 /* AudioManage.swift in Sources */,
+				3B29F94829D8F3C7003B4486 /* MockLogin.swift in Sources */,
+				3B483DBE2993D5B7009DE38C /* AlertCountDown.swift in Sources */,
+				3B2E94CA298AD58A00EF8032 /* CreatePIN.swift in Sources */,
+				3BDB1DAC2997D4100083204D /* MainButton.swift in Sources */,
+				3BFF162529900BB200930D9D /* DefaultTextLabel.swift in Sources */,
+				3BDB1DB229993F910083204D /* NavBarModifier.swift in Sources */,
+				3BFF1603298ED2FD00930D9D /* LoginService.swift in Sources */,
+				3B024DC929D5071300F66347 /* ReportItem.swift in Sources */,
+				3B94D1C529A91EF100935AF3 /* AudioBtn.swift in Sources */,
+				3BD74DC129CF4B02005E4DE1 /* CheckInBtn.swift in Sources */,
+				3B024DD129D59CD700F66347 /* SelectLocationOnMap.swift in Sources */,
+				3B483DC829951598009DE38C /* MapVM.swift in Sources */,
+				3BFF15FE298E889D00930D9D /* UserAccount.swift in Sources */,
+				3BDB1DB0299806180083204D /* TabBar.swift in Sources */,
+				3B2E94C8298AD19C00EF8032 /* CloseModifier.swift in Sources */,
+				3B0C2AFB29DA45CB0061551A /* MockMessageComposeDelegate.swift in Sources */,
+				3B29F94429D8F134003B4486 /* MockLocationManager.swift in Sources */,
+				3B99F85B297A0EE50011B8E9 /* LRPageButton.swift in Sources */,
+				3B29F94C29D8F5B0003B4486 /* MockAuthHandler.swift in Sources */,
+				3B024DCB29D50C1C00F66347 /* Constants.swift in Sources */,
+				3BFF161C298FFD7500930D9D /* ContactList.swift in Sources */,
+				3B2E94C22989944800EF8032 /* CommonButton.swift in Sources */,
+				3BDB1DB82999A75D0083204D /* ResetPasswordService.swift in Sources */,
+				3BFF160E298FEC8500930D9D /* ActivityIndicator.swift in Sources */,
+				3BFF161A298FF0C400930D9D /* ContactItemCell.swift in Sources */,
+				3B99F85D297A178D0011B8E9 /* LRPageBackground.swift in Sources */,
+				3BC6E7FC29778287008DA312 /* LoginDraft.swift in Sources */,
+				3BFF1608298FE92A00930D9D /* EmergencyContact.swift in Sources */,
+				3B2E94CC298ADD7500EF8032 /* ResetPassword.swift in Sources */,
+				3BFF15EB298C189800930D9D /* RegisterDetails.swift in Sources */,
+				3BFF1610298FED8300930D9D /* User.swift in Sources */,
+				3B29F94E29D8F668003B4486 /* MockDatabaseReference.swift in Sources */,
+				3BC2663729B6BA6B00726035 /* CheckInTimeSet.swift in Sources */,
+				3BAC045C29BA01C100F47CA6 /* UnsafeReportView.swift in Sources */,
+				3BDB1DB42999A2230083204D /* LoginEmailViewModel.swift in Sources */,
+				3BFF15FB298D785200930D9D /* SessionService.swift in Sources */,
+				3B3E0E8E29DA178D005ECBF9 /* MockStorageReference.swift in Sources */,
+				3B483DBA2992D076009DE38C /* MessageHelper.swift in Sources */,
+				3B2E94BB2989824E00EF8032 /* PreviewLayoutModifier.swift in Sources */,
+				3BC6E8082977B1BB008DA312 /* LoginPhoneViewModel.swift in Sources */,
+				3BC6E8062977AC47008DA312 /* CommonTextField.swift in Sources */,
+				3BFF1630299052DA00930D9D /* ChangePIN.swift in Sources */,
+				3B94D1C729ABCA6500935AF3 /* ProfileImageModifier.swift in Sources */,
+				3B0849ED293D364E00FC96B9 /* GuardianApp.swift in Sources */,
+				3BFF1605298FE83E00930D9D /* ContactVM.swift in Sources */,
+				3B3E0E6529D9D2F4005ECBF9 /* MockAccount.swift in Sources */,
+				3B024DCD29D5964C00F66347 /* CustomAnnotation.swift in Sources */,
+				3BC6E8022977974B008DA312 /* LoginPhone.swift in Sources */,
+				3BFF16362990566C00930D9D /* ChangePassword.swift in Sources */,
+				3B7A7CD0297CD29D007B5F2F /* Home.swift in Sources */,
+				3BD74DBF29CF4603005E4DE1 /* AudioRecordingManager.swift in Sources */,
+				3BAC046029BA086500F47CA6 /* chevronRightBtn.swift in Sources */,
+				3B2E94C629899FE800EF8032 /* LoginEmail.swift in Sources */,
+				3B483DC42993E432009DE38C /* PINModifier.swift in Sources */,
+				3B99F85F297B5BCF0011B8E9 /* FirstPage.swift in Sources */,
+				3B3E0E8C29D9F092005ECBF9 /* MockAudio.swift in Sources */,
+				3B0C2AFF29DA46D90061551A /* MockMessageComposeViewController.swift in Sources */,
+				3B29F94629D8F2FB003B4486 /* MockResetPasswordService.swift in Sources */,
+				3B483DB42992BB9E009DE38C /* ImageExtension.swift in Sources */,
+				3BFF161F298FFFAE00930D9D /* ContactDetails.swift in Sources */,
+				3BFF162C2990165900930D9D /* ContactPickerView.swift in Sources */,
+				3B483DC22993DA10009DE38C /* PINTextField.swift in Sources */,
+				3B3AE68A29881CBF00DF9435 /* SharedMethods.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B29F91729D898FA003B4486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B29F93929D8D56A003B4486 /* ResetPasswordTests.swift in Sources */,
+				3B29F93B29D8D92A003B4486 /* MapTests.swift in Sources */,
+				3B29F93D29D8D93E003B4486 /* ContactTests.swift in Sources */,
+				3B29F92529D8B5AF003B4486 /* LoginTests.swift in Sources */,
+				3B29F93729D8CA87003B4486 /* SessionServiceTests.swift in Sources */,
+				3B3E0E8729D9E6A7005ECBF9 /* SharedMethodsTests.swift in Sources */,
+				3B3E0E8A29D9EF38005ECBF9 /* AudioRecordingManagerTests.swift in Sources */,
+				3B0C2B0329DA4B070061551A /* ImageExtensionTests.swift in Sources */,
+				3B29F94129D8D961003B4486 /* AccountTests.swift in Sources */,
+				3B0C2AFD29DA46360061551A /* MessageHelperTests.swift in Sources */,
+				3B29F93F29D8D94F003B4486 /* HomeTests.swift in Sources */,
+				3B29F92729D8BDB8003B4486 /* RegisterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3B29F92029D898FA003B4486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3B0849E8293D364E00FC96B9 /* Guardian */;
+			targetProxy = 3B29F91F29D898FA003B4486 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3B0849F5293D364F00FC96B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3B0849F6293D364F00FC96B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B0849F8293D364F00FC96B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Guardian/Guardian.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"Guardian/Preview Content\"";
+				DEVELOPMENT_TEAM = LQ3RZZ6CFV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Guardian/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app use your contacts to send emergency messages.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find you.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will needs to access your microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.siyuyao.Guardian;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3B0849F9293D364F00FC96B9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Guardian/Guardian.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Guardian/Preview Content\"";
+				DEVELOPMENT_TEAM = LQ3RZZ6CFV;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Guardian/Info.plist;
+				INFOPLIST_KEY_NSContactsUsageDescription = "This app use your contacts to send emergency messages.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app needs your location to find you.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app will needs to access your microphone";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.siyuyao.Guardian;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		3B29F92229D898FA003B4486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.siyuyao.GuardianUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Guardian.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Guardian";
+			};
+			name = Debug;
+		};
+		3B29F92329D898FA003B4486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.siyuyao.GuardianUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Guardian.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Guardian";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B0849E4293D364E00FC96B9 /* Build configuration list for PBXProject "Guardian" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B0849F5293D364F00FC96B9 /* Debug */,
+				3B0849F6293D364F00FC96B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B0849F7293D364F00FC96B9 /* Build configuration list for PBXNativeTarget "Guardian" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B0849F8293D364F00FC96B9 /* Debug */,
+				3B0849F9293D364F00FC96B9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B29F92129D898FA003B4486 /* Build configuration list for PBXNativeTarget "GuardianUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B29F92229D898FA003B4486 /* Debug */,
+				3B29F92329D898FA003B4486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3B99F861297B86AD0011B8E9 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3B29F92829D8BFAE003B4486 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		3B29F92A29D8BFCA003B4486 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		3B29F92C29D8C155003B4486 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		3B29F92E29D8C15A003B4486 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		3B29F93029D8C338003B4486 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		3B29F93229D8C34D003B4486 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		3B2D46F229DAF531007817A0 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		3B2D46F429DAF539007817A0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		3B4CBC5729B6692D008D70F6 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		3B99F862297B86AD0011B8E9 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3B99F861297B86AD0011B8E9 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		3BC6E7C52974EB36008DA312 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		3BC6E7C72974EB36008DA312 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		3BC6E7ED297760E2008DA312 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		3BFF15EE298C1CF100930D9D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		3BFF15F0298C1D1A00930D9D /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		3BFF15F4298C1D3200930D9D /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3BC6E7C42974EB36008DA312 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 3B0849E1293D364E00FC96B9 /* Project object */;
+}
