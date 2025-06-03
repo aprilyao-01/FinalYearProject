@@ -6,5 +6,5 @@ This project encompasses the culmination of my studies and reflects the skills a
 
 ## Features
 - **User Manual**:[`User manual.pdf`](/Implementation/20216468_UserManual.pdf)
-- **Video Demo**: [`Demo video.mp4`](/demo_video.mp4)
+- **Video Demo**: [`See demo video on YouTube`](https://youtu.be/ZXeIw_GmISA)
 - **Presentation**:[`Presentation.pdf`](/Presentation.pdf)
